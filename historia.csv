@@ -32,3 +32,27 @@ void profe(){
   printf("░░████░░████░░░░░░░░░░███░░░░░░░░░░░░░░░░░░░█████████░░░░░░░░░░░░░██░░░░░░░░░░░░░░░░░░░░░\n");
 }
 
+//Suponinendo que eligio escapar Aqui la historia.
+
+Ahora que has decidido escapar, que metodo quieres usar /*1*/<(Esperar un guradia para noquearlo y robarle las llaves)> ; /*2*/<(Subir por el ducto de ventilacion de la celda)>
+
+/*1*/ Al cabo de 1 mintuo un guardia aparece, le hablas para que se detenga y te acercas a las rejas de la celda, lo noqueas y robas exitosamente las llaves de tu celda, inteligentemente
+Lo metes a tu celda y se te ocurre la idea de cambiar tu ropa por la del guardia /*1.1*/<(Cambiar la ropa y tomar su arma) ; /*1.2*/<(Quedarse igual y tomar su arma)>
+  /*1.1*/ Al empezar a cambiarte de ropa, aparece otro guardia, te golpea y te deja encerrado <(Tu condena ha sido aumanetada a "variable" anios, -10[u.a] de vida)> Quieres intentarlo denuevo?
+  /*1.1.1*/<(Si, escapar)> ; /*1.1.2*/<(No, cumplir condena)>
+    /*1.1.1 Se repiten los metodos para escapar*/
+    /*1.1.2 Llamamos a la funcion cumplir_Condena()(o lo que sea xd)*/
+  /*1.2*/ (Agregamos a su inventario una Luma Policial, Sube de nivel, eleccion para que aumente estadisticas) Ahora avanzas rapidamente por los pasillos de la carcel pero llegas a una puerta cerrada
+  tendras que encontrar la llave. Uno de los prisioneros cercanos te menciona que la llave la tiene el "jefe de piso", el cual se distinge por una cinta en su hombro, al cual tendras que encontrar y robarle la llave. 
+  <(Ir a buscar al jefe directamente)> ; <(Recaudar informacion con los prisioneros)>
+    /*1.2.1*/ Caminas rapidamente por los pasillos, pero sin dejar de tener cuidado, ya que hay guardias, despues de unos minutos, finalmente das con el "jefe de piso", pero este va acomañado
+    de 2 guardias mas, ademas el jefe tiene una pistola de sedantes, para peor los guardias ya te han visto <(Huir)> ; <(Entrgarte)> ; <(Pelear)>
+      /*1.2.1.1*/ Empiezas a correr mientras los demas reclusos se rien, al final el un sedante te alcanza, pero por la adrenalina tarda unos momentos en hacer efecto, Los guardias te encuntran
+      a punto de dormirte y te golpean ferozmente <(-45[u,a] de vida)>( Si vida == 0, game_Over()) para despues llevarte a tu celda, <(Tu condena ha sido aumanetada a "variable" anios)>
+      Quieres intentarlo denuevo? <(Si, escapar)> ; <(No, cumplir condena)>
+        <(Si, escapar)>(Se repiten los metodos para escapar)
+        <(No, cumplir condena)>(Llamamos a la funcion cumplir_Condena()(o lo que sea xd))
+     /*1.2.1.2*/ 
+
+
+/*2*/
