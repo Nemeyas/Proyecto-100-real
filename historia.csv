@@ -66,10 +66,22 @@ Lo metes a tu celda y se te ocurre la idea de cambiar tu ropa por la del guardia
         <(Si, escapar)>(Se repiten los metodos para escapar)
         <(No, cumplir condena)>(Llamamos a la funcion cumplir_Condena()(o lo que sea xd))
 
-      /*1.2.1.3*/ (Sistema de combate, en este paso se ira verificadno si vida == 0 game_Over()) Al final ganas el combate, pero el jefe de piso te logra acertar un sedante, por lo que te duermes, pero al despertar sigues ahi, asi que prosigues tu camino.
-      Al final logras abrir la puerta y sigues con tu camino(Agregamos a su inventario pistola de sedantes, 2 niveles+, eleccion para que aumente estadisticas)
+      /*1.2.1.3*/ (Sistema de combate, en este paso se ira verificadno si vida == 0 game_Over()) Al final ganas el combate, pero el jefe de piso te logra acertar un sedante, por lo que te duermes,
+      pero al despertar sigues ahi, asi que prosigues tu camino.
+      Al final logras abrir la puerta y sigues con tu camino(Agregamos a su inventario pistola de sedantes, 2 niveles+, eleccion para que aumente estadisticas, vida restaurada,
+      Mochila dinamica +3 de inventario)
       los reclusos te piden que vayas a buscar las llaves de las celdas o un boton que las abra todas, pero es muy probable que encuentres muchos guardias.
       <(Escpar solo)> ; <(Ayudar a los prisioneros)>
+
+        */1.2.1.3.1*/ Decides seguir adelante en tu escape sin ayudar a los prisioneros. Consideras que es demasiado arriesgado enfrentarse a un gran número de guardias y priorizas
+        tu propia libertad.
+        Con la ayuda de tu pistola de sedantes avanzas muy rapido, pero se te esta acabando la municion, por lo que puedes continuar asi o enfrentar a otro "jefe de piso"
+        <(Continuar)> ; <(Buscar Jefe de piso)
+
+          */1.2.1.3.1.1*/ <(Continuar)> // NO TOQUEN ESTO
+
+          */1.2.1.3.1.1*/ <(Buscar Jefe de piso) // NO TOQUEN ESTO
+
 
     /*1.2.2*/ Empiezas a hablar con los prisioneros cercanos, los cuales no te dicen gran cosa, hasta que uno te menciona que el jefe de piso es pariente suyo, ademas te comenta que en unos minutos
     ira a verlo solo, por lo que puedes aprovechar esta oportunidad para enferentarte a el solo <(Ir a buscar al jefe directamente)> ; <(Esperar al jefe de piso)>
@@ -81,4 +93,4 @@ Lo metes a tu celda y se te ocurre la idea de cambiar tu ropa por la del guardia
       Y los reclusos te piden que vayas a buscar las llaves de las celdas o un boton que las abra todas, pero es muy probable que encuentres muchos guardias.
       <(Escpar solo)> ; <(Ayudar a los prisioneros)>
 
-/*2*/
+/*2*/ // NO TOQUEN ESTO
