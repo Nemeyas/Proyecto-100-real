@@ -1,22 +1,39 @@
-1.¡Hola!, soy Ignacio Araya, el dueno de la prision.\n ¿Asi que tu eres el que no pago la mensualidad?\n Bueno, ocurre mucho ultimamente, ¿cual es tu nombre?\n\n");
-      char nombre[31];
-      printf("<(Ingrese su nombre de jugador)>\n");
-      scanf(" %[^\n]", nombre);
-      registrar(nombre);  
-      printf("Bueno, %s, espero tengas una buena estadia en tus 3 anios de condena, tu celda es la numero 11, un guardia te llevara para alla\n", nombre);
-      printf("Ya llevas 2 dias en esta prision, lo unico que esta a tu vista son las celdas 13 y 5, ademas de sus extranos residentes, te sientes aburrido de estar ahi...\n");
-      printf("<(¿Quieres escapar de la prision? (1))>\n <(¿Quieres cumplir tu condena? (2))>\n");
-      unsigned short es;
-      scanf("%hu",&es);
-      while(es > 2 || es < 1){
-        printf("Debe ingresar un numero valido (1; 2)\n");
-        scanf("%hu", &es);
-      }
-      if(es == 2){
-        printf("Despues de 3 largos anios, se te ha dejado en libertad, el mismisimo dueno de la prision (Ignacio) te ha acompanado hasta la puerta,\n");
-        printf("en donde te desea suerte y que mires para ambos lados de la calle al cruzar. Al salir te das cuenta de que estabas ubicado en Petorca, con razon\n");
-        printf("Solo los dejaban banarse 1 vez a la semana. Empiezas a caminar en cualquier direccion en busca de algun buen samaritano que te lleve a Valparaiso,\n");
-        printf("Llegas al paradero mas cercano y comienzas a esperar...\n ... \n ... \n llega finalmente aparece una micro y te subes sin pensarlo. \n Sin embargo te das cuenta ya a mitad de camino de que no tienes dinero para el pasaje, maldices tu suerte comienzas a pensar \n");
-        printf("<(Que hago?!)> \n 1.matarme \n 2. Esperar a ver que pasa.\n");
-        return 1;
-      }
+printf("¡Hola!, soy Ignacio Araya, el dueno de la prision.\n ¿Asi que tu eres el que no pago la mensualidad?\n Bueno, ocurre mucho ultimamente, ¿cual es tu nombre?\n\n");
+char nombre[31];
+printf("<(Ingrese su nombre de jugador)>\n");
+scanf(" %[^\n]", nombre);
+registrar(nombre);  
+printf("Bueno, %s, espero tengas una buena estadia en tus 3 anios de condena, tu celda es la numero 11, un guardia te llevara para alla\n", nombre);
+printf("Ya llevas 2 dias en esta prision, lo unico que esta a tu vista son las celdas 13 y 5, ademas de sus extranos residentes, te sientes aburrido de estar ahi...\n");
+printf("<(¿Quieres escapar de la prision? (1))>\n <(¿Quieres cumplir tu condena? (2))>\n");
+unsigned short es;
+scanf("%hu",&es);
+while(es > 2 || es < 1){
+  printf("Debe ingresar un numero valido (1; 2)\n");
+  scanf("%hu", &es);
+}
+if(es == 2){
+  printf("Despues de 3 largos anios, se te ha dejado en libertad, el mismisimo dueno de la prision (Ignacio) te ha acompanado hasta la puerta,\n");
+  printf("en donde te desea suerte y que mires para ambos lados de la calle al cruzar. Al salir te das cuenta de que estabas ubicado en Petorca, con razon\n");
+  printf("Solo los dejaban banarse 1 vez a la semana. Empiezas a caminar en cualquier direccion en busca de algun buen samaritano que te lleve a Valparaiso.\n");
+  printf("Llegas al paradero mas cercano y comienzas a esperar...\n ... \n ... \n finalmente aparece una micro y te subes sin pensarlo. \n Sin embargo te das cuenta ya a mitad de camino");
+  printf("de que no tienes dinero para el pasaje, maldices tu suerte y comienzas a pensar \n");
+  printf("<(Que hago?!)> \n 1.matarme \n 2. Esperar a ver que pasa.\n");
+
+  if(1){
+    printf("La vida para ti ya no tiene sentido, lo has perdido todo, la unica salida que tiene es la muerte, entonces te paras de tu asiento y te vas a la puerta trasera de la micro,");
+    printf("En donde accionas la valvula de emergencia para que se abea la puerta y te lanzas sin pensarlo, al caer mueres al instante, ningun recuerdo paso por tu mente antes de morir,");
+    printf("Ni una sola palabra, ninguna parte de tu vida... nada, solo el vacio.");
+    game_Over();
+    Creditos();
+    return 1;
+  }
+  if(2){
+    printf("Decides esperar y el chofer nunca te reclamo por que no lo pagaste, asi que una vez en tu destino, te bajas y comienzas a caminar por los reconditos cerros de Valparaiso");
+    printf("Despues de soportar el olor a orina por un buen rato, llegas a tu casa, donde tus padres te reciben y mencinandote que durante tu encierro ellos juntaron dinero");  
+    printf("Para que vuelvas a estudiar, te dan un gran abrazo y te dicen 'Ningun error tuyo hara que te dejemos de querer, solo asegurate de reonavar el CAE drento del plazo'");
+    printf("Despues de esa conversacion te vas a tu habitacion, en donde duermes una buena siesta por primera vez en 3 anios.");
+    Creditos();
+    return 1;
+  }    
+}

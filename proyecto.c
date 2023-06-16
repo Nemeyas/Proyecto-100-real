@@ -16,6 +16,8 @@ void limpiarFlecha(int x, int y, int cantOpciones){
     }
 }
 
+
+
 void formatearOpcion(int* opcion, int cantOpciones){
     *opcion = *opcion % 3;
     if(*opcion < 0) *opcion = 3 + *opcion;
@@ -125,37 +127,107 @@ void inicio(){
   printf("\n\n");
 }
 
-/*void ruta1(){
-  if()
-      printf("¡Hola!, soy Ignacio Araya, el dueno de la prision.\n");
-      printf("¿Asi que tu eres el que no pago la mensualidad?\n");
-      printf("Bueno, ocurre mucho ultimamente, ¿cual es tu nombre?\n\n");
-      char nombre[31];
-      printf("<(Ingrese su nombre de jugador)>\n");
-      scanf(" %[^\n]", nombre);
-      registrar(nombre);  
-      printf("Bueno, %s, espero tengas una buena estadia en tus 3 anios de condena, tu celda es la numero 11, un guardia te llevara para alla\n", nombre);
-      printf("Ya llevas 2 dias en esta prision, lo unico que esta a tu vista son las celdas 13 y 5, ademas de sus extranos residentes, te sientes aburrido de estar ahi...\n");
-      printf("<(¿Quieres escapar de la prision? (1))>\n <(¿Quieres cumplir tu condena? (2))>\n");
-      unsigned short es;
-      scanf("%hu",&es);
-      while(es > 2 || es < 1){
-        printf("Debe ingresar un numero valido (1; 2)\n");
-        scanf("%hu", &es);
+void seleccionador(Grafo *g){
+  for(char a=firstList(); a==NULL;nextList()){
+    if(strcmp(a,'pause')){
+      system('pause')
+    }
+    if(strcmp(a,"fight")){
+      pelea()
+    }
+    if(strcmp(a,'choice'))
+    else{
+      printf(a)
+    }
+  }
+}
+
+const char *get_csv_field (char * tmp, int k) {
+    int open_mark = 0;
+    char* ret=(char*) malloc (100*sizeof(char));
+    int ini_i=0, i=0;
+    int j=0;
+    while(tmp[i+1]!='\0'){
+
+        if(tmp[i]== '\"'){
+            open_mark = 1-open_mark;
+            if(open_mark) ini_i = i+1;
+            i++;
+            continue;
+        }
+
+        if(open_mark || tmp[i]!= ','){
+            if(k==j) ret[i-ini_i] = tmp[i];
+            i++;
+            continue;
+        }
+
+        if(tmp[i]== ','){
+            if(k==j) {
+               ret[i-ini_i] = 0;
+               return ret;
+            }
+            j++; ini_i = i+1;
+        }
+
+        i++;
+    }
+
+    if(k==j) {
+       ret[i-ini_i] = 0;
+       return ret;
+    }
+
+    return NULL;
+}
+
+void importar(Grafo *g,FILE *archivo){
+  char linea[1300];
+  char *aux;
+  int i, edadInt;
+  while(fgets(linea, 1024, archivo) != NULL){ //Se leen todas las lineas en orden
+    paciente* p = (paciente*) malloc(sizeof(paciente));
+    p->medicos = createList();
+    for(i = 0 ; i < 7 ; i++){//Se realizan 7 ciclos para permitir que se realizen las suficientes operaciones(6 valores en el struct)
+        aux = get_csv_field(linea, i); //aux se convierte en la linea de caracteres i-esima para rellenar el valor correspondiente.
+        if(i == 0){
+        strcpy(p->nombre, aux);
+        }
+        if(i == 1){
+        strcpy(p->apellido, aux);
+        }
+        if(i == 2){ 
+        edadInt= atoi(aux);
+        p->edad=edadInt;
+        }
+        if(i == 3){
+        strcpy(p->telefono, aux);
+        }
+        if(i== 4){
+        strcpy(p->direccion, aux);
+        }
+        if(i == 5){
+        strcpy(p->numeroSocial, aux);
+        Registrar(p, l);
+        } 
+        if(i == 6){
+        asignarMedico(l, p->nombre, p->apellido, aux );
+        }
       }
-      if(es == 2){
-        printf("Despues de 3 largos anios, se te ha dejado en libertad, el mismisimo dueno de la prision (Ignacio) te ha acompanado hasta la puerta,\n");
-        printf("en donde te desea suerte y que mires para ambos lados de la calle al cruzar. Al salir te das cuenta de que estabas ubicado en Petorca, con razon\n");
-        printf("Solo los dejaban banarse 1 vez a la semana. Empiezas a caminar en cualquier direccion en busca de algun buen samaritano que te lleve a Valparaiso,\n");
-        printf("Llegas al paradero mas cercano y comienzas a esperar...\n ... \n ... \n llega finalmente aparece una micro y te subes sin pensarlo. \n Sin embargo te das cuenta ya a mitad de camino de que no tienes dinero para el pasaje, maldices tu suerte comienzas a pensar \n");
-        printf("<(Que hago?!)> \n 1.matarme \n 2. Esperar a ver que pasa.\n");
-        return 1;
-      }
-}*/
+    }
+  fclose(archivo);
+}
 
 int main(void) {
   int seleccion=0;
   Grafo* grafo = createGrafo();
+  printf("Escriba el nombre del archivo\n");
+      FILE *archivo = fopen('sucesos.csv',"rt");
+      if (archivo == NULL) {
+        printf("* Error al abrir el archivo.\n");
+      } else{
+         importar(grafo, archivo);
+      }
   GetAllKeys();
   ocultarCursor();
   //unsigned short num;
