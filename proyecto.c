@@ -193,6 +193,5 @@ int main(void) {
       return 1;
     }
   }*/
-  printf(" Hola");
   return 0;
 }
