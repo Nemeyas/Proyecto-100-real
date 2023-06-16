@@ -1,5 +1,6 @@
 printf("¡Hola!, soy Ignacio Araya, el dueno de la prision.\n ¿Asi que tu eres el que no pago la mensualidad?\n Bueno, ocurre mucho ultimamente, ¿cual es tu nombre?\n\n");
 char nombre[31];
+fight, nombre enemigo, vida, fuerza
 printf("<(Ingrese su nombre de jugador)>\n");
 scanf(" %[^\n]", nombre);
 registrar(nombre);  
