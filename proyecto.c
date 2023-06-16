@@ -16,6 +16,8 @@ void limpiarFlecha(int x, int y, int cantOpciones){
     }
 }
 
+
+
 void formatearOpcion(int* opcion, int cantOpciones){
     *opcion = *opcion % 3;
     if(*opcion < 0) *opcion = 3 + *opcion;
