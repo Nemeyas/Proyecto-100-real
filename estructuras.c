@@ -55,5 +55,5 @@ void registrar(Grafo *grafo, char *nombre){
   strcpy(grafo -> nombre, nombre);
   a->inventario = (inve*)malloc(2 * sizeof(inve)); 
   a->stats.fuerza = 0; 
-  a->stats.salud = 10; 
+  a->stats.salud = 20; 
 }

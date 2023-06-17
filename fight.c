@@ -56,7 +56,7 @@ void fight(enemy *enemy, jugador *player){
 
         int seleccion = seleccionador(4);
         if (seleccion == 1) atacar(player, enemy, accionEnemy);{
-            if (player->stats->vida <= 0) gameOver(); return;
+            if (player->stats->vida <= 0) game_Over(); return;
             if (enemy->stats->vida <= 0) winScreen(); return;
         }
         if (seleccion == 2) mostrarInventario(player->inventario);
