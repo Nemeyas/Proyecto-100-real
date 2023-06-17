@@ -7,9 +7,11 @@
 
 typedef struct List List;
 
-/*typedef struct {
-  
-}act;*/
+typedef struct {
+  int vida;
+  int fuerza;
+  List* itemBorrar;
+}act;
 
 typedef struct Node {
   List *sucesos;
