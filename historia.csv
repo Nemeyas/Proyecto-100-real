@@ -88,7 +88,7 @@ Lo metes a tu celda y se te ocurre la idea de cambiar tu ropa por la del guardia
             ("Tiempo sin vernos 'nombre_usuario'.Sabes que no puedo dejarte ir, los temas de deuda no son faciles de indultar, rindeite y nadie saldra herido") <(Enfrentarse)> ; <(Rendirse)> ;
             <(PALTA HASH)>
 
-            */1.2.1.3.1.1.1.1*/ (Sistema de combate, en este paso se ira verificadno si vida == 0 game_Over()) Finalmente has acabado con los guardias, Solo qeuda Ignacio <(Matarlo)> ; <(Escapar)>
+            */1.2.1.3.1.1.1.1*/ (Sistema de combate, en este paso se ira verificadno si vida == 0 game_Over()) Finalmente has acabado con los guardias, Solo queda Ignacio <(Matarlo)> ; <(Escapar)>
 
                 <(Matarlo)> Oye, al los profesores hay que respetarlos (game_over())
 
@@ -145,7 +145,7 @@ Lo metes a tu celda y se te ocurre la idea de cambiar tu ropa por la del guardia
       /*1.2.2.1*/ (Ocurre lo mismo)
 
       /*1.2.2.2*/ Despues de esperar escondido, el jefe de piso llega a la celda del prisionero, rapidamente vas a noquearlo pero se da cuneta y te esquiva, ademas revela que tiene una pistola de sedantes
-      (Sistema de combate, en este paso se ira verificadno si vida == 0 game_Over()), Finalmente logras ganar el combate (Agregamos a su inventario pistola de sedantes, 2 niveles+, eleccion para que aumente estadisticas)
+      (Sistema de combate, en este paso se ira verificando si vida == 0 game_Over()), Finalmente logras ganar el combate (Agregamos a su inventario pistola de sedantes, 2 niveles+, eleccion para que aumente estadisticas)
       Y los reclusos te piden que vayas a buscar las llaves de las celdas o un boton que las abra todas, pero es muy probable que encuentres muchos guardias.
       <(Escpar solo)> ; <(Ayudar a los prisioneros)>
 
