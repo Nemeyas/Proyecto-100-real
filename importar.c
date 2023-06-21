@@ -78,6 +78,7 @@ void importar(Grafo *g,FILE *archivo){
         fopen(Historia, w);
         fprintf(Historia, archivo);
         nodo->Historia = Historia;
+        exportar(List* l,FILE *archivo);
       }
     }
   }
@@ -116,4 +117,24 @@ void importarArchivos(){
   } else{
   importar(grafo, archivo);
   }
+}
+
+void exportar(List* l,FILE *archivo){
+  
+  fprintf(archivo, "Nombre,Apellido,Edad,Teléfono,Dirección,Num Seguridad Social,Médicos\n");
+  for(paciente *p = firstList(l) ; p != NULL; p = nextList(l)){
+    //aqui pone todos los datos del struct menos medicos
+    fprintf(archivo, "%s,%s,%d,%s,%s,%s\n", p->nombre,p->apellido,p->edad,p->telefono, p->direccion, p->numeroSocial);
+    //aqui pone la lista de medicos
+    for(char* a = firstList(p->medicos) ; a != NULL ; a = nextList(p->medicos)){
+      fprintf(archivo, "%s", a);
+      if(nextList(p->medicos) != NULL){
+        fprintf(archivo,"; ");
+      }
+      else{
+        fprintf(archivo, "\n");
+      }
+    }
+  }
+  fclose(archivo);
 }
