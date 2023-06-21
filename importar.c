@@ -6,26 +6,6 @@
 #include "list.h"
 #include "estructuras.c"
 
-/*void exportar(FILE *archivo){
-  
-  fprintf(archivo, "Nombre,Apellido,Edad,Teléfono,Dirección,Num Seguridad Social,Médicos\n");
-  for(paciente *p = firstList(l) ; p != NULL; p = nextList(l)){
-    //aqui pone todos los datos del struct menos medicos
-    fprintf(archivo, "%s,%s,%d,%s,%s,%s\n", p->nombre,p->apellido,p->edad,p->telefono, p->direccion, p->numeroSocial);
-    //aqui pone la lista de medicos
-    for(char* a = firstList(p->medicos) ; a != NULL ; a = nextList(p->medicos)){
-      fprintf(archivo, "%s", a);
-      if(nextList(p->medicos) != NULL){
-        fprintf(archivo,"; ");
-      }
-      else{
-        fprintf(archivo, "\n");
-      }
-    }
-  }
-  fclose(archivo);
-}*/
-
 const char *get_csv_field (char * tmp, int k) {
     int open_mark = 0;
     char* ret=(char*) malloc (100*sizeof(char));
