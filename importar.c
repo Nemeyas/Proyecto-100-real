@@ -6,6 +6,26 @@
 #include "list.h"
 #include "estructuras.c"
 
+/*void exportar(FILE *archivo){
+  
+  fprintf(archivo, "Nombre,Apellido,Edad,Teléfono,Dirección,Num Seguridad Social,Médicos\n");
+  for(paciente *p = firstList(l) ; p != NULL; p = nextList(l)){
+    //aqui pone todos los datos del struct menos medicos
+    fprintf(archivo, "%s,%s,%d,%s,%s,%s\n", p->nombre,p->apellido,p->edad,p->telefono, p->direccion, p->numeroSocial);
+    //aqui pone la lista de medicos
+    for(char* a = firstList(p->medicos) ; a != NULL ; a = nextList(p->medicos)){
+      fprintf(archivo, "%s", a);
+      if(nextList(p->medicos) != NULL){
+        fprintf(archivo,"; ");
+      }
+      else{
+        fprintf(archivo, "\n");
+      }
+    }
+  }
+  fclose(archivo);
+}*/
+
 const char *get_csv_field (char * tmp, int k) {
     int open_mark = 0;
     char* ret=(char*) malloc (100*sizeof(char));
@@ -45,6 +65,11 @@ const char *get_csv_field (char * tmp, int k) {
     return NULL;
 }
 
+void escribir(FILE *Historia, char *aux){
+
+
+}
+
 void importar(Grafo *g,FILE *archivo){
   char linea[1300];
   char *aux;
@@ -52,7 +77,7 @@ void importar(Grafo *g,FILE *archivo){
   while(fgets(linea, 1024, archivo) != NULL){ //Se leen todas las lineas en orden
     Node *nodo = (Node *) malloc (sizeof(Node));
     for(i = 0 ; i < 7 ; i++){//Se realizan 7 ciclos para permitir que se realizen las suficientes operaciones(6 valores en el struct)
-      aux = get_csv_field(linea, i); //aux se convierte en la linea de caracteres i-esima para rellenar el valor correspondiente.
+      if (i != 6) aux = get_csv_field(linea, i); //aux se convierte en la linea de caracteres i-esima para rellenar el valor correspondiente.
       if(i == 0){
         strcpy(nodo->ID, aux);
       }
@@ -71,14 +96,14 @@ void importar(Grafo *g,FILE *archivo){
         nodo->restriccion.fuerzaNecesaria = atoi(aux);
       }
       if(i == 5){
-        nodo->restriccion.vidaNecesaria = atoi(aux)
+        nodo->restriccion.vidaNecesaria = atoi(aux);
       } 
       if(i == 6){
         FILE *Historia;
-        fopen(Historia, w);
-        fprintf(Historia, archivo);
+        fopen(Historia, "w");
+        escribir(Historia, aux);
         nodo->Historia = Historia;
-        exportar(List* l,FILE *archivo);
+        fclose(Historia);
       }
     }
   }
@@ -117,24 +142,4 @@ void importarArchivos(){
   } else{
   importar(grafo, archivo);
   }
-}
-
-void exportar(List* l,FILE *archivo){
-  
-  fprintf(archivo, "Nombre,Apellido,Edad,Teléfono,Dirección,Num Seguridad Social,Médicos\n");
-  for(paciente *p = firstList(l) ; p != NULL; p = nextList(l)){
-    //aqui pone todos los datos del struct menos medicos
-    fprintf(archivo, "%s,%s,%d,%s,%s,%s\n", p->nombre,p->apellido,p->edad,p->telefono, p->direccion, p->numeroSocial);
-    //aqui pone la lista de medicos
-    for(char* a = firstList(p->medicos) ; a != NULL ; a = nextList(p->medicos)){
-      fprintf(archivo, "%s", a);
-      if(nextList(p->medicos) != NULL){
-        fprintf(archivo,"; ");
-      }
-      else{
-        fprintf(archivo, "\n");
-      }
-    }
-  }
-  fclose(archivo);
 }
