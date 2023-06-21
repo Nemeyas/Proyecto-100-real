@@ -7,6 +7,7 @@
 #include "estructuras.c"
 #include "gotoxy.h"
 #include "fight.c"
+#include "hashmap.h"
 #define Barra "------------"
 #define BARRA "-------------------------------------------------------"
 
@@ -45,8 +46,8 @@ bool cambiarOpcion(int * opcion){
 void subrutina(){
     GetAllKeys();
     system("cls");
-    gotoxy(10, 10); printf("Ejemplo de subrutina que se puede");
-    gotoxy(10, 11); printf("realizar, sin salir del propio menu");
+    gotoxy(10, 10); printf("Partidas guardadas");
+    gotoxy(10, 11); printf("SLOT %");
     gotoxy(10, 12); system("pause");
 }
 //hasta aqui
@@ -145,11 +146,24 @@ int main(void) {
   Grafo* grafo = createGrafo();
   fopen("historia.csv", "r");
   importar(grafo, "historia.csv");
+  Node *nodoActual= firstMap(grafo->nodos);
   GetAllKeys();
   ocultarCursor();
   mostrarMenu();
+<<<<<<< HEAD
   
   Node *nodoActual= firstList(grafo->nodos);
+=======
+ /* 
+  while(true){
+    if (num == 0) {// Si se ingrea 0 se termina el programa
+      printf("\n");
+      puts(BARRA);
+      printf("                   Fin Del Programa\n");
+      puts(BARRA);
+      return 0;
+    }
+>>>>>>> a89b3ba98109d4dc5832d0b8aedc3138e3f67aa6
 
   return 0;
 }

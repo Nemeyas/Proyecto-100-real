@@ -40,13 +40,13 @@ const char *get_csv_field (char * tmp, int k) {
             continue;
         }
 
-        if(open_mark || tmp[i]!= ','){
+        if(open_mark || tmp[i]!= '.'){
             if(k==j) ret[i-ini_i] = tmp[i];
             i++;
             continue;
         }
 
-        if(tmp[i]== ','){
+        if(tmp[i]== '.'){
             if(k==j) {
                ret[i-ini_i] = 0;
                return ret;
@@ -92,7 +92,7 @@ void importar(Grafo *g,FILE *archivo){
         res *restricciones = (res *) malloc (sizeof(res));
         nodo->restriccion.opcion = atoi(aux);
       }
-      if(i== 4){
+      if(i == 4){
         nodo->restriccion.fuerzaNecesaria = atoi(aux);
       }
       if(i == 5){
