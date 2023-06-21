@@ -7,6 +7,7 @@
 #include "estructuras.c"
 #include "gotoxy.h"
 #include "fight.c"
+#include "hashmap.h"
 #define Barra "------------"
 #define BARRA "-------------------------------------------------------"
 
@@ -150,16 +151,10 @@ int main(void) {
   Grafo* grafo = createGrafo();
   fopen("historia.csv", "r");
   importar(grafo, "historia.csv");
+  Node *nodoActual= firstMap(grafo->nodos);
   GetAllKeys();
   ocultarCursor();
-  //unsigned short num;
   mostrarMenu();
-  /*scanf("%hu", &num);
-  while(num > 2 || num < 0){
-    printf("Debe ingresar un numero valido (0; 1; 2)\n");
-    scanf("%hu", &num);
-  }*/
-  Node *nodoActual= firstList(grafo->nodos);
  /* 
   while(true){
     if (num == 0) {// Si se ingrea 0 se termina el programa

@@ -41,12 +41,12 @@ typedef struct{
 }inve;
 
 typedef struct{
+  char nombre[10];
   inve *inventario;
   estadisticas stats;
 }jugador;
 
 typedef struct{
-  char nombre[10];
   HashMap *nodos;
 }Grafo;
 
