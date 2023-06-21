@@ -148,7 +148,8 @@ void mostrarSucesos(Grafo *g){
 int main(void) {
   int seleccion=0;
   Grafo* grafo = createGrafo();
-  importarArchivos();
+  fopen("historia.csv", "r");
+  importar(grafo, "historia.csv");
   GetAllKeys();
   ocultarCursor();
   //unsigned short num;

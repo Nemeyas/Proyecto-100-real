@@ -106,6 +106,7 @@ void importar(Grafo *g,FILE *archivo){
         fclose(Historia);
       }
     }
+    insertMap(g->nodos, nodo->ID, nodo);
   }
   fclose(archivo);
 }
