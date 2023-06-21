@@ -6,6 +6,8 @@
 #include <windows.h>
 #include "estructuras.c"
 #include "gotoxy.h"
+#include "fight.c"
+#define Barra "------------"
 #define BARRA "-------------------------------------------------------"
 
 //funciones del Nemeyas, no tocar
@@ -131,7 +133,8 @@ void mostrarSucesos(Grafo *g){
       system('pause');
     }
     if(strcmp(a,"fight")){
-      pelea(enemigo, vidaenem, fuerzaenem);
+      jugador *enemy = leerEnemigo(enemy);
+      fight(enemy, player);
     }
     if(strcmp(a,'choice')){
       seleccionador(g);

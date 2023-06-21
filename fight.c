@@ -1,22 +1,29 @@
-#define Barra "------------"
+#include <stdio.h>
+#include "estructuras.c"
+#include <windows.h>
 
-void atacar(jugador *player, enemy *enemy, int accionEnemy){
+void winScreen(){
+    cls();
+
+}
+
+void atacar(jugador *player, jugador *enemy, int accionEnemy){
     if (accionEnemy == 3){
-        float damage = (player->stats->fuerza)/2;
-        enemy->stats->vida -= damage;
+        float damage = (player->stats.fuerza)/2;
+        enemy->stats.vida -= damage;
         printf("El enemigo se ha cubierto, solo le has hecho %.f de daño\n", damage);
         return;
     }
     else{
-        int damage = player->stats->fuerza;
-        enemy->stats->vida -= damage;
+        int damage = player->stats.fuerza;
+        enemy->stats.vida -= damage;
         printf("Le has hecho %u de daño al enemigo\n", damage);
         return;
     }
     if (accionEnemy == 1){
-        int damage = enemy->stats->fuerza;
-        player->stats->vida -= damage;
-        printf("El enemigo te ha hecho %u de daño\n", damage);
+        int damage = enemy->stats.fuerza;
+        player->stats.vida -= damage;
+        printf("El enemigo te ha quitado %u de vida\n", damage);
     }
     if (accionEnemy == 2){
         printf("El enemigo solo te observa...\n");
@@ -35,14 +42,14 @@ void mostrarInventario(Inv *inventario){
     }
 }
 
-void cubrirse(jugador *player, enemy *enemy, int accionEnemy){
+void cubrirse(jugador *player, jugador *enemy, int accionEnemy){
     if (accionEnemy == 2) printf("Te cubres... y el enemigo no actua!\n"); return;
     if (accionEnemy == 3) printf("Te cubres... y el enemigo también!\n"); return;
     if (accionEnemy == 4) printf("Te cubres... y el enemigo se burla de ti!\n"); return;
     if (accionEnemy == 1){
         float damage = (enemy->stats->fuerza)/2;
         player->stats->vida -= damage;
-        printf("Te cubres... y el enemigo solo te ha quitado %.f de daño!\n", damage);
+        printf("Te cubres... y el enemigo solo te ha quitado %.f de vida!\n", damage);
         return;
     }
 }
@@ -50,7 +57,7 @@ void burlarse(){
     int burla = random(1,10);
     
 }
-void fight(enemy *enemy, jugador *player){
+void fight(jugador *enemy, jugador *player){
     while (enemy->stats->vida > 0 || player->stats->vida > 0){
         int accionEnemy = random(1,4);
 
