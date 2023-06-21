@@ -45,8 +45,8 @@ bool cambiarOpcion(int * opcion){
 void subrutina(){
     GetAllKeys();
     system("cls");
-    gotoxy(10, 10); printf("Ejemplo de subrutina que se puede");
-    gotoxy(10, 11); printf("realizar, sin salir del propio menu");
+    gotoxy(10, 10); printf("Partidas guardadas");
+    gotoxy(10, 11); printf("SLOT %");
     gotoxy(10, 12); system("pause");
 }
 //hasta aqui
