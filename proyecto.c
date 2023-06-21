@@ -90,43 +90,6 @@ void mostrarMenu(){
   }
 }
 
-void inicio(){
-  system("cls");
-  int respuesta;
-  printf("24/05/2023  (DIA DEL COMPLETO)\n\n");
-  printf("Eres un estudiante de la 'prestigiosa' PUCV, hoy estas esperando la renovacion del 'CAE'\n");
-  printf("sin embargo, al entrar al sistema, te das cuenta de que no renovaste dentro del plazo.\n");
-  printf("En tu desesperacion por no saber que hacer y que tus padres te van a matar, acudes a la 'Casa Central',\n");
-  printf("una vez en el lugar, te recibe una amable senorita, la cual te recuerda todos los meses que debes,\n\n");
-  printf("Hola, ¿en que puedo ayudarte?\n");
-  printf("1.Hola, tuve un problema con la renovacion y no se como pagar(1)\n");
-  printf("2.Wena po, oe devuelvan la jabonera al ibc piso 2.(2)\n");
-
-  scanf("%hu", &respuesta);
-  while(respuesta > 2 || respuesta < 1){
-    printf("Debe ingresar un numero valido (1;2)\n");
-    scanf("%hu", &respuesta);
-  }
-  if(respuesta==1){
-    printf("Asi veo, en el sistema figura que usted debe un total de 3 meses, lo siento pero debo llamar a los guardias.\n\n");
-    printf("Al no presentar ninguna solucion de tu parte para pagar, la amable senorita llama a los guardias de seguridad,\n");
-    printf("los cuales te meten el wuate mas exotico que tu cabeza haya podido sentir alguna vez, por lo que pierdes la conciencia\n");
-    printf("Al despertar, estas en una prision, te encuentras muy desconcertado, no sabes que dia es ni que hora es,\n");
-    printf("despues de unos instantes te das cuenta que estas sentado frente a un hombre de simpatico cabello largo, de unos 30-38 años\n");
-
-  }
-  else if (respuesta == 2){
-    printf("Eso lo tiene que ver tu jefe de carrera");
-    return;
-  }
-  while(respuesta > 2 || respuesta < 1){
-    printf("Debe ingresar un numero valido (1;2)\n");
-    scanf("%hu", &respuesta);
-  }
-    
-  printf("\n\n");
-}
-
 void mostrarSucesos(Grafo *g){
   for(char a=firstList(); a==NULL;nextList()){
     if(strcmp(a,'pause')){
@@ -145,6 +108,38 @@ void mostrarSucesos(Grafo *g){
   }
 }
 
+void subirNivel(estadisticas *stats, int opcion) {
+  switch (opcion) {
+    case 1:
+      stats->salud += 10;
+      printf("Tu salud se a incrementado en 10[u.a]");
+      break;
+    case 2:
+      stats->fuerza += 5;
+      printf("Tu fuerza se a incrementado en 5[u.a]");
+      break;
+  }
+}
+
+void agregarItem(jugador *jug, char *nombreItem) {
+  int i;
+  for (i = 0; i < 2; i++) {
+    if (strcmp(jug->inventario[i].item, "") == 0) {
+      strcpy(jug->inventario[i].item, nombreItem);
+      printf("Se ha agregado el item '%s' al inventario.\n", nombreItem);
+      return;
+    }
+  }
+  
+  printf("El inventario está lleno. No se puede agregar el item '%s'.\n", nombreItem);
+}
+
+void incrementarEspacioInventario(jugador *jug, int incremento) {
+  int nuevoTamano = incremento;
+  jug->inventario = (inve*)realloc(jug->inventario, nuevoTamano * sizeof(inve));
+}
+
+
 int main(void) {
   int seleccion=0;
   Grafo* grafo = createGrafo();
@@ -152,40 +147,9 @@ int main(void) {
   importar(grafo, "historia.csv");
   GetAllKeys();
   ocultarCursor();
-  //unsigned short num;
   mostrarMenu();
-  /*scanf("%hu", &num);
-  while(num > 2 || num < 0){
-    printf("Debe ingresar un numero valido (0; 1; 2)\n");
-    scanf("%hu", &num);
-  }*/
+  
   Node *nodoActual= firstList(grafo->nodos);
- /* 
-  while(true){
-    if (num == 0) {// Si se ingrea 0 se termina el programa
-      printf("\n");
-      puts(BARRA);
-      printf("                   Fin Del Programa\n");
-      puts(BARRA);
-      return 0;
-    }
 
-    if (num == 1) {
-      inicio();
-      system("cls");
-      if(selecion==1)
-        ruta1();
-      if(seleccion==2){
-        ruta2();
-      }
-      if(seleccion==3){
-        ruta3();
-      }
-      return 1;
-    }
-    if (num == 2) {
-      return 1;
-    }
-  }*/
   return 0;
 }

@@ -70,34 +70,5 @@ void registrar(Grafo *grafo, char *nombre){
   a->stats.salud = 20; 
 }
 
-void subirNivel(estadisticas *stats, int opcion) {
-  switch (opcion) {
-    case 1:
-      stats->salud += 10;
-      printf("Tu salud se a incrementado en 10[u.a]");
-      break;
-    case 2:
-      stats->fuerza += 5;
-      printf("Tu fuerza se a incrementado en 5[u.a]");
-      break;
-  }
-}
 
-void agregarItem(jugador *jug, char *nombreItem) {
-  int i;
-  for (i = 0; i < 2; i++) {
-    if (strcmp(jug->inventario[i].item, "") == 0) {
-      strcpy(jug->inventario[i].item, nombreItem);
-      printf("Se ha agregado el item '%s' al inventario.\n", nombreItem);
-      return;
-    }
-  }
-  
-  printf("El inventario está lleno. No se puede agregar el item '%s'.\n", nombreItem);
-}
-
-void incrementarEspacioInventario(jugador *jug, int incremento) {
-  int nuevoTamano = incremento;
-  jug->inventario = (inve*)realloc(jug->inventario, nuevoTamano * sizeof(inve));
-}
 

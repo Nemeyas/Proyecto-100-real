@@ -1,3 +1,42 @@
+void inicio(){
+  system("cls");
+  int respuesta;
+  printf("24/05/2023  (DIA DEL COMPLETO)\n\n");
+  printf("Eres un estudiante de la 'prestigiosa' PUCV, hoy estas esperando la renovacion del 'CAE'\n");
+  printf("sin embargo, al entrar al sistema, te das cuenta de que no renovaste dentro del plazo.\n");
+  printf("En tu desesperacion por no saber que hacer y que tus padres te van a matar, acudes a la 'Casa Central',\n");
+  printf("una vez en el lugar, te recibe una amable senorita, la cual te recuerda todos los meses que debes,\n\n");
+  printf("Hola, ¿en que puedo ayudarte?\n");
+  printf("1.Hola, tuve un problema con la renovacion y no se como pagar(1)\n");
+  printf("2.Wena po, oe devuelvan la jabonera al ibc piso 2.(2)\n");
+
+  scanf("%hu", &respuesta);
+  while(respuesta > 2 || respuesta < 1){
+    printf("Debe ingresar un numero valido (1;2)\n");
+    scanf("%hu", &respuesta);
+  }
+  if(respuesta==1){
+    printf("Asi veo, en el sistema figura que usted debe un total de 3 meses, lo siento pero debo llamar a los guardias.\n\n");
+    printf("Al no presentar ninguna solucion de tu parte para pagar, la amable senorita llama a los guardias de seguridad,\n");
+    printf("los cuales te meten el wuate mas exotico que tu cabeza haya podido sentir alguna vez, por lo que pierdes la conciencia\n");
+    printf("Al despertar, estas en una prision, te encuentras muy desconcertado, no sabes que dia es ni que hora es,\n");
+    printf("despues de unos instantes te das cuenta que estas sentado frente a un hombre de simpatico cabello largo, de unos 30-38 años\n");
+
+  }
+  else if (respuesta == 2){
+    printf("Eso lo tiene que ver tu jefe de carrera");
+    return;
+  }
+  while(respuesta > 2 || respuesta < 1){
+    printf("Debe ingresar un numero valido (1;2)\n");
+    scanf("%hu", &respuesta);
+  }
+    
+  printf("\n\n");
+}
+
+
+
 printf("¡Hola!, soy Ignacio Araya, el dueno de la prision.\n ¿Asi que tu eres el que no pago la mensualidad?\n Bueno, ocurre mucho ultimamente, ¿cual es tu nombre?\n\n");
 char nombre[31];
 fight, nombre enemigo, vida, fuerza
