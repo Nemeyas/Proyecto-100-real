@@ -69,3 +69,8 @@ void registrar(Grafo *grafo, char *nombre){
   a->stats.fuerza = 0; 
   a->stats.salud = 20; 
 }
+
+void subirNivel (estadisticas *stats){
+  stats -> salud =+ 10; //se deberian pasar otros parametros, para comparar si quiere subir vida o fuerza
+  stats -> fuerza =+ 5;
+}
