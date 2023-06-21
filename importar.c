@@ -92,7 +92,7 @@ void importar(Grafo *g,FILE *archivo){
         res *restricciones = (res *) malloc (sizeof(res));
         nodo->restriccion.opcion = atoi(aux);
       }
-      if(i== 4){
+      if(i == 4){
         nodo->restriccion.fuerzaNecesaria = atoi(aux);
       }
       if(i == 5){
@@ -106,6 +106,7 @@ void importar(Grafo *g,FILE *archivo){
         fclose(Historia);
       }
     }
+    insertMap(g->nodos, nodo->ID, nodo);
   }
   fclose(archivo);
 }
