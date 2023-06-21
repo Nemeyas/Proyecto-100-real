@@ -135,7 +135,7 @@ void agregarItem(jugador *jug, char *nombreItem) {
   printf("El inventario está lleno. No se puede agregar el item '%s'.\n", nombreItem);
 }
 
-void incrementarEspacioInventario(jugador *jug, int incremento) {
+void InventarioSUB(jugador *jug, int incremento) {
   int nuevoTamano = incremento;
   jug->inventario = (inve*)realloc(jug->inventario, nuevoTamano * sizeof(inve));
 }
@@ -150,20 +150,9 @@ int main(void) {
   GetAllKeys();
   ocultarCursor();
   mostrarMenu();
-<<<<<<< HEAD
-  
-  Node *nodoActual= firstList(grafo->nodos);
-=======
- /* 
-  while(true){
-    if (num == 0) {// Si se ingrea 0 se termina el programa
-      printf("\n");
-      puts(BARRA);
-      printf("                   Fin Del Programa\n");
-      puts(BARRA);
-      return 0;
-    }
->>>>>>> a89b3ba98109d4dc5832d0b8aedc3138e3f67aa6
+  subirNivel();
+  agregarItem();
+  InventarioSUB();
 
   return 0;
 }

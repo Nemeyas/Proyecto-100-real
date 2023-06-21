@@ -62,9 +62,9 @@ void agregarNodo(Grafo *grafo, Node *n){
   return;
 }
 
-void registrar(Grafo *grafo, char *nombre){
+void registrar(Grafo *grafo, char *name){
   jugador *a = (jugador*)malloc(sizeof(jugador));
-  strcpy(grafo -> nombre, nombre);
+  strcpy(a -> nombre, name);
   a->inventario = (inve*)malloc(2 * sizeof(inve)); 
   a->stats.fuerza = 0; 
   a->stats.salud = 20; 
