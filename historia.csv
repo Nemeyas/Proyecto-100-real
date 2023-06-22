@@ -34,7 +34,7 @@ void profe(){
 
 //Suponinendo que eligio escapar Aqui la historia.
 
-Ahora que has decidido escapar, que metodo quieres usar /*1*/<(Esperar un guradia para noquearlo y robarle las llaves)> ; /*2*/<(Subir por el ducto de ventilacion de la celda)>
+Ahora que has decidido escapar, que metodo quieres usar choice<(Esperar un guradia para noquearlo y robarle las llaves)> ; <(Subir por el ducto de ventilacion de la celda)>
 
 /*1*/ Al cabo de 1 mintuo un guardia aparece, le hablas para que se detenga y te acercas a las rejas de la celda, lo noqueas y robas exitosamente las llaves de tu celda, inteligentemen|te
 Lo metes a tu celda y se te ocurre la idea de cambiar tu ropa por la del guardia /*1.1*/<(Cambiar la ropa y tomar su arma) ; /*1.2*/<(Quedarse igual y tomar su arma)>

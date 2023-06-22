@@ -3,7 +3,7 @@
 //  TablaHashLab
 //
 //  Created by Matias Barrientos on 11-08-18.
-//  Copyright © 2018 Matias Barrientos. All rights reserved.
+//  Copyright © 0218 Matias Barrientos. All rights reserved.
 //
 
 #ifndef HashMap_h

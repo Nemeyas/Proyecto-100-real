@@ -20,7 +20,7 @@ void limpiarFlecha(int x, int y, int cantOpciones){
 }
 
 void formatearOpcion(int* opcion, int cantOpciones){
-    *opcion = *opcion % 3;
+    *opcion = *opcion % cantOpciones;
     if(*opcion < 0) *opcion = 3 + *opcion;
 }
 
@@ -49,6 +49,19 @@ void subrutina(){
     gotoxy(10, 10); printf("Partidas guardadas");
     gotoxy(10, 11); printf("SLOT %");
     gotoxy(10, 12); system("pause");
+}
+
+int seleccionador(int i){
+  int option = 0;
+  GetAllKeys();
+  
+  while(true){
+    limpiarFlecha(0, 3, i);
+    formatearOpcion(&option, i);
+    ubicarFlecha(0, 3, option);
+    if(cambiarOpcion(&option)) break;
+  }
+
 }
 //hasta aqui
 
@@ -91,21 +104,14 @@ void mostrarMenu(){
   }
 }
 
-void mostrarSucesos(Grafo *g){
-  for(char a=firstList(); a==NULL;nextList()){
-    if(strcmp(a,'pause')){
-      system('pause');
-    }
-    if(strcmp(a,"fight")){
-      jugador *enemy = leerEnemigo(enemy);
-      fight(enemy, player);
-    }
-    if(strcmp(a,'choice')){
-      seleccionador(g);
-    }
-    else{
-      printf(a);
-    }
+void leerNombre(char *nombre){
+  int largo = 0;
+  printf("Ingrese su nombre de usuario (max. 15 caracteres)\n");
+
+  while (largo <= 0 || largo > 15){
+    scanf("%s", nombre);
+    largo = strlen(nombre);
+    if (largo > 15 || largo <= 0) printf("Ingrese un nombre valido (max. 15 caracteres)\n");
   }
 }
 
@@ -128,11 +134,10 @@ void agregarItem(jugador *jug, char *nombreItem) {
     if (strcmp(jug->inventario[i].item, "") == 0) {
       strcpy(jug->inventario[i].item, nombreItem);
       printf("Se ha agregado el item '%s' al inventario.\n", nombreItem);
-      return;
+      exit;
     }
   }
-  
-  printf("El inventario está lleno. No se puede agregar el item '%s'.\n", nombreItem);
+  printf("El inventario esta lleno. No se puede agregar el item '%s'.\n", nombreItem);
 }
 
 void InventarioSUB(jugador *jug, int incremento) {
@@ -143,16 +148,42 @@ void InventarioSUB(jugador *jug, int incremento) {
 
 int main(void) {
   int seleccion=0;
-  Grafo* grafo = createGrafo();
+  Grafo* g = createGrafo();
   fopen("historia.csv", "r");
-  importar(grafo, "historia.csv");
-  Node *nodoActual= firstMap(grafo->nodos);
-  GetAllKeys();
+  importar(g, "historia.csv");
+  Node *nodoActual= firstMap(g->nodos);
+  Pair *a=firstMap(nodoActual);
+  jugador *player;
+
+  char nombre[16];
+  leerNombre(nombre);
+  registrar(player, nombre);
+  
+  while(true){
+    int a = nodoActual->cantNodos;
+    if(strcmp(nodoActual->TipoHistoria,'pause')){
+      printf(a);
+      system('pause');
+    }
+    if(strcmp(nodoActual->TipoHistoria,"fight")){
+      jugador *enemy = leerEnemigo(enemy);
+      fight(enemy, player);
+    }
+    if(strcmp(nodoActual->TipoHistoria,'choice')){
+      seleccionador(a);
+    }
+    else{
+      printf(a);
+    }
+    a=nextMap(g -> nodos );
+  }
+  
+  /*GetAllKeys();
   ocultarCursor();
   mostrarMenu();
   subirNivel();
   agregarItem();
-  InventarioSUB();
+  InventarioSUB();*/
 
   return 0;
 }
