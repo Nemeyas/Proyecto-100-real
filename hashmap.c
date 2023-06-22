@@ -122,14 +122,14 @@ void eraseMap(HashMap * map,  char * key) {
   }
 }
 
-Pair * searchMap(HashMap * map,  char * key) {   
+Node* searchMap(HashMap * map,  char * key) {   
   int pos=hash(key,map->capacity);
 
   //en este while  recorre todo el arreglo desde la posicion del hash hasta un NULL
   while(map->buckets[pos]!=NULL){
     if(map->buckets[pos] != NULL && strcmp(map->buckets[pos]->key, key) == 0){
       map->current=pos;
-      return map->buckets[pos];
+      return map->buckets[pos]->value;
     }
     //si no lo encuentra va para la proxima posicion como arreglo de colision
     pos = (pos + 1) % map->capacity;
@@ -138,7 +138,7 @@ Pair * searchMap(HashMap * map,  char * key) {
   return NULL;
 }
 
-Pair * firstMap(HashMap * map) {
+Node * firstMap(HashMap * map) {
   if (map->size == 0||map==NULL) {
     return NULL;
   }
@@ -148,7 +148,7 @@ Pair * firstMap(HashMap * map) {
   while(i<map->capacity){
     if(map->buckets[i]!=NULL&&map->buckets[i]->key!=NULL){
       map->current=i;
-      return map->buckets[i];
+      return map->buckets[i]->value;
     }
     i++;
   }
@@ -156,7 +156,7 @@ Pair * firstMap(HashMap * map) {
   return NULL;
 }
 
-Pair * nextMap(HashMap * map) {
+Node* nextMap(HashMap * map) {
  if (map == NULL || map->size == 0) {
         return NULL; //si el mapa es nulo o está vacío, no hay un siguiente par
   }
@@ -170,8 +170,8 @@ Pair * nextMap(HashMap * map) {
     return NULL;
   }
   //devolver el siguiente Pair
-  Pair * pair = map->buckets[map->current];
-  return pair;
+  Node * node = map->buckets[map->current]->value;
+  return node;
 }
 
 int size(HashMap *map) {

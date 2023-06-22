@@ -12,7 +12,7 @@ typedef struct {
   int vida;
   int fuerza;
   List* itemBorrar;
-}act;
+} act;
 
 typedef struct {
   int opcion;
@@ -20,16 +20,16 @@ typedef struct {
   int vidaNecesaria;
 } res;
 
-typedef struct {
+struct Node{
   char ID[10];
-  char TipoHistoria[1300];
+  char TipoHistoria[10];
   FILE *Historia;
   //List *sucesos;
   //act accion;
   int cantNodos;
   res restriccion;
   List* adjNode;  
-} Node;
+};
 
 typedef struct{
   int fuerza;
@@ -38,17 +38,17 @@ typedef struct{
 
 typedef struct{
   char item[21];
-}inve;
+} inve;
 
 typedef struct{
   char nombre[10];
   inve *inventario;
   estadisticas stats;
-}jugador;
+} jugador;
 
 typedef struct{
   HashMap *nodos;
-}Grafo;
+} Grafo;
 
 Grafo* createGrafo(){
   HashMap *nodos = createMap(50);

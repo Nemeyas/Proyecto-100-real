@@ -6,7 +6,8 @@
 #include <windows.h>
 #include "estructuras.c"
 #include "gotoxy.h"
-#include "fight.c"
+#include "importar.c"
+//#include "fight.c"
 #include "hashmap.h"
 #define Barra "------------"
 #define BARRA "-------------------------------------------------------"
