@@ -4,10 +4,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include <windows.h>
-#include "estructuras.c"
+
+#include "estructuras.h"
 #include "gotoxy.h"
-#include "fight.c"
+//#include "fight.c"
 #include "hashmap.h"
+#include "list.h"
 #define Barra "------------"
 #define BARRA "-------------------------------------------------------"
 
@@ -47,21 +49,32 @@ void subrutina(){
     GetAllKeys();
     system("cls");
     gotoxy(10, 10); printf("Partidas guardadas");
-    gotoxy(10, 11); printf("SLOT %");
+    gotoxy(10, 11); printf("SLOT ");
     gotoxy(10, 12); system("pause");
 }
 
-int seleccionador(int i){
+int seleccionador2(Grafo*g, Node* nodo, jugador* player){
   int option = 0;
   GetAllKeys();
+  gotoxy(0,3);
+  for(int i=0; i<nodo->cantNodos;i++){
+    printf("  %s\n", nodo->adjNode[i]);
+  }
+  /*
   
+  -->  Tomar un tenedor
+  
+  */
   while(true){
-    limpiarFlecha(0, 3, i);
-    formatearOpcion(&option, i);
+    limpiarFlecha(0, 3, nodo->cantNodos);
+    formatearOpcion(&option, nodo->cantNodos);
     ubicarFlecha(0, 3, option);
     if(cambiarOpcion(&option)) break;
   }
 
+  char codigoSiguienteNodo = nodo->adjNode[option];
+  nodo = searchMap(g->nodos,codigoSiguienteNodo);
+  return 0;
 }
 //hasta aqui
 
@@ -149,33 +162,65 @@ void InventarioSUB(jugador *jug, int incremento) {
 int main(void) {
   int seleccion=0;
   Grafo* g = createGrafo();
-  fopen("historia.csv", "r");
-  importar(g, "historia.csv");
-  Node *nodoActual= firstMap(g->nodos);
-  Pair *a=firstMap(nodoActual);
+  //importarArchivos();
+
+  Node* nodo1 = (Node *) malloc (sizeof(Node));
+  strcpy(nodo1->ID,"nodo inicial");
+  nodo1->tiposHistorias = createList();
+  pushBack(nodo1->tiposHistorias,"hola\n");
+  pushBack(nodo1->tiposHistorias,"pause");
+  pushBack(nodo1->tiposHistorias,"como estan");
+  pushBack(nodo1->tiposHistorias,"choice");
+  nodo1->cantNodos = 2;
+
+  Node* nodo2 = (Node *) malloc (sizeof(Node));
+  strcpy(nodo2->ID,"nodo 2");
+
+  Node* nodo3 = (Node *) malloc (sizeof(Node));
+  strcpy(nodo3->ID,"nodo 3");
+
+  strcpy(nodo1->adjNode[0],nodo2->ID);
+  strcpy(nodo1->adjNode[1],nodo3->ID);
+
+  insertMap(g->nodos, nodo1->ID, nodo1);
+  insertMap(g->nodos, nodo2->ID, nodo2);
+  insertMap(g->nodos, nodo3->ID, nodo3);
+
+  Node *nodoActual= (Node*) (searchMap(g->nodos,"nodo inicial"))->value;
+  //Pair *a=firstMap(nodoActual);
   jugador *player;
 
   char nombre[16];
   leerNombre(nombre);
   registrar(player, nombre);
   
-  while(true){
-    int a = nodoActual->cantNodos;
-    if(strcmp(nodoActual->TipoHistoria,'pause')){
-      printf(a);
-      system('pause');
+  while(true){ //Actualizar nodos
+    while(true){ //Escribir historias
+
+      if(strcmp(nodoActual->TipoHistoria,"pause")){
+        printf(nodoActual->TipoHistoria);
+        system('pause');
+      }
+      if(strcmp(nodoActual->TipoHistoria,"fight")){
+        jugador *enemy = leerEnemigo(enemy);
+        fight(enemy, player);
+      }
+      if(strcmp(nodoActual->TipoHistoria,"choice")){
+        break;
+      }
+      if(strcmp(nodoActual->TipoHistoria, 'End')){
+        //funcionFinal();
+        return 0;
+      }
     }
-    if(strcmp(nodoActual->TipoHistoria,"fight")){
-      jugador *enemy = leerEnemigo(enemy);
-      fight(enemy, player);
-    }
-    if(strcmp(nodoActual->TipoHistoria,'choice')){
-      seleccionador(a);
-    }
-    else{
-      printf(a);
-    }
-    a=nextMap(g -> nodos );
+    seleccionador2(g->nodos, nodoActual, player);
+    //opcionEscogida = seleccionador(e)
+    //codigoSiguienteNodo = nodoActual->adjNode[opcionEscogida];
+    //nodoActual = searchMap(,codigoSiguienteNodo);
+
+    //--------------//
+    //nodoActual = seleccionador(g->nodos, nodoActual, player);
+    //a=nextMap(g -> nodos );
   }
   
   /*GetAllKeys();
@@ -187,3 +232,41 @@ int main(void) {
 
   return 0;
 }
+
+/*
+while lectura de lista de historias {
+
+habia una vez...
+Luego sucedio....
+fight....
+pause
+choice -> break;
+
+}
+
+
+
+seleccionador();{
+
+--> nombreRuta Nodo1
+    nombreRuta Nodo2
+    nombreRuta Nodo3
+
+verifica restricciónes
+si pasa entonces,
+se aplican acciones...
+}
+
+
+
+se actualiza al nodo actual
+
+
+
+
+
+
+
+
+
+*/

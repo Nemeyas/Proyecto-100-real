@@ -1,10 +1,12 @@
+/*
+
 #include <assert.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "list.h"
-#include "estructuras.c"
+#include "estructuras.h"
 
 const char *get_csv_field (char * tmp, int k) {
     int open_mark = 0;
@@ -50,7 +52,7 @@ void escribir(FILE *Historia, char *aux){
 
 }
 
-void importar(Grafo *g,FILE *archivo){
+void importarHistoria(Grafo *g,FILE *archivo){
   char linea[1300];
   char *aux;
   int i, CantNodos;
@@ -65,7 +67,7 @@ void importar(Grafo *g,FILE *archivo){
         strcpy(nodo->TipoHistoria, aux);
       }
       if(i == 2){ 
-        CantNodos= atoi(aux);
+        CantNodos = atoi(aux);
         nodo->cantNodos = CantNodos;
       }
       if(i == 3){
@@ -79,7 +81,7 @@ void importar(Grafo *g,FILE *archivo){
         nodo->restriccion.vidaNecesaria = atoi(aux);
       } 
       if(i == 6){
-        FILE *Historia;
+        /*FILE *Historia;
         fopen(Historia, "w");
         escribir(Historia, aux);
         nodo->Historia = Historia;
@@ -91,7 +93,12 @@ void importar(Grafo *g,FILE *archivo){
   fclose(archivo);
 }
 
+void importarDatos(){
+
+}
+
 void importarArchivos(){
+  fopen("historia.csv", "r");
   Grafo *grafo = createGrafo();
   FILE *archivo = fopen('sucesos.csv',"rt");
   if (archivo == NULL) {
@@ -123,4 +130,4 @@ void importarArchivos(){
   } else{
   importar(grafo, archivo);
   }
-}
+}*/
