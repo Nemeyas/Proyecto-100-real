@@ -5,6 +5,9 @@
 #include <string.h>
 #include "list.h"
 #include "hashmap.h"
+<<<<<<< HEAD
+#include "estructuras.h"
+=======
 
 typedef struct List List;
 
@@ -49,6 +52,7 @@ typedef struct{
 typedef struct{
   HashMap *nodos;
 } Grafo;
+>>>>>>> 2c8fa1a6d62610d8b7f7cd579d8e1a578c7e0e3c
 
 Grafo* createGrafo(){
   HashMap *nodos = createMap(50);
