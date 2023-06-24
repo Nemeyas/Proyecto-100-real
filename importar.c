@@ -1,5 +1,3 @@
-/*
-
 #include <assert.h>
 #include <stdbool.h>
 #include <stdio.h>
@@ -7,6 +5,8 @@
 #include <string.h>
 #include "list.h"
 #include "estructuras.h"
+#include "hashmap.h"
+#include "importar.h"
 
 const char *get_csv_field (char * tmp, int k) {
     int open_mark = 0;
@@ -52,14 +52,15 @@ void escribir(FILE *Historia, char *aux){
 
 }
 
-void importarHistoria(Grafo *g,FILE *archivo){
+void importarDatos(Grafo *g, char *archivoName){
+  FILE *archivo = fopen(archivoName, "r");
   char linea[1300];
   char *aux;
   int i, CantNodos;
   while(fgets(linea, 1024, archivo) != NULL){ //Se leen todas las lineas en orden
     Node *nodo = (Node *) malloc (sizeof(Node));
     for(i = 0 ; i < 7 ; i++){//Se realizan 7 ciclos para permitir que se realizen las suficientes operaciones(6 valores en el struct)
-      if (i != 6) aux = get_csv_field(linea, i); //aux se convierte en la linea de caracteres i-esima para rellenar el valor correspondiente.
+      if (i != 6) strcpy(aux, get_csv_field(linea, i)); //aux se convierte en la linea de caracteres i-esima para rellenar el valor correspondiente.
       if(i == 0){
         strcpy(nodo->ID, aux);
       }
@@ -81,11 +82,11 @@ void importarHistoria(Grafo *g,FILE *archivo){
         nodo->restriccion.vidaNecesaria = atoi(aux);
       } 
       if(i == 6){
-        /*FILE *Historia;
-        fopen(Historia, "w");
-        escribir(Historia, aux);
-        nodo->Historia = Historia;
-        fclose(Historia);
+        //FILE *Historia;
+        //fopen(Historia, "w");
+        //escribir(Historia, aux);
+        //nodo->Historia = Historia;
+        //fclose(Historia);
       }
     }
     insertMap(g->nodos, nodo->ID, nodo);
@@ -93,13 +94,14 @@ void importarHistoria(Grafo *g,FILE *archivo){
   fclose(archivo);
 }
 
-void importarDatos(){
+void importarHistoria(){
 
 }
 
 void importarArchivos(){
-  fopen("historia.csv", "r");
   Grafo *grafo = createGrafo();
+  importarDatos(grafo, "historia.csv");
+  /*
   FILE *archivo = fopen('sucesos.csv',"rt");
   if (archivo == NULL) {
   printf("* Error al abrir el archivo.\n");
@@ -130,4 +132,5 @@ void importarArchivos(){
   } else{
   importar(grafo, archivo);
   }
-}*/
+  */
+}
