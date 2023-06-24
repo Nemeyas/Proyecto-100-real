@@ -98,9 +98,8 @@ void importarHistoria(){
 
 }
 
-void importarArchivos(){
-  Grafo *grafo = createGrafo();
-  importarDatos(grafo, "historia.csv");
+void importarArchivos(Grafo *g){
+  importarDatos(g, "historia.csv");
   /*
   FILE *archivo = fopen('sucesos.csv',"rt");
   if (archivo == NULL) {

@@ -163,7 +163,7 @@ void InventarioSUB(jugador *jug, int incremento) {
 int main(void) {
   int seleccion=0;
   Grafo* g = createGrafo();
-  //importarArchivos();
+  importarArchivos(g);
 
   Node* nodo1 = (Node *) malloc (sizeof(Node));
   strcpy(nodo1->ID,"nodo inicial");
