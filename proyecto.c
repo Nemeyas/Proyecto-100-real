@@ -10,6 +10,7 @@
 #include "fight.c"
 #include "hashmap.h"
 #include "list.h"
+#include "importar.h"
 #define Barra "------------"
 #define BARRA "-------------------------------------------------------"
 
@@ -72,8 +73,8 @@ int seleccionador2(Grafo*g, Node* nodo, jugador* player){
     if(cambiarOpcion(&option)) break;
   }
 
-  char codigoSiguienteNodo = nodo->adjNode[option];
-  nodo = searchMap(g->nodos,codigoSiguienteNodo);
+  //char codigoSiguienteNodo = nodo->adjNode[option];
+  //nodo = searchMap(g->nodos,codigoSiguienteNodo);
   return 0;
 }
 //hasta aqui
@@ -186,7 +187,7 @@ int main(void) {
   insertMap(g->nodos, nodo2->ID, nodo2);
   insertMap(g->nodos, nodo3->ID, nodo3);
 
-  Node *nodoActual= (Node*) (searchMap(g->nodos,"nodo inicial"))->value;
+  Node *nodoActual = (searchMap(g->nodos,"nodo inicial"));
   //Pair *a=firstMap(nodoActual);
   jugador *player;
 
@@ -199,21 +200,21 @@ int main(void) {
 
       if(strcmp(nodoActual->TipoHistoria,"pause")){
         printf(nodoActual->TipoHistoria);
-        system('pause');
+        //system('pause');
       }
       if(strcmp(nodoActual->TipoHistoria,"fight")){
-        jugador *enemy = leerEnemigo(enemy);
-        fight(enemy, player);
+        //jugador *enemy = leerEnemigo(enemy);
+        //fight(enemy, player);
       }
       if(strcmp(nodoActual->TipoHistoria,"choice")){
         break;
       }
-      if(strcmp(nodoActual->TipoHistoria, 'End')){
+      if(strcmp(nodoActual->TipoHistoria, "End")){
         //funcionFinal();
         return 0;
       }
     }
-    seleccionador2(g->nodos, nodoActual, player);
+    seleccionador2(g, nodoActual, player);
     //opcionEscogida = seleccionador(e)
     //codigoSiguienteNodo = nodoActual->adjNode[opcionEscogida];
     //nodoActual = searchMap(,codigoSiguienteNodo);

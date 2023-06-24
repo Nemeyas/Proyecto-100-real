@@ -4,27 +4,32 @@
 typedef struct List List;
 typedef struct HashMap HashMap;
 
-typedef struct {
+typedef struct act{
   int vida;
   int fuerza;
   List* itemBorrar;
-}act;
+} act;
 
 typedef struct res{
   int opcion;
   int fuerzaNecesaria;
   int vidaNecesaria;
-}res;
+} res;
 
 typedef struct Node{
-  char ID[25];
-  char TipoHistoria[1300];
-  List * tiposHistorias; //pushback("Historia 1"), pushback("Historia 2")
+  char ID[10];
+  char TipoHistoria[10];
+  FILE *Historia;
+  //List *sucesos;
   act accion;
   int cantNodos;
   res restriccion;
-  char adjNode[4][25]; //Segun la opción ecogida se recorre la lista tantas veces como lo que indique la opción  
-}Node;
+  List* adjNode;  
+} Node;
+
+typedef struct Grafo{
+  HashMap *nodos;
+} Grafo;
 
 typedef struct estadisticas{
   int fuerza;
@@ -33,20 +38,15 @@ typedef struct estadisticas{
 
 typedef struct inve{
   char item[21];
-  int size;
-}inve;
+} inve;
 
 typedef struct jugador{
   char nombre[10];
   inve *inventario;
   estadisticas stats;
-}jugador;
+} jugador;
 
-typedef struct Grafo{
-  HashMap *nodos;
-}Grafo;
-
-Grafo * createGrafo();
+Grafo* createGrafo();
 
 void agregarNodo(Grafo *grafo, Node *n);
 

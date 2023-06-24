@@ -5,54 +5,17 @@
 #include <string.h>
 #include "list.h"
 #include "hashmap.h"
-<<<<<<< HEAD
+//<<<<<<< HEAD
 #include "estructuras.h"
-=======
 
 typedef struct List List;
-
-typedef struct {
-  int vida;
-  int fuerza;
-  List* itemBorrar;
-} act;
-
-typedef struct {
-  int opcion;
-  int fuerzaNecesaria;
-  int vidaNecesaria;
-} res;
-
-struct Node{
-  char ID[10];
-  char TipoHistoria[10];
-  FILE *Historia;
-  //List *sucesos;
-  //act accion;
-  int cantNodos;
-  res restriccion;
-  List* adjNode;  
-};
-
-typedef struct{
-  int fuerza;
-  int salud;
-}estadisticas;
-
-typedef struct{
-  char item[21];
-} inve;
-
-typedef struct{
-  char nombre[10];
-  inve *inventario;
-  estadisticas stats;
-} jugador;
-
-typedef struct{
-  HashMap *nodos;
-} Grafo;
->>>>>>> 2c8fa1a6d62610d8b7f7cd579d8e1a578c7e0e3c
+typedef struct Node Node;
+typedef struct Grafo Grafo;
+typedef struct res res;
+typedef struct act act;
+typedef struct estadisticas estadisticas;
+typedef struct inve inve;
+typedef struct jugador jugador;
 
 Grafo* createGrafo(){
   HashMap *nodos = createMap(50);
