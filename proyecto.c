@@ -54,18 +54,18 @@ void subrutina(){
     gotoxy(10, 12); system("pause");
 }
 
-int seleccionador2(Grafo*g, Node* nodo, jugador* player){
+/*int seleccionador2(Grafo*g, Node* nodo, jugador* player){
   int option = 0;
   GetAllKeys();
   gotoxy(0,3);
   for(int i=0; i<nodo->cantNodos;i++){
     printf("  %s\n", nodo->adjNode[i]);
   }
-  /*
+  
   
   -->  Tomar un tenedor
   
-  */
+  
   while(true){
     limpiarFlecha(0, 3, nodo->cantNodos);
     formatearOpcion(&option, nodo->cantNodos);
@@ -76,7 +76,7 @@ int seleccionador2(Grafo*g, Node* nodo, jugador* player){
   //char codigoSiguienteNodo = nodo->adjNode[option];
   //nodo = searchMap(g->nodos,codigoSiguienteNodo);
   return 0;
-}
+}*/
 //hasta aqui
 
 void mostrarMenu(){
@@ -167,21 +167,21 @@ int main(void) {
 
   Node* nodo1 = (Node *) malloc (sizeof(Node));
   strcpy(nodo1->ID,"nodo inicial");
-  nodo1->tiposHistorias = createList();
-  pushBack(nodo1->tiposHistorias,"hola\n");
-  pushBack(nodo1->tiposHistorias,"pause");
-  pushBack(nodo1->tiposHistorias,"como estan");
-  pushBack(nodo1->tiposHistorias,"choice");
+  /*nodo1->TipoHistoria = createList();
+  pushBack(nodo1->TipoHistoria,"hola\n");
+  pushBack(nodo1->TipoHistoria,"pause");
+  pushBack(nodo1->TipoHistoria,"como estan");
+  pushBack(nodo1->TipoHistoria,"choice");
   nodo1->cantNodos = 2;
-
+*/
   Node* nodo2 = (Node *) malloc (sizeof(Node));
   strcpy(nodo2->ID,"nodo 2");
 
   Node* nodo3 = (Node *) malloc (sizeof(Node));
   strcpy(nodo3->ID,"nodo 3");
 
-  strcpy(nodo1->adjNode[0],nodo2->ID);
-  strcpy(nodo1->adjNode[1],nodo3->ID);
+  //strcpy(nodo1->adjNode[0],nodo2->ID);
+  //strcpy(nodo1->adjNode[1],nodo3->ID);
 
   insertMap(g->nodos, nodo1->ID, nodo1);
   insertMap(g->nodos, nodo2->ID, nodo2);
@@ -214,7 +214,7 @@ int main(void) {
         return 0;
       }
     }
-    seleccionador2(g, nodoActual, player);
+    //seleccionador2(g, nodoActual, player);
     //opcionEscogida = seleccionador(e)
     //codigoSiguienteNodo = nodoActual->adjNode[opcionEscogida];
     //nodoActual = searchMap(,codigoSiguienteNodo);
