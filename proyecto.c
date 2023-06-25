@@ -7,7 +7,7 @@
 
 #include "estructuras.h"
 #include "gotoxy.h"
-//#include "fight.c"
+#include "fight.c"
 #include "hashmap.h"
 #include "list.h"
 #define Barra "------------"
