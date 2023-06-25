@@ -155,14 +155,13 @@ Lo metes a tu celda y se te ocurre la idea de cambiar tu ropa por la del guardia
 
 /*2*/ Al subir por el ducto empiezas a gatear, mas adelante te encuentras con la celda de un conocido tuyo y puedes bajar a su celda para escapar con el <(Bajar a la celda)> ; <(Continuar)>
 
-  */2.1*/ Al bajar saludas felizmente a tu amigo, pero justo pasa un guardia por en frente de la celda, el cual entra para golpearlos y separarlos (Compañero añadido)
-  (Sistema de combate, en este paso se ira verificando si vida == 0 game_Over()), has ganado el combate (Agregamos a su inventario una Luma Policial, Sube de nivel), sin perder el 
-  tiepo tu compañero y tu avanzan rapidamente por los pasillos de la carcel pero llegan a una puerta cerrada, tendran que encontrar la llave. Uno de los prisioneros cercanos 
+  */2.1*/ Al bajar saludas felizmente a tu amigo, pero justo pasa un guardia por en frente de la celda, el cual entra para golpearlos y separarlos, tu compañero se sacrifica por ti 
+  y logra derrumbar al guardia, pero el muere, por lo qeu tomas el arma del guardia y más decidido que nunca emprendes tu escape, (Agregamos a su inventario una Luma Policial, Sube de nivel),
+  sin perder el tiepo avanzanzas rapidamente por los pasillos de la carcel pero llegas a una puerta cerrada, tendras que encontrar la llave. Uno de los prisioneros cercanos 
   te menciona que la llave la tiene el "jefe de piso", el cual se distinge por una cinta en su hombro, al cual tendras que encontrar y robarle la llave. 
   <(Ir a buscar al jefe directamente)> ; <(Recaudar informacion con los prisioneros)>
 
-  Pasa lo mismo, pero en plural (Sistema de comabte si vida = 0 game_Over())(si vida(comp) == 0 Muerte_Comp(xd))
-
+  Pasa lo mismo, pero en plural (Sistema de comabte si vida = 0 game_Over())
   Fin
 
    
