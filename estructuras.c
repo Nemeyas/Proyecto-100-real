@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #include <assert.h>
 #include <stdbool.h>
 #include <stdio.h>
@@ -6,35 +5,6 @@
 #include <string.h>
 #include "list.h"
 #include "hashmap.h"
-#include "estructuras.h"
-
-Grafo* createGrafo(){
-  HashMap *nodos = createMap(50);
-  Grafo *grafo = (Grafo*)malloc(sizeof(Grafo));
-  grafo->nodos = nodos;
-  return grafo;
-}
-
-void agregarNodo(Grafo *grafo, Node *n){
-  insertMap(grafo->nodos, n->ID, n);
-  return;
-}
-
-void registrar(jugador *a, char *name){
-  a = (jugador*)malloc(sizeof(jugador));
-  strcpy(a -> nombre, name);
-  a->inventario = (inve*)malloc(2 * sizeof(inve)); 
-  a->stats.fuerza = 0; 
-  a->stats.salud = 20; 
-=======
-#include <assert.h>
-#include <stdbool.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include "list.h"
-#include "hashmap.h"
-//<<<<<<< HEAD
 #include "estructuras.h"
 
 typedef struct List List;
@@ -64,5 +34,4 @@ void registrar(jugador *a, char *name){
   a->inventario = (inve*)malloc(2 * sizeof(inve)); 
   a->stats.fuerza = 0; 
   a->stats.salud = 20; 
->>>>>>> 1f7e8520021db94942f29e078bf9a69234f97ea4
 }
