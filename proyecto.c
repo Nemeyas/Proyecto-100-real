@@ -4,10 +4,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <windows.h>
-
 #include "estructuras.h"
 #include "gotoxy.h"
-#include "fight.c"
+//#include "fight.c"
 #include "hashmap.h"
 #include "list.h"
 #include "importar.h"
@@ -160,10 +159,12 @@ void InventarioSUB(jugador *jug, int incremento) {
 }
 
 
-int main(void) {
+int main() {
+  printf("a");
   int seleccion=0;
   Grafo* g = createGrafo();
   importarArchivos(g);
+  mostrarMenu();
 
   Node* nodo1 = (Node *) malloc (sizeof(Node));
   strcpy(nodo1->ID,"nodo inicial");
@@ -195,7 +196,7 @@ int main(void) {
   leerNombre(nombre);
   registrar(player, nombre);
   
-  while(true){ //Actualizar nodos
+  /*while(true){ //Actualizar nodos
     while(true){ //Escribir historias
 
       if(strcmp(nodoActual->TipoHistoria,"pause")){
@@ -222,7 +223,7 @@ int main(void) {
     //--------------//
     //nodoActual = seleccionador(g->nodos, nodoActual, player);
     //a=nextMap(g -> nodos );
-  }
+  }*/
   
   /*GetAllKeys();
   ocultarCursor();
