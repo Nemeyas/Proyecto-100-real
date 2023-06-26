@@ -33,9 +33,8 @@ int seleccionadorInv(int opciones, inve *inventario){
   int option = 0;
   GetAllKeys();
   
-  gotoxy(0,3);
   for(int i=0; i<opciones ;i++){
-    printf (" y el merluso callambim bombim     %s", inventario[i].item);
+    gotoxy(0,3+i*3);printf (" y el merluso callambim bombim     %s", inventario[i].item);
   }
 
   while(true){
