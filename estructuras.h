@@ -7,23 +7,24 @@ typedef struct HashMap HashMap;
 typedef struct {
   int vida;
   int fuerza;
-  List* itemBorrar;
+  char itemBorrar[30];
 }act;
 
 typedef struct res{
   int opcion;
   int fuerzaNecesaria;
   int vidaNecesaria;
+  char itemNecesario[30];
 }res;
 
 typedef struct Node{
   char ID[25];
   char TipoHistoria[1300];
   List * tiposHistorias; //pushback("Historia 1"), pushback("Historia 2")
-  act accion;
+  act *accion;
   int cantNodos;
   res restriccion;
-  char adjNode[4][25]; //Segun la opción ecogida se recorre la lista tantas veces como lo que indique la opción  
+  char adjNode[4][25]; //Segun la opción ecogida se recorre la lista tantas veces como lo que indique la opción
 }Node;
 
 typedef struct estadisticas{
@@ -33,12 +34,12 @@ typedef struct estadisticas{
 
 typedef struct inve{
   char item[21];
-  int size;
 }inve;
 
 typedef struct jugador{
   char nombre[10];
   inve *inventario;
+  int size;
   estadisticas stats;
 }jugador;
 

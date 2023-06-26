@@ -33,6 +33,7 @@ void GetAllKeys(){
     GetAsyncKeyState(VK_RIGHT);
     GetAsyncKeyState(VK_LEFT);
     GetAsyncKeyState(VK_RETURN);
+    GetAsyncKeyState(VK_ESCAPE);
 }
 
 

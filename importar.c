@@ -49,7 +49,6 @@ const char *get_csv_field (char * tmp, int k) {
 
 void escribir(FILE *Historia, char *aux){
 
-
 }
 
 void importarDatos(Grafo *g, char *archivoName){
@@ -60,16 +59,16 @@ void importarDatos(Grafo *g, char *archivoName){
   while(fgets(linea, 1024, archivo) != NULL){ //Se leen todas las lineas en orden
     Node *nodo = (Node *) malloc (sizeof(Node));
     for(i = 0 ; i < 7 ; i++){//Se realizan 7 ciclos para permitir que se realizen las suficientes operaciones(6 valores en el struct)
-      if (i != 6) strcpy(aux, get_csv_field(linea, i)); //aux se convierte en la linea de caracteres i-esima para rellenar el valor correspondiente.
+      if (i != 6) aux = get_csv_field(linea, i); //aux se convierte en la linea de caracteres i-esima para rellenar el valor correspondiente.
+      //ruta1. 2. ruta3. ruta4. 12. 32.
+      searchMap(map, key);
+
       if(i == 0){
+        
         strcpy(nodo->ID, aux);
       }
       if(i == 1){
         strcpy(nodo->TipoHistoria, aux);
-      }
-      if(i == 2){ 
-        CantNodos = atoi(aux);
-        nodo->cantNodos = CantNodos;
       }
       if(i == 3){
         res *restricciones = (res *) malloc (sizeof(res));
@@ -80,6 +79,16 @@ void importarDatos(Grafo *g, char *archivoName){
       }
       if(i == 5){
         nodo->restriccion.vidaNecesaria = atoi(aux);
+      }
+      if(i == 5){ 
+        CantNodos = atoi(aux);
+        nodo->cantNodos = CantNodos;
+      }
+      if(i == 6){ 
+        for(int a=0; a<CantNodos; a++){
+          char *aux2=get_csv_field(linea, a+i);
+          if(aux2 != NULL) strcpy(nodo->adjNode[i],aux2);
+        }
       } 
       if(i == 6){
         //FILE *Historia;
@@ -94,8 +103,23 @@ void importarDatos(Grafo *g, char *archivoName){
   fclose(archivo);
 }
 
-void importarHistoria(){
-
+void importarLore(Grafo *g, char *archivoName){
+  FILE *archivo = fopen(archivoName, "r");
+  char linea[1024];
+  char *aux;
+  int i, CantNodos;
+  while(fgets(linea, 1024, archivo) != NULL){
+    Node *nodo = (Node *) malloc (sizeof(Node));
+    for( int i = 0 ; i < 2 ; i++){
+      strcpy(aux, get_csv_field(linea, i));
+      if(i == 0 ){
+        strcpy(nodo->ID, aux);
+      }
+      if (i == 1){
+        strcpy(nodo->TipoHistoria, aux);
+      }
+    }
+  }
 }
 
 void importarArchivos(Grafo *g){

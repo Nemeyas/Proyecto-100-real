@@ -54,27 +54,56 @@ void subrutina(){
     gotoxy(10, 12); system("pause");
 }
 
-/*int seleccionador2(Grafo*g, Node* nodo, jugador* player){
-  int option = 0;
-  GetAllKeys();
-  gotoxy(0,3);
-  for(int i=0; i<nodo->cantNodos;i++){
-    printf("  %s\n", nodo->adjNode[i]);
+bool ValidarNodo(Node *n, jugador *player){
+  if(player->stats.salud < n->restriccion.vidaNecesaria){
+      system("cls");
+      printf("Podrias morir si haces esto\n");
+      system("pause");
+      return false;
   }
-  
-  
-  -->  Tomar un tenedor
-  
-  
-  while(true){
-    limpiarFlecha(0, 3, nodo->cantNodos);
-    formatearOpcion(&option, nodo->cantNodos);
-    ubicarFlecha(0, 3, option);
-    if(cambiarOpcion(&option)) break;
+  if(player->stats.fuerza < n->restriccion.fuerzaNecesaria){
+    system("cls");
+    printf("No tienes la fuerza necesaria para hacer esto\n");
+    system("pause");
+    return false;
   }
+  for(int i=0; i<player->size; i++){
+    if(strcmp(player->inventario[i].item,n->restriccion.itemNecesario) == 0){
+      system("cls");
+      return true;
+    }
+  }
+  printf("No tienes el item %s necesario para esta accion\n", n->restriccion.itemNecesario);
+  system("pause");
+  return false;
+}
 
-  //char codigoSiguienteNodo = nodo->adjNode[option];
-  //nodo = searchMap(g->nodos,codigoSiguienteNodo);
+/*int seleccionador2(Grafo*g, Node* nodo, jugador* player){
+  do{
+    int option = 0;
+    GetAllKeys();
+    gotoxy(0,3);
+    for(int i=0; i<nodo->cantNodos;i++){
+      printf("  %s\n", nodo->adjNode[i]);
+    }
+    
+    
+    -->  Tomar un tenedor
+    
+    
+    while(true){
+      limpiarFlecha(0, 3, nodo->cantNodos);
+      formatearOpcion(&option, nodo->cantNodos);
+      ubicarFlecha(0, 3, option);
+      if(cambiarOpcion(&option)) break;
+    }
+
+    //char codigoSiguienteNodo = nodo->adjNode[option];
+    //nodo = searchMap(g->nodos,codigoSiguienteNodo);
+    if(ValidarNodo){
+      break;
+    }
+  }while(true);
   return 0;
 }*/
 //hasta aqui
@@ -86,35 +115,34 @@ void mostrarMenu(){
 
     system("cls");
 
-  puts(BARRA);
-  printf("            PUCV PRISION ESCAPE SIMULATOR\n");
-  puts(BARRA);
-  printf("     Comenzar\n");
-  puts(BARRA);
-  printf("\n");
-  printf("     Cargar Partida\n");
-  puts(BARRA);
-  printf("\n");
-  printf("     Salir\n");
-  puts(BARRA);
-  while(true){
-    limpiarFlecha(0, 3, 3);
-    formatearOpcion(&option, 3);
-    ubicarFlecha(0, 3, option);
-    if(cambiarOpcion(&option)) break;
-  }
-  switch (option)
-        {
-        case 0: 
-            return; //Salir del menu
-        case 1:
-            subrutina();
-            break; //Realizar subrutinas dentro del mismo menu
-        case 2: 
-            system("cls");
-            printf("Adios");
-            exit(0); //Salir del programa
-        } 
+    puts(BARRA);
+    printf("            PUCV PRISION ESCAPE SIMULATOR\n");
+    puts(BARRA);
+    printf("     Comenzar\n");
+    puts(BARRA);
+    printf("\n");
+    printf("     Cargar Partida\n");
+    puts(BARRA);
+    printf("\n");
+    printf("     Salir\n");
+    puts(BARRA);
+    while(true){
+      limpiarFlecha(0, 3, 3);
+      formatearOpcion(&option, 3);
+      ubicarFlecha(0, 3, option);
+      if(cambiarOpcion(&option)) break;
+    }
+    switch (option){
+      case 0: 
+        return; //Salir del menu
+      case 1:
+        subrutina();
+        break; //Realizar subrutinas dentro del mismo menu
+      case 2: 
+        system("cls");
+        printf("Adios");
+        exit(0); //Salir del programa
+    } 
   }
 }
 
@@ -144,11 +172,11 @@ void subirNivel(estadisticas *stats, int opcion) {
 
 void agregarItem(jugador *jug, char *nombreItem) {
   int i;
-  for (i = 0; i < 2; i++) {
+  for (i = 0; i < 2; i++){
     if (strcmp(jug->inventario[i].item, "") == 0) {
       strcpy(jug->inventario[i].item, nombreItem);
       printf("Se ha agregado el item '%s' al inventario.\n", nombreItem);
-      exit;
+      return;
     }
   }
   printf("El inventario esta lleno. No se puede agregar el item '%s'.\n", nombreItem);
@@ -197,10 +225,13 @@ int main(void) {
   
   while(true){ //Actualizar nodos
     while(true){ //Escribir historias
-
+      if(GetAsyncKeyState(VK_ESCAPE)){
+        menuDelJuego();
+      }
       if(strcmp(nodoActual->TipoHistoria,"pause")){
         printf(nodoActual->TipoHistoria);
         //system('pause');
+        system("cls");
       }
       if(strcmp(nodoActual->TipoHistoria,"fight")){
         //jugador *enemy = leerEnemigo(enemy);
@@ -258,6 +289,9 @@ si pasa entonces,
 se aplican acciones...
 }
 
-
-
+esto en el pseint no pasaba :v
+sexo online porfavor
+visual qlo me tiene los huevos hinchados wn, pseint good y el resto de weas son una mierda uwu
 se actualiza al nodo actual
+don omar
+*/
