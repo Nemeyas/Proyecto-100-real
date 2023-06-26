@@ -1,2 +1,5 @@
-ID. accionVida. accionFuerza. accionItem. restOpcion. restVida. restfuerza. restItem. cantNodos. nodosAdj
-ruta1,20,10,llave,,2,ruta7,ruta8
+ID, accionVida, accionFuerza, accionItem, restVida, restfuerza, restItem, cantNodos, nodosAdj
+ruta1,0,0,,0,0,0,2,no hacer nada,hacer algo
+no hacer nada,0,0,,0,0,0,1,jugar fortnite
+hacer algo,0,0,,0,0,0,1,
+jugar fortnite,0,0,,0,0,0,0,

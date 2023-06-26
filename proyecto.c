@@ -22,17 +22,12 @@ void limpiarFlecha(int x, int y, int cantOpciones){
     }
 }
 
-void formatearOpcion(int* opcion, int cantOpciones){
-    *opcion = *opcion % cantOpciones;
-    if(*opcion < 0) *opcion = 3 + *opcion;
-}
-
 void ubicarFlecha(int x, int y, int opcion){
     gotoxy(x, y + opcion*3);
     printf("-->");
 }
 
-bool cambiarOpcion(int * opcion){
+bool cambiarOpcion(int * opcion, int cantOpciones){
     Sleep(250);
     if( GetAsyncKeyState(VK_UP) ){
         *opcion -= 1;
@@ -43,6 +38,9 @@ bool cambiarOpcion(int * opcion){
     if( GetAsyncKeyState(VK_RETURN) ){
         return true;
     }
+   
+    if(*opcion < 0) *opcion = cantOpciones + *opcion;
+    *opcion = *opcion % cantOpciones;
     return false;
 }
 
@@ -78,34 +76,39 @@ bool ValidarNodo(Node *n, jugador *player){
   return false;
 }
 
-/*int seleccionador2(Grafo*g, Node* nodo, jugador* player){
+Node *seleccionador2(Grafo*g, Node* nodo, jugador* player){
+  Node *no2 = NULL;
   do{
     int option = 0;
     GetAllKeys();
-    gotoxy(0,3);
     for(int i=0; i<nodo->cantNodos;i++){
-      printf("  %s\n", nodo->adjNode[i]);
+      gotoxy(0,3+i*3); printf("    %s", nodo->adjNode[i]);
     }
-    
-    
-    -->  Tomar un tenedor
-    
-    
     while(true){
       limpiarFlecha(0, 3, nodo->cantNodos);
-      formatearOpcion(&option, nodo->cantNodos);
       ubicarFlecha(0, 3, option);
-      if(cambiarOpcion(&option)) break;
+      if(cambiarOpcion(&option,nodo->cantNodos)) break;
     }
 
-    //char codigoSiguienteNodo = nodo->adjNode[option];
-    //nodo = searchMap(g->nodos,codigoSiguienteNodo);
-    if(ValidarNodo){
+    char *codigoSiguienteNodo = nodo->adjNode[option];
+    //system("cls");
+    //printf("...%s...\n", codigoSiguienteNodo);
+    no2 = searchMap(g->nodos,codigoSiguienteNodo);
+    //printf("....%s....", no2->ID);
+    //printf("%s ", no2->ID);
+    /*char *a = firstList(no2->tiposHistorias);
+    while (a){
+       printf("%s\n", a);
+       a=nextList(no2->tiposHistorias);
+    }
+    
+    system("pause");*/
+    if(ValidarNodo(no2, player)){
       break;
     }
   }while(true);
-  return 0;
-}*/
+  return no2;
+}
 //hasta aqui
 
 void mostrarMenu(){
@@ -128,9 +131,8 @@ void mostrarMenu(){
     puts(BARRA);
     while(true){
       limpiarFlecha(0, 3, 3);
-      formatearOpcion(&option, 3);
       ubicarFlecha(0, 3, option);
-      if(cambiarOpcion(&option)) break;
+      if(cambiarOpcion(&option, 3)) break;
     }
     switch (option){
       case 0: 
@@ -189,72 +191,56 @@ void InventarioSUB(jugador *jug, int incremento) {
 
 
 int main(void) {
+  printf("Hola\n");
   int seleccion=0;
   Grafo* g = createGrafo();
   importarArchivos(g);
-
-  Node* nodo1 = (Node *) malloc (sizeof(Node));
-  strcpy(nodo1->ID,"nodo inicial");
-  /*nodo1->TipoHistoria = createList();
-  pushBack(nodo1->TipoHistoria,"hola\n");
-  pushBack(nodo1->TipoHistoria,"pause");
-  pushBack(nodo1->TipoHistoria,"como estan");
-  pushBack(nodo1->TipoHistoria,"choice");
-  nodo1->cantNodos = 2;
-*/
-  Node* nodo2 = (Node *) malloc (sizeof(Node));
-  strcpy(nodo2->ID,"nodo 2");
-
-  Node* nodo3 = (Node *) malloc (sizeof(Node));
-  strcpy(nodo3->ID,"nodo 3");
-
-  //strcpy(nodo1->adjNode[0],nodo2->ID);
-  //strcpy(nodo1->adjNode[1],nodo3->ID);
-
-  insertMap(g->nodos, nodo1->ID, nodo1);
-  insertMap(g->nodos, nodo2->ID, nodo2);
-  insertMap(g->nodos, nodo3->ID, nodo3);
-
-  Node *nodoActual = (searchMap(g->nodos,"nodo inicial"));
+  system("pause");
+  mostrarMenu();
+  system("cls");
+  Node *nodoActual = (searchMap(g->nodos, "ruta1"));
   //Pair *a=firstMap(nodoActual);
   jugador *player;
 
   char nombre[16];
   leerNombre(nombre);
   registrar(player, nombre);
-  
   while(true){ //Actualizar nodos
+    //printf("%s ", nodoActual->ID);
+    char *a = firstList(nodoActual->tiposHistorias);
+    //printf("%s\n", a);
+    //system("pause");
     while(true){ //Escribir historias
       if(GetAsyncKeyState(VK_ESCAPE)){
-        menuDelJuego();
+        //menuDelJuego();
       }
-      if(strcmp(nodoActual->TipoHistoria,"pause")){
-        printf(nodoActual->TipoHistoria);
-        //system('pause');
+      else if(strcmp(a,"pause")==0){
+        system("pause");
         system("cls");
       }
-      if(strcmp(nodoActual->TipoHistoria,"fight")){
+      else if(strcmp(a,"fight")==0){
         //jugador *enemy = leerEnemigo(enemy);
         //fight(enemy, player);
       }
-      if(strcmp(nodoActual->TipoHistoria,"choice")){
+      else if(strcmp(a,"choice")==0){
         break;
       }
-      if(strcmp(nodoActual->TipoHistoria, "End")){
+      else if(strcmp(a, "End")==0){
         //funcionFinal();
         return 0;
       }
+      else{
+        printf("%s\n", a);
+      }
+      a = nextList(nodoActual->tiposHistorias);
     }
-    //seleccionador2(g, nodoActual, player);
-    //opcionEscogida = seleccionador(e)
-    //codigoSiguienteNodo = nodoActual->adjNode[opcionEscogida];
-    //nodoActual = searchMap(,codigoSiguienteNodo);
-
-    //--------------//
-    //nodoActual = seleccionador(g->nodos, nodoActual, player);
-    //a=nextMap(g -> nodos );
+    nodoActual = seleccionador2(g, nodoActual, player);
   }
-  
+
+  //--------------//
+  //nodoActual = seleccionador(g->nodos, nodoActual, player);
+  //a=nextMap(g -> nodos );
+
   /*GetAllKeys();
   ocultarCursor();
   mostrarMenu();

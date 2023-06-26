@@ -7,15 +7,6 @@
 #include "hashmap.h"
 #include "estructuras.h"
 
-typedef struct List List;
-typedef struct Node Node;
-typedef struct Grafo Grafo;
-typedef struct res res;
-typedef struct act act;
-typedef struct estadisticas estadisticas;
-typedef struct inve inve;
-typedef struct jugador jugador;
-
 Grafo* createGrafo(){
   HashMap *nodos = createMap(50);
   Grafo *grafo = (Grafo*)malloc(sizeof(Grafo));
@@ -34,4 +25,5 @@ void registrar(jugador *a, char *name){
   a->inventario = (inve*)malloc(2 * sizeof(inve)); 
   a->stats.fuerza = 0; 
   a->stats.salud = 20; 
+  a->size = 0;
 }

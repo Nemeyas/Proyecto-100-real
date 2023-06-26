@@ -1,14 +1,4 @@
-ruta1.Un maricon se comio a mi amiga¿que hago?
-ruta1.pause 
-ruta1.blabakabkabak?
-ruta1.choice
-ruta2.dhdhasdhaskjdash
-ruta2.pause
-ruta3.¿que hago?
-ruta5.Comer mierda
-ruta6.Cagarlo a tiros
-ruta7.Comes mierda y te quedas como un cuck
-ruta8.pause
-ruta9.Los matas a ambos con un escopeta caotica y pegas un griddy
-ruta10.pause.
-
+ruta1.4.Un maricon se comio a mi amiga.pause.que hago?.choice
+no hacer nada.6.bueno no se que poner.pause. mala onda. adios. que hago de nuevo?.choice
+hacer algo.4.completos italianos.pause.fortnite?.end
+jugar fortnite.4.hola buenos dias.pause.quitemos el inventario?.end

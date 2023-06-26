@@ -115,7 +115,7 @@ void eraseMap(HashMap * map,  char * key) {
   }
 }
 
-Node* searchMap(HashMap * map,  char * key) {   
+void* searchMap(HashMap * map,  char * key) {   
   int pos=hash(key,map->capacity);
 
   //en este while  recorre todo el arreglo desde la posicion del hash hasta un NULL
@@ -131,7 +131,7 @@ Node* searchMap(HashMap * map,  char * key) {
   return NULL;
 }
 
-Node * firstMap(HashMap * map) {
+void * firstMap(HashMap * map) {
   if (map->size == 0||map==NULL) {
     return NULL;
   }
@@ -149,7 +149,7 @@ Node * firstMap(HashMap * map) {
   return NULL;
 }
 
-Node* nextMap(HashMap * map) {
+void* nextMap(HashMap * map) {
  if (map == NULL || map->size == 0) {
         return NULL; //si el mapa es nulo o está vacío, no hay un siguiente par
   }
@@ -163,7 +163,7 @@ Node* nextMap(HashMap * map) {
     return NULL;
   }
   //devolver el siguiente Pair
-  Node * node = map->buckets[map->current]->value;
+  void * node = map->buckets[map->current]->value;
   return node;
 }
 

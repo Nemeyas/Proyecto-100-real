@@ -19,9 +19,8 @@ typedef struct res{
 
 typedef struct Node{
   char ID[25];
-  char TipoHistoria[1300];
   List * tiposHistorias; //pushback("Historia 1"), pushback("Historia 2")
-  act *accion;
+  act accion;
   int cantNodos;
   res restriccion;
   char adjNode[4][25]; //Segun la opción ecogida se recorre la lista tantas veces como lo que indique la opción

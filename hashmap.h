@@ -10,7 +10,6 @@
 #define HashMap_h
 
 typedef struct HashMap HashMap;
-typedef struct Node Node;
 
 typedef struct Pair {
      void * key;
@@ -30,11 +29,11 @@ void insertMap(HashMap * map, char * key, void * value);
 
 void eraseMap(HashMap * map, char * key);
 
-Node * searchMap(HashMap * map, char * key);
+void * searchMap(HashMap * map, char * key);
 
-Node * firstMap(HashMap * map);
+void * firstMap(HashMap * map);
 
-Node * nextMap(HashMap * map);
+void * nextMap(HashMap * map);
 
 void enlarge(HashMap * map);
 

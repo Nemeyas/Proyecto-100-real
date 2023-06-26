@@ -2,7 +2,5 @@
 #define importar_h
 
 void importarDatos(Grafo *g, char* archivoName);
-void importarArchivos();
-void importarHistoria();
-
+void importarArchivos(Grafo *g);
 #endif
