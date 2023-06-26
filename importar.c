@@ -102,7 +102,6 @@ void importarLore(Grafo *g, char *archivoName){
   FILE *archivo = fopen(archivoName, "r");
   char linea[1024];
   char *aux;
-  char aux2;
   int i, CantNodos;
   Node *nodo;
   while(fgets(linea, 1024, archivo) != NULL){
@@ -129,8 +128,39 @@ void importarLore(Grafo *g, char *archivoName){
   }
   fclose(archivo);
 }
+/*
+void importarImagen(Grafo *g, char *archivoName){
+  FILE *archivo = fopen(archivoName, "r");
+  char linea[1024];
+  char *aux;
+  int i, CantNodos;
+  Node *nodo;
+  while(fgets(linea, 1024, archivo) != NULL){
+    for( int i = 0 ; i < 2 ; i++){
+      aux = (char*)get_csv_field(linea, i,'.');
+      if(i == 0){
+        nodo = searchMap(g->nodos, aux);
+        printf("...%s...", nodo->ID);
+         printf("%s", aux);
+      }
+      if (i == 1){
+        int tamanio = 25;
+        while (tamanio != 0){
+          i++;
+          aux = (char*)get_csv_field(linea, i,',');
+          char *imagen = malloc(sizeof(char));
+          strcpy(imagen, aux);
+          pushBack(nodo->imagenes, imagen);
+          tamanio--;
+        }
+      }
+    }
+  }
+  fclose(archivo);
+}*/
 
 void importarArchivos(Grafo *g){
   importarDatos(g, "conexiones.csv");
   importarLore(g, "prueba.csv");
+  //importarImagen(g, "imagenes.csv");
 }

@@ -24,6 +24,7 @@ typedef struct Node{
   int cantNodos;
   res restriccion;
   char adjNode[4][25]; //Segun la opción ecogida se recorre la lista tantas veces como lo que indique la opción
+  List *imagenes;
 }Node;
 
 typedef struct estadisticas{
