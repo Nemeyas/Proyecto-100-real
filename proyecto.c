@@ -222,14 +222,42 @@ void profe(){
   printf("░░████░░████░░░░░░░░░░███░░░░░░░░░░░░░░░░░░░█████████░░░░░░░░░░░░░██░░░░░░░░░░░░░░░░░░░░░\n");
 }
 
+void save(Grafo *g, Node* nodo){
+  FILE *archivo = fopen("save.csv", "w");
+  fprintf(archivo, "%s", nodo->ID);
+  fclose(archivo);
+}
+
+int verificarArchivo(const char* nombreArchivo) {
+  FILE* archivo = fopen(nombreArchivo, "r");
+
+  fseek(archivo, 0, SEEK_END);
+  long tamano = ftell(archivo);
+
+  if (tamano == 0) {
+    fclose(archivo);
+    return 0;
+  }
+
+  fclose(archivo);
+  return 1;
+}
+
 int main(void) {
   int seleccion=0;
   Grafo* g = createGrafo();
   importarArchivos(g);
   mostrarMenu();
   system("cls");
-  Node *nodoActual = (searchMap(g->nodos, "ruta1"));
-  //Pair *a=firstMap(nodoActual);
+  Node *nodoActual;
+
+  if (verificarArchivo("save.csv")) {
+    FILE *archivo = fopen("save.csv", "r");
+    char nombre[30];
+    fscanf(archivo, "%s", nombre);
+    nodoActual = searchMap(g->nodos, nombre);
+  } else nodoActual = (searchMap(g->nodos, "ruta1"));
+
   jugador *player;
 
   char nombre[16];
