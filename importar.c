@@ -55,7 +55,7 @@ void importarDatos(Grafo *g, char *archivoName){
   fgets(linea, 1023, archivo);
   while(fgets(linea, 1023, archivo) != NULL){ //Se leen todas las lineas en orden
     Node *nodo = (Node *) malloc (sizeof(Node));
-    for(i = 0 ; i < 9 ; i++){//Se realizan 7 ciclos para permitir que se realizen las suficientes operaciones(6 valores en el struct)
+    for(i = 0 ; i < 9 ; i++){//Se realizan 9 ciclos para permitir que se realizen las suficientes operaciones(6 valores en el struct)
       aux = (char*)get_csv_field(linea, i, ','); //aux se convierte en la linea de caracteres i-esima para rellenar el valor correspondiente.
       //ruta1. 2. ruta3. ruta4. 12. 32.
       if(i == 0){
@@ -92,7 +92,7 @@ void importarDatos(Grafo *g, char *archivoName){
         }
       }
     }
-    printf("...%s...", nodo->ID);
+    //printf("...%s...", nodo->ID);
     insertMap(g->nodos, nodo->ID, nodo);
   }
   fclose(archivo);
@@ -109,8 +109,8 @@ void importarLore(Grafo *g, char *archivoName){
       aux = (char*)get_csv_field(linea, i,'.');
       if(i == 0 ){
         nodo = searchMap(g->nodos, aux);
-        printf("...%s...", nodo->ID);
-         printf("%s", aux);
+        /*printf("...%s...", nodo->ID);
+         printf("%s", aux);*/
       }
       if (i == 1){
         nodo->tiposHistorias = createList();

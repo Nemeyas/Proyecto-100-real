@@ -223,11 +223,9 @@ void profe(){
 }
 
 int main(void) {
-  printf("Hola\n");
   int seleccion=0;
   Grafo* g = createGrafo();
   importarArchivos(g);
-  system("pause");
   mostrarMenu();
   system("cls");
   Node *nodoActual = (searchMap(g->nodos, "ruta1"));
@@ -238,7 +236,7 @@ int main(void) {
   leerNombre(nombre);
   registrar(player, nombre);
   while(true){ //Actualizar nodos
-    profe();
+    //profe();
     //printf("%s ", nodoActual->ID);
     char *a = firstList(nodoActual->tiposHistorias);
     //printf("%s\n", a);
