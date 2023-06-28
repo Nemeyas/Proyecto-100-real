@@ -65,7 +65,10 @@ bool ValidarNodo(Node *n, jugador *player){
     system("pause");
     return false;
   }
-  if(strcmp(n->restriccion.itemNecesario,"0")==0) return true;
+  if(strcmp(n->restriccion.itemNecesario,"0")==0){
+    system("cls");
+    return true;
+  } 
   for(int i=0; i<player->size; i++){
     if(strcmp(player->inventario[i].item,n->restriccion.itemNecesario) == 0){
       system("cls");
@@ -83,11 +86,12 @@ Node *seleccionador2(Grafo*g, Node* nodo, jugador* player){
   do{
     int option = 0;
     GetAllKeys();
-    printf("%i",nodo->cantNodos);
+    //printf("%i",nodo->cantNodos);
     for(int i=0; i<nodo->cantNodos;i++){
       gotoxy(0,3+i*3); printf("    %s", nodo->adjNode[i]);
     }
     while(true){
+      Sleep(250);
       limpiarFlecha(0, 3, nodo->cantNodos);
       ubicarFlecha(0, 3, option);
       if(cambiarOpcion(&option,nodo->cantNodos)) break;
@@ -229,6 +233,27 @@ void profe(){
   printf("░░████░░████░░░░░░░░░░███░░░░░░░░░░░░░░░░░░░█████████░░░░░░░░░░░░░██░░░░░░░░░░░░░░░░░░░░░\n");
 }
 
+void save(Grafo *g, Node* nodo){
+  FILE *archivo = fopen("save.csv", "w");
+  fprintf(archivo, "%s", nodo->ID);
+  fclose(archivo);
+}
+
+int verificarArchivo(const char* nombreArchivo) {
+  FILE* archivo = fopen(nombreArchivo, "r");
+
+  fseek(archivo, 0, SEEK_END);
+  long tamano = ftell(archivo);
+
+  if (tamano == 0) {
+    fclose(archivo);
+    return 0;
+  }
+
+  fclose(archivo);
+  return 1;
+}
+
 int main(void) {
   int seleccion=0;
   Grafo* g = createGrafo();
@@ -245,7 +270,7 @@ int main(void) {
   largoName = strlen(nombre);
       
   while (largoName > 15 || largoName < 1) {
-    printf("Ingrese un nombre válido (hasta 15 caracteres)\n");
+    printf("Ingrese un nombre valido (hasta 15 caracteres)\n");
     scanf(" %[^\n]", nombre);
     largoName = strlen(nombre);
   }
@@ -253,11 +278,12 @@ int main(void) {
   //leerNombre(nombre);
   jugador *player = registrar(nombre);
   //agregarItem(player, "llave");
-  printf("%s \n%s ", player->nombre,  player->inventario[0]);
+  //printf("%s \n%s ", player->nombre,  player->inventario[0]);
 
   
 
   while(true){ //Actualizar nodos
+    //printf("%c \n",176);
     //profe();
     //printf("%s ", nodoActual->ID);
     char *a = firstList(nodoActual->tiposHistorias);
@@ -271,6 +297,7 @@ int main(void) {
         printf("%s", player->nombre);
       }
       else if(strcmp(a,"pause")==0){
+        printf("\n\n\n ");
         system("pause");
         system("cls");
       }
@@ -279,14 +306,18 @@ int main(void) {
         //fight(enemy, player);
       }
       else if(strcmp(a,"choice")==0){
+        
         break;
       }
       else if(strcmp(a, "End")==0){
         //funcionFinal();
         return 0;
       }
+      else if(strcmp(a,"")==0){
+        printf("\n");
+      }
       else{
-        printf("%s\n", a);
+        printf(" %s ", a);
       }
       a = nextList(nodoActual->tiposHistorias);
     }
