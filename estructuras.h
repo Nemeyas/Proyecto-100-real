@@ -18,12 +18,12 @@ typedef struct res{
 }res;
 
 typedef struct Node{
-  char ID[25];
+  char ID[100];
   List * tiposHistorias; //pushback("Historia 1"), pushback("Historia 2")
   act accion;
   int cantNodos;
   res restriccion;
-  char adjNode[4][25]; //Segun la opción ecogida se recorre la lista tantas veces como lo que indique la opción
+  char adjNode[4][100]; //Segun la opción ecogida se recorre la lista tantas veces como lo que indique la opción
   List *imagenes;
 }Node;
 
@@ -33,11 +33,11 @@ typedef struct estadisticas{
 }estadisticas;
 
 typedef struct inve{
-  char item[21];
+  char *item;
 }inve;
 
 typedef struct jugador{
-  char nombre[10];
+  char nombre[16];
   inve *inventario;
   int size;
   estadisticas stats;
@@ -51,6 +51,6 @@ Grafo * createGrafo();
 
 void agregarNodo(Grafo *grafo, Node *n);
 
-void registrar(jugador *a, char *name);
+jugador *registrar(char name[16]);
 
 #endif

@@ -1,5 +1,8 @@
 ID, accionVida, accionFuerza, accionItem, restVida, restfuerza, restItem, cantNodos, nodosAdj
-ruta1,0,0,0,0,0,0,2,no hacer nada,hacer algo
-no hacer nada,0,0,0,0,0,0,1,jugar fortnite
-hacer algo,0,0,0,0,0,0,0,
-jugar fortnite,0,0,,0,0,0,0,
+ruta1,0,0,0,0,0,0,1,Comenzar la prueba
+Comenzar la prueba,0,0,0,0,0,0,3,Correo de PUCV,Correo de Manolo,Correo de Escuela de ingenieria Informatica
+Correo de PUCV,0,0,0,0,0,0,2,Salir Inmediatamente,Seguir viendo correos
+Correo de Escuela de ingenieria Informatica,0,0,0,0,0,0,1,Comenzar la prueba
+Correo de Manolo,0,0,0,0,0,0,1,Comenzar la prueba
+Seguir viendo correos,0,0,0,0,0,0,3,Correo de Escuela de ingenieria Informatica,Correo de Manolo,Salir Inmediatamente
+Salir Inmediatamente,0,0,0,0,0,0,0

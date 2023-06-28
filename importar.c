@@ -68,7 +68,6 @@ void importarDatos(Grafo *g, char *archivoName){
         nodo->accion.fuerza = atoi(aux);
       }
       if(i == 3){
-        if(strcmp(aux,"0"))
         strcpy(nodo->accion.itemBorrar, aux);
       }
       if(i == 4){
@@ -78,7 +77,6 @@ void importarDatos(Grafo *g, char *archivoName){
         nodo->restriccion.fuerzaNecesaria = atoi(aux);
       }
       if(i == 6){
-        if(strcmp(aux,"0"))
         strcpy(nodo->restriccion.itemNecesario,aux);
       }
       if(i == 7){ 
@@ -100,11 +98,11 @@ void importarDatos(Grafo *g, char *archivoName){
 
 void importarLore(Grafo *g, char *archivoName){
   FILE *archivo = fopen(archivoName, "r");
-  char linea[1024];
+  char linea[2500];
   char *aux;
   int i, CantNodos;
   Node *nodo;
-  while(fgets(linea, 1024, archivo) != NULL){
+  while(fgets(linea, 2499, archivo) != NULL){
     for( int i = 0 ; i < 2 ; i++){
       aux = (char*)get_csv_field(linea, i,'.');
       if(i == 0 ){
@@ -118,7 +116,7 @@ void importarLore(Grafo *g, char *archivoName){
         while (cantHistorias != 0){
           i++;
           aux = (char*)get_csv_field(linea, i,'.');
-          char *historia = malloc(sizeof(char)*200);
+          char *historia = malloc(sizeof(char)*1700);
           strcpy(historia, aux);
           pushBack(nodo->tiposHistorias, historia);
           cantHistorias--;

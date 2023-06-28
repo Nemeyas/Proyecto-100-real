@@ -65,14 +65,16 @@ bool ValidarNodo(Node *n, jugador *player){
     system("pause");
     return false;
   }
+  if(strcmp(n->restriccion.itemNecesario,"0")==0) return true;
   for(int i=0; i<player->size; i++){
     if(strcmp(player->inventario[i].item,n->restriccion.itemNecesario) == 0){
       system("cls");
       return true;
-    }
+    } 
   }
   printf("No tienes el item %s necesario para esta accion\n", n->restriccion.itemNecesario);
   system("pause");
+  system("cls");
   return false;
 }
 
@@ -81,6 +83,7 @@ Node *seleccionador2(Grafo*g, Node* nodo, jugador* player){
   do{
     int option = 0;
     GetAllKeys();
+    printf("%i",nodo->cantNodos);
     for(int i=0; i<nodo->cantNodos;i++){
       gotoxy(0,3+i*3); printf("    %s", nodo->adjNode[i]);
     }
@@ -106,6 +109,7 @@ Node *seleccionador2(Grafo*g, Node* nodo, jugador* player){
     if(ValidarNodo(no2, player)){
       break;
     }
+
   }while(true);
   return no2;
 }
@@ -115,6 +119,7 @@ void mostrarMenu(){
   int option=0;
   while(true){
     GetAllKeys();
+                                                                                            
 
     system("cls");
 
@@ -173,11 +178,13 @@ void subirNivel(estadisticas *stats, int opcion) {
 }
 
 void agregarItem(jugador *jug, char *nombreItem) {
-  int i;
-  for (i = 0; i < 2; i++){
-    if (strcmp(jug->inventario[i].item, "") == 0) {
-      strcpy(jug->inventario[i].item, nombreItem);
-      printf("Se ha agregado el item '%s' al inventario.\n", nombreItem);
+  //jug->size++;
+  //jug->inventario = realloc(jug->size, sizeof(char));
+
+  for (int i = 0; i < jug->size; i++){
+    if(jug->inventario[i].item == NULL){
+      strcpy(jug->inventario[i].item,nombreItem);
+      printf("sexo online correcto\n");
       return;
     }
   }
@@ -230,11 +237,26 @@ int main(void) {
   system("cls");
   Node *nodoActual = (searchMap(g->nodos, "ruta1"));
   //Pair *a=firstMap(nodoActual);
-  jugador *player;
-
   char nombre[16];
-  leerNombre(nombre);
-  registrar(player, nombre);
+  int largoName;
+
+  printf("Ingrese el nombre del jugador\n");
+  scanf(" %[^\n]", nombre);
+  largoName = strlen(nombre);
+      
+  while (largoName > 15 || largoName < 1) {
+    printf("Ingrese un nombre válido (hasta 15 caracteres)\n");
+    scanf(" %[^\n]", nombre);
+    largoName = strlen(nombre);
+  }
+
+  //leerNombre(nombre);
+  jugador *player = registrar(nombre);
+  //agregarItem(player, "llave");
+  printf("%s \n%s ", player->nombre,  player->inventario[0]);
+
+  
+
   while(true){ //Actualizar nodos
     //profe();
     //printf("%s ", nodoActual->ID);
@@ -244,6 +266,9 @@ int main(void) {
     while(true){ //Escribir historias
       if(GetAsyncKeyState(VK_ESCAPE)){
         //menuDelJuego();
+      }
+      else if(strcmp(a,"name")==0){
+        printf("%s", player->nombre);
       }
       else if(strcmp(a,"pause")==0){
         system("pause");
