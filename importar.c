@@ -208,13 +208,16 @@ void importarSave(Grafo *g, Node *nodoActual, jugador *player){
         player->size = atoi(aux);
 
         if (player->size != 0){
-          
+          for (int j = 0 ; j < player->size ; j++){
+            i++;
+            aux = (char*)get_csv_field(linea, i, ',');
+            strcpy(player->inventario[j].item, aux);
+          }
         }
       }
     }
   }
   fclose(archivo);
-  
 }
 
 void importarArchivos(Grafo *g, HashMap *enemies){

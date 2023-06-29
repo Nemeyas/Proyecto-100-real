@@ -85,7 +85,6 @@ Node *seleccionador2(Grafo*g, Node* nodo, jugador* player){
   do{
     int option = 0;
     GetAllKeys();
-    //printf("%i",nodo->cantNodos);
     for(int i=0; i<nodo->cantNodos;i++){
       gotoxy(0,3+i*3); printf("    %s", nodo->adjNode[i]);
     }
@@ -97,18 +96,9 @@ Node *seleccionador2(Grafo*g, Node* nodo, jugador* player){
     }
 
     char *codigoSiguienteNodo = nodo->adjNode[option];
-    //system("cls");
-    //printf("...%s...\n", codigoSiguienteNodo);
     no2 = searchMap(g->nodos,codigoSiguienteNodo);
-    //printf("....%s....", no2->ID);
-    //printf("%s ", no2->ID);
-    /*char *a = firstList(no2->tiposHistorias);
-    while (a){
-       printf("%s\n", a);
-       a=nextList(no2->tiposHistorias);
-    }
     
-    system("pause");*/
+    //system("pause");
     if(ValidarNodo(no2, player)){
       break;
     }
@@ -238,7 +228,7 @@ void save(Grafo *g, Node* nodo, jugador *player){
 
   if (player->size != 0){
     for (int i = 0 ; i < player->size ; i++){
-      fprintf(",%s", player->inventario[i].item);
+      fprintf(archivo, ",%s", player->inventario[i].item);
     }
   }
   fclose(archivo);
@@ -260,6 +250,7 @@ int verificarArchivo(const char* nombreArchivo) {
 }
 
 void guardarPartida(){
+  system("cls");
   
 }
 
@@ -268,9 +259,9 @@ void SioNo(){
   GetAllKeys();
   while(true){
     system("cls");
-    gotoxy(10, 10);prinf("Estas seguro de que quieres salir del juego?");
-    gotoxy(10, 11);prinf("Si");
-    gotoxy(10, 12);prinf("No");
+    gotoxy(10, 10);printf("Estas seguro de que quieres salir del juego?");
+    gotoxy(10, 11);printf("Si");
+    gotoxy(10, 12);printf("No");
     while(true){
       limpiarFlecha(0, 3, 2);
       ubicarFlecha(0, 3, option);
@@ -280,44 +271,53 @@ void SioNo(){
       case 0: 
         system("cls");
         printf("Una pena te extrañaremos");
-        exit(0); //Realizar subrutinas dentro del mismo menu
+        exit(0);
       case 1:
         return;
     }
   }
 }
 
-void menuDelJuego(){
+void menuDelJuego(char *a, Node *n){
   int option=0;
   int option2=0;
   char respuesta[20];
   GetAllKeys();
   while(true){
     system("cls");
-    gotoxy(10, 10); printf("     Resumir");
-    gotoxy(10, 11); printf("     Guardar Partida");
-    gotoxy(10, 12); system("     Salir del juego");
+    gotoxy(8, 0); printf("MENU DE PAUSA");
+    gotoxy(6, 3); printf("Resumir");
+    gotoxy(6, 6); printf("Reiniciar partida");
+    gotoxy(6, 9); printf("Guardar Partida");
+    gotoxy(6, 12); printf("Salir");
     while(true){
-      limpiarFlecha(0, 3, 3);
+      limpiarFlecha(0, 3, 4);
       ubicarFlecha(0, 3, option);
-      if(cambiarOpcion(&option, 3)) break;
+      if(cambiarOpcion(&option, 4)) break;
     }
     switch (option){
       case 0: 
+        system("cls");
         return; //Salir del menu
       case 1:
+        system("cls");
+        a= firstList(n->tiposHistorias);
+        return;
+      case 2:
         guardarPartida();
         break; //Realizar guardado de progreso
-      case 2: 
+      case 3: 
         system("cls");
         SioNo(); //Salir del programa🗿
     } 
   }
-  
 }
 
 int main(void) {
   int seleccion=0;
+  int contador=0;
+  int contador2 = 0;
+  bool si = false;
   Grafo* g = createGrafo();
   HashMap *enemies = createMap(30);
   importarArchivos(g, enemies);
@@ -353,7 +353,22 @@ int main(void) {
     //system("pause");
     while(true){ //Escribir historias
       if(GetAsyncKeyState(VK_ESCAPE)){
-        //menuDelJuego();
+        menuDelJuego(a, nodoActual);
+        contador2 = contador;
+        a = firstList(nodoActual->tiposHistorias);
+        system("cls");
+        si = true;
+        //printf(" %s ", a);
+      }
+      else if( si == true){
+        if( contador2 == 0){
+          a = prevList(nodoActual->tiposHistorias);
+        } 
+        else{
+          for(int i = 0 ; i == contador2 ; i++){
+            a = nextList(nodoActual->tiposHistorias);
+          }
+        }
       }
       else if(strcmp(a,"name")==0){
         printf("%s", player->nombre);
@@ -368,7 +383,6 @@ int main(void) {
         //fight(player, enemy);
       }
       else if(strcmp(a,"choice")==0){
-        
         break;
       }
       else if(strcmp(a, "End")==0){
@@ -382,7 +396,14 @@ int main(void) {
         printf(" %s ", a);
       }
       a = nextList(nodoActual->tiposHistorias);
+      if( si == true){
+        a = prevList(nodoActual->tiposHistorias);
+        si = false;
+        contador--;
+      }
+      contador++;
     }
+    contador = 0;
     nodoActual = seleccionador2(g, nodoActual, player);
   }
 
