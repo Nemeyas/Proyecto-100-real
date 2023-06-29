@@ -36,6 +36,35 @@ void GetAllKeys(){
     GetAsyncKeyState(VK_ESCAPE);
 }
 
+//funciones del Nemeyas, no tocar
+void limpiarFlecha(int x, int y, int cantOpciones){
+    for(int i = 0; i < cantOpciones; i++){
+        gotoxy(x, y + i*3); 
+        printf("   ");
+    }
+}
+
+void ubicarFlecha(int x, int y, int opcion){
+    gotoxy(x, y + opcion*3);
+    printf("-->");
+}
+
+bool cambiarOpcion(int * opcion, int cantOpciones){
+    Sleep(200);
+    if( GetAsyncKeyState(VK_UP) ){
+        *opcion -= 1;
+    }
+    if( GetAsyncKeyState(VK_DOWN) ){
+        *opcion += 1;
+    }
+    if( GetAsyncKeyState(VK_RETURN) ){
+        return true;
+    }
+   
+    if(*opcion < 0) *opcion = cantOpciones + *opcion;
+    *opcion = *opcion % cantOpciones;
+    return false;
+}
 
 /*
 Colores 

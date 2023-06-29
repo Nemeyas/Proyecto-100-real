@@ -19,16 +19,6 @@ void agregarNodo(Grafo *grafo, Node *n){
   return;
 }
 
-jugador* registrar(char name[16]){
-  jugador *player = (jugador*) malloc (sizeof(jugador));
-  strcpy(player->nombre, name);
-  player->inventario = (inve*) malloc (2 * sizeof(inve)); 
-  player->stats.fuerza = 0; 
-  player->stats.salud = 20; 
-  player->size = 2;
-  return player;
-}
-
 void creditos(){
   printf("             PUCV ESCAPE PRISION SIMULATOR\n\n");
   printf("                         LOS GPT\n\n");

@@ -7,6 +7,7 @@
 #include "estructuras.h"
 #include "hashmap.h"
 #include "importar.h"
+#include "gotoxy.h"
 
 const char *get_csv_field (char * tmp, int k, char del) {
     int open_mark = 0;
@@ -45,6 +46,21 @@ const char *get_csv_field (char * tmp, int k, char del) {
     }
 
     return NULL;
+}
+
+int verificarArchivo(const char* nombreArchivo) {
+  FILE* archivo = fopen(nombreArchivo, "r");
+
+  fseek(archivo, 0, SEEK_END);
+  long tamano = ftell(archivo);
+
+  if (tamano == 0) {
+    fclose(archivo);
+    return 0;
+  }
+
+  fclose(archivo);
+  return 1;
 }
 
 void importarDatos(Grafo *g, char *archivoName){
@@ -220,9 +236,101 @@ void importarSave(Grafo *g, Node *nodoActual, jugador *player){
   fclose(archivo);
 }
 
-void importarArchivos(Grafo *g, HashMap *enemies){
+
+void subrutina(Grafo *g,Node *n, jugador *p){
+  FILE *archivo = fopen("save.csv", "r");
+  char linea[1024];
+  char *aux;
+  int i;
+  int option=0;
+  GetAllKeys();
+  while(true){
+    system("cls");
+    if(verificarArchivo("save.csv")==0){
+      printf("No hay partidas guardadas");
+      system("pause");
+      return;
+    }
+    gotoxy(6, 0);printf("Vas a continuar esta partida?");
+    while(fgets(linea, 1023, archivo) != NULL){ //Se leen todas las lineas en orden
+      for(i = 0 ; i < 2 ; i++){
+        aux = (char*)get_csv_field(linea, i, ',');
+        if(i==0){
+          gotoxy(6,3);printf("Historia: %s", aux);
+        }
+        if(i==1){
+          gotoxy(6,4);printf("Nombre: %s", aux);
+        }
+      }
+    }
+    gotoxy(6, 9);printf("Si");
+    gotoxy(6, 12);printf("No");
+    while(true){
+      limpiarFlecha(0, 6, 2);
+      ubicarFlecha(0, 9, option);
+      if(cambiarOpcion(&option, 2)) break;
+    }
+    switch (option){
+      case 0: 
+        importarSave(g,n,p);
+        printf("Partida cargada con exito");
+        gotoxy(6,20);printf(" ..%s...",p->nombre);
+        gotoxy(6,21);printf(" ......%s...",n->ID);
+        system("pause");
+        return;
+      case 1:
+        printf("Y pa que entraste?\n");
+        system("pause");
+        system("cls");
+        return;
+    }
+  }
+}
+
+void save(Grafo *g, Node* nodo, jugador *player){
+  FILE *archivo = fopen("save.csv", "w");
+  fprintf(archivo, "%s,%s,%u,%u,%u", nodo->ID, player->nombre, player->stats.salud, player->stats.fuerza, player->size);
+
+  if (player->size != 0){
+    for (int i = 0 ; i < player->size ; i++){
+      fprintf(archivo, ",%s", player->inventario[i].item);
+    }
+  }
+  fclose(archivo);
+}
+
+void guardarPartida(Grafo *g,Node *n, jugador *p){
+  int option=0;
+  GetAllKeys();
+  while(true){
+    system("cls");
+    gotoxy(6, 0);printf("Estas seguro de esto? Se sobreescribiran los datos anteriores");
+    gotoxy(6, 3);printf("Si");
+    gotoxy(6, 6);printf("No");
+    while(true){
+      limpiarFlecha(0, 3, 2);
+      ubicarFlecha(0, 3, option);
+      if(cambiarOpcion(&option, 2)) break;
+    }
+    switch (option){
+      case 0: 
+        save(g,n,p);
+        printf("Partida guardada");
+        system("pause");
+        return;
+      case 1:
+        printf("Y pa que entraste?\n");
+        system("pause");
+        system("cls");
+        return;
+    }
+  }
+}
+
+void importarArchivos(Grafo *g, HashMap *enemies, jugador *player, Node *nodoActual){
   importarDatos(g, "conexiones.csv");
   importarLore(g, "prueba.csv");
   importarEnemigos(enemies, "enemy.csv");
   //importarImagen(g, "imagenes.csv");
+
 }

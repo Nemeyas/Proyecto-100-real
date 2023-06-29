@@ -56,8 +56,6 @@ Grafo * createGrafo();
 
 void agregarNodo(Grafo *grafo, Node *n);
 
-jugador *registrar(char name[16]);
-
 void creditos();
 
 #endif

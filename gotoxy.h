@@ -9,4 +9,10 @@ void GetAllKeys();
 
 void ocultarCursor();
 
+void limpiarFlecha(int x, int y, int cantOpciones);
+
+void ubicarFlecha(int x, int y, int opcion);
+
+bool cambiarOpcion(int * opcion, int cantOpciones);
+
 #endif /* Gotoxy_h */
