@@ -4,13 +4,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include <windows.h>
-
 #include "estructuras.h"
 #include "gotoxy.h"
-#include "fight.c"
 #include "hashmap.h"
 #include "list.h"
 #include "importar.h"
+#include "fight.h"
 #define Barra "------------"
 #define BARRA "-------------------------------------------------------"
 
@@ -28,7 +27,7 @@ void ubicarFlecha(int x, int y, int opcion){
 }
 
 bool cambiarOpcion(int * opcion, int cantOpciones){
-    Sleep(250);
+    Sleep(200);
     if( GetAsyncKeyState(VK_UP) ){
         *opcion -= 1;
     }
@@ -91,7 +90,7 @@ Node *seleccionador2(Grafo*g, Node* nodo, jugador* player){
       gotoxy(0,3+i*3); printf("    %s", nodo->adjNode[i]);
     }
     while(true){
-      Sleep(250);
+      Sleep(200);
       limpiarFlecha(0, 3, nodo->cantNodos);
       ubicarFlecha(0, 3, option);
       if(cambiarOpcion(&option,nodo->cantNodos)) break;
@@ -233,9 +232,15 @@ void profe(){
   printf("░░████░░████░░░░░░░░░░███░░░░░░░░░░░░░░░░░░░█████████░░░░░░░░░░░░░██░░░░░░░░░░░░░░░░░░░░░\n");
 }
 
-void save(Grafo *g, Node* nodo){
+void save(Grafo *g, Node* nodo, jugador *player){
   FILE *archivo = fopen("save.csv", "w");
-  fprintf(archivo, "%s", nodo->ID);
+  fprintf(archivo, "%s,%s,%u,%u,%u", nodo->ID, player->nombre, player->stats.salud, player->stats.fuerza, player->size);
+
+  if (player->size != 0){
+    for (int i = 0 ; i < player->size ; i++){
+      fprintf(",%s", player->inventario[i].item);
+    }
+  }
   fclose(archivo);
 }
 
@@ -254,14 +259,71 @@ int verificarArchivo(const char* nombreArchivo) {
   return 1;
 }
 
+void guardarPartida(){
+  
+}
+
+void SioNo(){
+  int option=0;
+  GetAllKeys();
+  while(true){
+    system("cls");
+    gotoxy(10, 10);prinf("Estas seguro de que quieres salir del juego?");
+    gotoxy(10, 11);prinf("Si");
+    gotoxy(10, 12);prinf("No");
+    while(true){
+      limpiarFlecha(0, 3, 2);
+      ubicarFlecha(0, 3, option);
+      if(cambiarOpcion(&option, 2)) break;
+    }
+    switch (option){
+      case 0: 
+        system("cls");
+        printf("Una pena te extrañaremos");
+        exit(0); //Realizar subrutinas dentro del mismo menu
+      case 1:
+        return;
+    }
+  }
+}
+
+void menuDelJuego(){
+  int option=0;
+  int option2=0;
+  char respuesta[20];
+  GetAllKeys();
+  while(true){
+    system("cls");
+    gotoxy(10, 10); printf("     Resumir");
+    gotoxy(10, 11); printf("     Guardar Partida");
+    gotoxy(10, 12); system("     Salir del juego");
+    while(true){
+      limpiarFlecha(0, 3, 3);
+      ubicarFlecha(0, 3, option);
+      if(cambiarOpcion(&option, 3)) break;
+    }
+    switch (option){
+      case 0: 
+        return; //Salir del menu
+      case 1:
+        guardarPartida();
+        break; //Realizar guardado de progreso
+      case 2: 
+        system("cls");
+        SioNo(); //Salir del programa🗿
+    } 
+  }
+  
+}
+
 int main(void) {
   int seleccion=0;
   Grafo* g = createGrafo();
-  importarArchivos(g);
+  HashMap *enemies = createMap(30);
+  importarArchivos(g, enemies);
   mostrarMenu();
   system("cls");
   Node *nodoActual = (searchMap(g->nodos, "ruta1"));
-  //Pair *a=firstMap(nodoActual);
   char nombre[16];
   int largoName;
 
@@ -302,8 +364,8 @@ int main(void) {
         system("cls");
       }
       else if(strcmp(a,"fight")==0){
-        //jugador *enemy = leerEnemigo(enemy);
-        //fight(enemy, player);
+        //jugador *enemy = searchMap(enemies, nextList(nodoActual->tipoHistorias));
+        //fight(player, enemy);
       }
       else if(strcmp(a,"choice")==0){
         

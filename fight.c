@@ -3,11 +3,11 @@
 #include <stdio.h>
 #include "estructuras.h"
 #include <windows.h>
+#include <fight.h>
 #define Barra "------------"
 #define BARRA "-------------------------------------------------------"
 
 void winScreen(){
-    cls();
 }
 
 int seleccionador(int opciones){
@@ -98,7 +98,7 @@ void burlarse(){
     
 }
 
-void fight(jugador *enemy, jugador *player){
+void fight(jugador *player, jugador *enemy){
     while (enemy->stats.salud > 0 || player->stats.salud > 0){
         int accionEnemy = random(1,4);
 

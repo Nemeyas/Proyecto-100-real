@@ -28,3 +28,9 @@ jugador* registrar(char name[16]){
   player->size = 2;
   return player;
 }
+
+void creditos(){
+  printf("             PUCV ESCAPE PRISION SIMULATOR\n");
+  Printf()
+
+}

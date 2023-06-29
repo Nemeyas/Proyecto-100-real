@@ -2,7 +2,8 @@ ID, accionVida, accionFuerza, accionItem, restVida, restfuerza, restItem, cantNo
 ruta1,0,0,0,0,0,0,1,Comenzar la prueba
 Comenzar la prueba,0,0,0,0,0,0,3,Correo de PUCV,Correo de Manolo,Correo de Escuela de ingenieria Informatica
 Correo de PUCV,0,0,0,0,0,0,2,Salir Inmediatamente,Seguir viendo correos
-Correo de Escuela de ingenieria Informatica,0,0,0,0,0,0,1,Comenzar la prueba
-Correo de Manolo,0,0,0,0,0,0,1,Comenzar la prueba
+Correo de Escuela de ingenieria Informatica,0,0,0,0,0,0,1,Volver a los correos
+Correo de Manolo,0,0,0,0,0,0,1,Volver a los correos
+Volver a los correos,0,0,0,0,0,0,3,Correo de PUCV,Correo de Manolo,Correo de Escuela de ingenieria Informatica
 Seguir viendo correos,0,0,0,0,0,0,3,Correo de Escuela de ingenieria Informatica,Correo de Manolo,Salir Inmediatamente
 Salir Inmediatamente,0,0,0,0,0,0,0

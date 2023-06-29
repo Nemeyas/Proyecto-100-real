@@ -32,6 +32,45 @@ void profe(){
   printf("░░████░░████░░░░░░░░░░███░░░░░░░░░░░░░░░░░░░█████████░░░░░░░░░░░░░██░░░░░░░░░░░░░░░░░░░░░\n");
 }
 
+//Lore
+24/05/2023  (DIA DEL COMPLETO)
+Eres un estudiante de la 'prestigiosa' PUCV, hoy estas esperando la renovacion del 'CAE'
+sin embargo, al entrar al sistema, te das cuenta de que no renovaste dentro del plazo.
+En tu desesperacion por no saber que hacer y que tus padres te van a matar, acudes a la 'Casa Central',
+una vez en el lugar, te recibe una amable senorita, la cual te recuerda todos los meses que debes,
+Hola, ¿en que puedo ayudarte? <(Hola, tuve un problema con la renovacion y no se como pagar)> <(Wena po, oe devuelvan la jabonera al ibc piso 2.)>
+
+0.1<(Hola, tuve un problema con la renovacion y no se como pagar)>
+
+0.1.1 Asi veo, en el sistema figura que usted debe un total de 3 meses, lo siento pero debo llamar a los guardias.
+Al no presentar ninguna solucion de tu parte para pagar, la amable senorita llama a los guardias de seguridad,
+los cuales te meten el wuate mas exotico que tu cabeza haya podido sentir alguna vez, por lo que pierdes la conciencia
+Al despertar, estas en una prision, te encuentras muy desconcertado, no sabes que dia es ni que hora es,
+despues de unos instantes te das cuenta que estas sentado frente a un hombre de simpatico cabello largo, de unos 30-38 años
+¡Hola!, soy Ignacio Araya, el dueno de la prision. ¿Asi que tu eres el que no pago la mensualidad? Bueno, ocurre mucho ultimamente, ¿cual es tu nombre? 
+Bueno, %s, espero tengas una buena estadia en tus 3 anios de condena, tu celda es la numero 11, un guardia te llevara para alla
+Ya llevas 2 dias en esta prision, lo unico que esta a tu vista son las celdas 13 y 5, ademas de sus extranos residentes. Te sientes aburrido de estar ahi...
+<(¿Quieres escapar de la prision?)> <(¿Quieres cumplir tu condena?)>
+
+0.1.1.1 Despues de 3 largos anios, se te ha dejado en libertad, el mismisimo dueno de la prision (Ignacio) te ha acompanado hasta la puerta,
+en donde te desea suerte y que mires para ambos lados de la calle al cruzar. Al salir te das cuenta de que estabas ubicado en Petorca, con razon
+Solo los dejaban banarse 1 vez a la semana. Empiezas a caminar en cualquier direccion en busca de algun buen samaritano que te lleve a Valparaiso.
+Llegas al paradero mas cercano y comienzas a esperar... ...  ...  finalmente aparece una micro y te subes sin pensarlo.  Sin embargo te das cuenta ya a mitad de camino
+de que no tienes dinero para el pasaje, maldices tu suerte y comienzas a pensar 
+Que hago?  <(matarme)>  <(Esperar a ver que pasa.)>
+
+0.1.1.1.1 La vida para ti ya no tiene sentido, lo has perdido todo, la unica salida que tiene es la muerte, entonces te paras de tu asiento y te vas a la puerta trasera de la micro,
+En donde accionas la valvula de emergencia para que se abea la puerta y te lanzas sin pensarlo, al caer mueres al instante, ningun recuerdo paso por tu mente antes de morir,
+Ni una sola palabra, ninguna parte de tu vida... nada, solo el vacio.
+
+0.1.1.1.2 Decides esperar y el chofer nunca te reclamo por que no l pagaste, asi que una vez en tu destino, te bajas y comienzas a caminar por los reconditos cerros de Valparaiso
+Despues de soportar el olor a orina por un buen rato, llegas a tu casa, donde tus padres te reciben y mencinandote que durante tu encierro ellos juntaron dinero  
+Para que vuelvas a estudiar, te dan un gran abrazo y te dicen 'Ningun error tuyo hara que te dejemos de querer, solo asegurate de reonavar el CAE drento del plazo'
+Despues de esa conversacion te vas a tu habitacion, en donde duermes una buena siesta por primera vez en 3 anios.
+
+
+
+
 //Suponinendo que eligio escapar Aqui la historia.
 
 Ahora que has decidido escapar, que metodo quieres usar choice<(Esperar un guradia para noquearlo y robarle las llaves)> ; <(Subir por el ducto de ventilacion de la celda)>
@@ -165,38 +204,15 @@ Lo metes a tu celda y se te ocurre la idea de cambiar tu ropa por la del guardia
   Fin
 
    
-void profe(){
-  printf("░░░░░░░░░░░░░░░█████████████████████░░░░░░░░░░░░░░░░░░░███████████████████░░░░░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░░░███████████████████░░░░░░░░░░░░░░░░░░░░░░░████████████████████░░░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░░█████████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█████████████████░░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░░██████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░████████████░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░░██████████░░░░░░░░░█████░░░░░░░░░░░░░░░░░░██████░░░░░░░░░░███████░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░░█████░░░░░░░░░░░░███░░░░███░░░░░░░░░░░░░░██░░░░██░░░░░░░░░░░░░░░█░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░░█░░░░░░░░░░░░░░░██░░░░██████░░░░░░░░░░░██░░░██████░░░░░░░░░░░░░░█░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░░█░░░░░░░░░░░░░░░██░░█████████░████████░█░░░███████░░░░░░░░░░░░░░█░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░███████████████████░░████████████░░░░░░███░█████████████████████████░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░░░█░░░░░░░░░░░░░░█████████████░░░░░░░░░░███████████░░░░░░░░░░░░░░█░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░░██░░░░░░░░░░░░░░█████████████░░░░░░░░░░███████████░░░░░░░░░░░░░░█░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░░█░░░░░░░░░░░░░░░░████████████░░░░░░█░░░███████████░░░░░░░░░░░░░░█░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░░█░░░░░░░░░░░░░░░░███████████░░░░░░░█░░░██████████░░░░░░░░░░░░░███░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░░█░░░░░░░░░░░░░░░░░█████████░░░░░░░░██░░░░███████░░░░░░░░░░░███░░█░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░░█░███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█░░░░░░░░░░░░░░░░░░░░░███░░██░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░░█░░░░████░░░░░░░░░░░░░░░░░░░░█░░░░░░░█░░░░░░░░░░░░░░░░░░████░░░█░░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░░█░░░░░░████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░███░░█░░░█░░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░░█░░░░░░░█████░░░░░▄▀░░░░░░░░░░░░░░░░░░░░░░▀█▄░░░░░░████░░░█░░░░█░░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░░█░░░░░░░░█░░░███░░░░░░░░░░█░░░░░░░░░░█▄░░░░░░▀██████░█░░░██░░░░█░░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░░█░░░░░░░░██░░█░████░░░░░▐▀░░░░░░░░░░░░░▀▄░░░░███░█░░░█░░░█░░░░░█░░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░░██░░░░░░░░██░██░░░░█████░░░░░░░░░░░░░░░░░░░███░░░█░░██░░█░░░░░██░░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░████░░░░░░░░██░█░░░░█░░░░████████████████████░░░░░█░░█░░█░░░░░██░░░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░██████░░░░░░░░███░░░░█░░░░░░░░░░█░░░░░█░░░░░░█░░░░░█░░███░░░░██░░░░░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░███░██░░░░░░░░░░███░░█░░░░░░░░░░█░░░░░█░░░░░░█░░░░█░░░██░░░░██░░░░░░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░███░████░░░░░░░░░░░████░░░░░░░░░░█░░░░░█░░░░░░█░░░░████░░░░░██░░░░░░░░░░░░░░░░░\n");
-  printf("░░░░░░░░░███████████░░░░░░░░░░░░█████████░░█░░░░██░░░░░███████░░░░░░░██░░░░░░░░░░░░░░░░░░\n");
-  printf("░░░░░░░░█████████░░██░░░░░░░░░░░░░░░░░░░████████████████░░░░░░░░░░░░░█░░░░░░░░░░░░░░░░░░░\n");
-  printf("░░░░░░█████░███░░░░░██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█░░░░░░░░░░░░░░░░░░░░\n");
-  printf("░░░░█████░████░░░░░░░██░░░░░░░░░░░░░░░░░░░░░░░░░█░░░░░░░░░░░░░░░░░░██░░░░░░░░░░░░░░░░░░░░\n");
-  printf("░░████░░████░░░░░░░░░░███░░░░░░░░░░░░░░░░░░░█████████░░░░░░░░░░░░░██░░░░░░░░░░░░░░░░░░░░░\n");
-}
+//Final
+
+Al escapar de la carcel vas rapidamente al paradero mas cercano para volver a tu casa, una vez en tu destino, te bajas y comienzas a caminar por los reconditos cerros de Valparaiso
+Despues de soportar el olor a orina por un buen rato, llegas a tu casa, donde tus padres te reciben con extrañeza, deducen que te escapaste de la carcel por lo que vieron en las noticias
+asi que muy enojados te sadcan de la casa, diciendote 'Nunca mas vuelvas!!!', empiezas a caminar muy triste, ya que todo tu esfurzo no sirvio para nada, Unos dias despues de dormir en las calles
+una persona te saca de ahi, consigues un trabajo y empiezas a ser tu propio jefe, por lo que empiezas a dedicarte a la compra y venta de Bitcoins, lamentablemente el precio de estas
+se desploma, por lo que no tienes dinero, despues se acercan unas personas, las cuales te apuñalan, te quitan todo y te mueres.
+
+FIN.
 
   
 

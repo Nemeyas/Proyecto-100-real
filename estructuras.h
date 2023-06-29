@@ -43,6 +43,11 @@ typedef struct jugador{
   estadisticas stats;
 }jugador;
 
+typedef struct enemigo{
+  char nombre[31];
+  estadisticas stats;
+}enemigo;
+
 typedef struct Grafo{
   HashMap *nodos;
 }Grafo;

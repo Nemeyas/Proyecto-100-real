@@ -126,6 +126,32 @@ void importarLore(Grafo *g, char *archivoName){
   }
   fclose(archivo);
 }
+
+void importarEnemigos(HashMap *enemies, char *archivoName){
+  FILE *archivo = fopen(archivoName, "r");
+  char linea[1024];
+  char *aux;
+  int i;
+  fgets(linea, 1023, archivo);
+  while(fgets(linea, 1023, archivo) != NULL){ //Se leen todas las lineas en orden
+    enemigo *enemy = (enemigo *) malloc (sizeof(enemigo));
+    for(i = 0 ; i < 3 ; i++){
+      aux = (char*)get_csv_field(linea, i, ','); //aux se convierte en la linea de caracteres i-esima para rellenar el valor correspondiente.
+      if(i == 0){
+        strcpy(enemy->nombre, aux);
+      }
+      if(i == 1){
+        enemy->stats.salud = atoi(aux);
+      }
+      if(i == 2){
+        enemy->stats.fuerza = atoi(aux);
+      }
+    }
+    insertMap(enemies, enemy->nombre, enemy);
+  }
+  fclose(archivo);
+}
+
 /*
 void importarImagen(Grafo *g, char *archivoName){
   FILE *archivo = fopen(archivoName, "r");
@@ -157,8 +183,43 @@ void importarImagen(Grafo *g, char *archivoName){
   fclose(archivo);
 }*/
 
-void importarArchivos(Grafo *g){
+void importarSave(Grafo *g, Node *nodoActual, jugador *player){
+  FILE *archivo = fopen("save.csv", "r");
+  char linea[1024];
+  char *aux;
+  int i;
+  fgets(linea, 1023, archivo);
+  while(fgets(linea, 1023, archivo) != NULL){ //Se leen todas las lineas en orden
+    for(i = 0 ; i < 4 ; i++){
+      aux = (char*)get_csv_field(linea, i, ','); //aux se convierte en la linea de caracteres i-esima para rellenar el valor correspondiente.
+      if(i == 0){
+        nodoActual = searchMap(g->nodos, aux);
+      }
+      if(i == 1){
+        strcpy(player->nombre, aux);
+      }
+      if(i == 2){
+        player->stats.salud = atoi(aux);
+      }
+      if(i == 3){
+        player->stats.fuerza = atoi(aux);
+      }
+      if(i == 4){
+        player->size = atoi(aux);
+
+        if (player->size != 0){
+          
+        }
+      }
+    }
+  }
+  fclose(archivo);
+  
+}
+
+void importarArchivos(Grafo *g, HashMap *enemies){
   importarDatos(g, "conexiones.csv");
   importarLore(g, "prueba.csv");
+  importarEnemigos(enemies, "enemy.csv");
   //importarImagen(g, "imagenes.csv");
 }
