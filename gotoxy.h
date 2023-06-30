@@ -15,4 +15,6 @@ void ubicarFlecha(int x, int y, int opcion);
 
 bool cambiarOpcion(int * opcion, int cantOpciones);
 
+//int formatearOpcion(option, opciones);
+
 #endif /* Gotoxy_h */

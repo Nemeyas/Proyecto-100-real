@@ -121,10 +121,11 @@ void importarLore(Grafo *g, char *archivoName){
   while(fgets(linea, 2499, archivo) != NULL){
     for( int i = 0 ; i < 2 ; i++){
       aux = (char*)get_csv_field(linea, i,'.');
-      if(i == 0 ){
+      if(i == 0){
         nodo = searchMap(g->nodos, aux);
-        /*printf("...%s...", nodo->ID);
-         printf("%s", aux);*/
+        printf("...%s...", nodo->ID);
+        printf("%s", aux);
+        system("pause");
       }
       if (i == 1){
         nodo->tiposHistorias = createList();
@@ -132,7 +133,7 @@ void importarLore(Grafo *g, char *archivoName){
         while (cantHistorias != 0){
           i++;
           aux = (char*)get_csv_field(linea, i,'.');
-          char *historia = malloc(sizeof(char)*1700);
+          char *historia = malloc(sizeof(char)*1000);
           strcpy(historia, aux);
           pushBack(nodo->tiposHistorias, historia);
           cantHistorias--;

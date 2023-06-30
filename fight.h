@@ -7,11 +7,11 @@ typedef struct inve inve;
 
 void winScreen();
 int seleccionador(int opciones);
-int seleccionadorInv(int opciones, inve *inventario);
-void atacar(jugador *player, enemigo *enemy, int accionEnemy);
-void mostrarInventario(inve *inventario);
-void cubrirse(jugador *player, enemigo *enemy, int accionEnemy);
+int seleccionadorInv(jugador *player);
+void atacar(jugador *player, jugador *enemy, int accionEnemy);
+void mostrarInventario(jugador *player);
+void cubrirse(jugador *player, jugador *enemy, int accionEnemy);
 void burlarse();
-void fight(enemigo *enemy, jugador *player);
+void fight(jugador *player, jugador *enemy);
 
 #endif /* fight_h */

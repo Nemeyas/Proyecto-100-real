@@ -29,11 +29,11 @@ Continuar,0,0,0,0,0,0,3,Enfrentarse,Rendirse,PALTA HASH
 Enfrentarse,0,0,0,0,0,0,2,Matarlo,Escapar
 Matarlo,0,0,0,0,0,0,0,
 Escapar,0,0,0,0,0,0,0,
-Rendirse,0,0,0,10,0,0,3,Quieres escapar de la prision?,Quieres cumplir tu condena?
+Rendirse,0,0,0,10,0,0,2,Quieres escapar de la prision?,Quieres cumplir tu condena?
 PALTA HASH,0,0,0,0,0,0,1,FIN
-Buscar Jefe de piso,20,20,PALTA HASH,0,0,0,0,Enfrentarse,Rendirse,PALTA HASH
+Buscar Jefe de piso,20,20,PALTA HASH,0,0,0,3,Enfrentarse,Rendirse,PALTA HASH
 Enfrentarse,0,0,0,0,0,0,2,Matarlo,Escapar
-Rendirse,0,0,0,10,0,0,3,Quieres escapar de la prision?,Quieres cumplir tu condena?
+Rendirse,0,0,0,10,0,0,2,Quieres escapar de la prision?,Quieres cumplir tu condena?
 Informacion,0,0,0,0,0,0,2,Buscar Jefe de piso,Esperar
 Esperar,20,20,Pistola De sedantes,0,0,0,2,Escapar solo,Ayudar a los prisioneros
 FIN,0,0,0,0,0,0,0,
