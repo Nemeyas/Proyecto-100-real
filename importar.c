@@ -133,7 +133,7 @@ void importarLore(Grafo *g, char *archivoName){
           i++;
           aux = (char*)get_csv_field(linea, i,'.');
           printf("...%s...", aux);
-          char *historia = malloc(sizeof(char)*1000);
+          char historia[1000];
           strcpy(historia, aux);
           pushBack(nodo->tiposHistorias, historia);
           cantHistorias--;

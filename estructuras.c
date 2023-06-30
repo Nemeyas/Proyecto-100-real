@@ -8,10 +8,16 @@
 #include "estructuras.h"
 
 Grafo* createGrafo(){
-  HashMap *nodos = createMap(50);
+  HashMap *nodos = createMap(100);
   Grafo *grafo = (Grafo*)malloc(sizeof(Grafo));
   grafo->nodos = nodos;
   return grafo;
+}
+
+void createNode2(Node *n){
+  n = (Node *) malloc (sizeof(Node));
+  //n->adjNode = malloc (sizeof(char));
+
 }
 
 void agregarNodo(Grafo *grafo, Node *n){
