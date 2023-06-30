@@ -168,7 +168,7 @@ void agregarItem(jugador *jug, char *nombreItem) {
   for (int i = 0; i < jug->size; i++){
     if(jug->inventario[i].item == NULL){
       strcpy(jug->inventario[i].item,nombreItem);
-      printf("sexo online correcto\n");
+      //printf("sexo online correcto\n");
       return;
     }
   }
@@ -288,6 +288,7 @@ int main(void) {
   if(player == NULL || nodoActual == NULL){
     nodoActual = (searchMap(g->nodos,"Prologo"));
     player = registrar();
+    system("cls");
   }
   while(true){ //Actualizar nodos
     //printf("%c \n",176);
