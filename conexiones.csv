@@ -1,5 +1,5 @@
 ID, accionVida, accionFuerza, accionItem, restVida, restfuerza, restItem, cantNodos, nodosAdj
-Comenzar la prueba,0,0,0,0,0,0,3,Correo de PUCV,Correo de Manolo,Correo de Escuela de ingenieria Informatica
+Prologo,0,0,0,0,0,0,3,Correo de PUCV,Correo de Manolo,Correo de Escuela de ingenieria Informatica
 Correo de PUCV,0,0,0,0,0,0,2,Salir Inmediatamente,Seguir viendo correos
 Correo de Escuela de ingenieria Informatica,0,0,0,0,0,0,1,Volver a los correos
 Correo de Manolo,0,0,0,0,0,0,1,Volver a los correos
@@ -14,5 +14,26 @@ Quieres cumplir tu condena?,0,0,0,0,0,0,2,matarme,Esperar a ver que pasa
 matarme,0,0,0,0,0,0,0,
 Esperar a ver que pasa,0,0,0,0,0,0,0,
 Quieres escapar de la prision?,0,0,0,0,0,0,2,Esperar un guardia para noquearlo y robarle las llaves,Subir por el ducto de ventilacion de la celda
-Esperar un guardia para noquearlo y robarle las llaves,0,0,0,0,0,0,0,
-Subir por el ducto de ventilacion de la celda,0,0,0,0,0,0,0,
+Esperar un guardia para noquearlo y robarle las llaves,0,0,0,0,0,0,2,Cambiar la ropa y tomar su arma,Quedarse igual y tomar su arma
+Subir por el ducto de ventilacion de la celda,20,20,Luma Policial,0,0,0,2,Ir a buscar al jefe directamente,Informacion
+Cambiar la ropa y tomar su arma,0,0,0,10,0,0,2,Quieres escapar de la prision?,Quieres cumplir tu condena?
+Quedarse igual y tomar su arma,30,30,Luma Policial,0,0,0,2,Ir a buscar al jefe directamente,Informacion
+Ir a buscar al jefe directamente,0,0,0,0,0,0,3,Huir,Entregarte,Pelear
+Huir,0,0,0,45,0,0,2,Quieres escapar de la prision?,Quieres cumplir tu condena?
+Entregarte,0,0,0,10,0,0,2,Quieres escapar de la prision?,Quieres cumplir tu condena?
+Pelear,20,20,Pistola De sedantes,0,0,0,2,Escapar solo,Ayudar a los prisioneros
+Escapar solo,0,0,0,0,0,0,2,Continuar,Buscar Jefe de piso
+Ayudar a los prisioneros,0,0,0,0,0,0,2,Continuar,Enfrentar guardias
+Enfrentar guardias,0,0,0,0,0,0,1,FIN
+Continuar,0,0,0,0,0,0,3,Enfrentarse,Rendirse,PALTA HASH
+Enfrentarse,0,0,0,0,0,0,2,Matarlo,Escapar
+Matarlo,0,0,0,0,0,0,0,
+Escapar,0,0,0,0,0,0,0,
+Rendirse,0,0,0,10,0,0,3,Quieres escapar de la prision?,Quieres cumplir tu condena?
+PALTA HASH,0,0,0,0,0,0,1,FIN
+Buscar Jefe de piso,20,20,PALTA HASH,0,0,0,0,Enfrentarse,Rendirse,PALTA HASH
+Enfrentarse,0,0,0,0,0,0,2,Matarlo,Escapar
+Rendirse,0,0,0,10,0,0,3,Quieres escapar de la prision?,Quieres cumplir tu condena?
+Informacion,0,0,0,0,0,0,2,Buscar Jefe de piso,Esperar
+Esperar,20,20,Pistola De sedantes,0,0,0,2,Escapar solo,Ayudar a los prisioneros
+FIN,0,0,0,0,0,0,0,

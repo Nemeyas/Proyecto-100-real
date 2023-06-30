@@ -1,6 +1,5 @@
-/*
-
 #include <stdio.h>
+#include <stdbool.h>
 #include "estructuras.h"
 #include <windows.h>
 #include <fight.h>
@@ -29,12 +28,13 @@ int seleccionador(int opciones){
   return option;
 }
 
-int seleccionadorInv(int opciones, inve *inventario){
+int seleccionadorInv(jugador *player){
   int option = 0;
+  int opciones = player->size;
   GetAllKeys();
   
   for(int i=0; i<opciones ;i++){
-    gotoxy(0,3+i*3);printf (" y el merluso callambim bombim     %s", inventario[i].item);
+    gotoxy(0,3+i*3);printf (" y el merluso callambim bombim     %s", player->inventario[i].item);
   }
 
   while(true){
@@ -75,8 +75,8 @@ void atacar(jugador *player, jugador *enemy, int accionEnemy){
     }
 }
 
-void mostrarInventario(inve *inventario){
-    int seleccion = seleccionadorInv(inventario->size, &inventario);
+void mostrarInventario(jugador *player){
+    int seleccion = seleccionadorInv(player);
     if (seleccion == 1){
         
     }
@@ -95,6 +95,17 @@ void cubrirse(jugador *player, jugador *enemy, int accionEnemy){
 }
 void burlarse(){
     int burla = random(1,10);
+
+    if (burla == 1) printf("");
+    if (burla == 2) printf("");
+    if (burla == 3) printf("");
+    if (burla == 4) printf("");
+    if (burla == 5) printf("");
+    if (burla == 6) printf("");
+    if (burla == 7) printf("");
+    if (burla == 8) printf("");
+    if (burla == 9) printf("");
+    if (burla == 10) printf("");
     
 }
 
@@ -107,7 +118,7 @@ void fight(jugador *player, jugador *enemy){
             if (player->stats.salud <= 0) game_Over(); return;
             if (enemy->stats.salud <= 0) winScreen(); return;
         }
-        if (seleccion == 2) mostrarInventario(player->inventario);
+        if (seleccion == 2) mostrarInventario(player);
         if (seleccion == 3) cubrirse(player, enemy, accionEnemy);
         if (seleccion == 4) burlarse();
         
@@ -119,4 +130,4 @@ void fight(jugador *player, jugador *enemy){
         printf("| Vida Enemigo: %u |\n", enemy->stats.salud);
         puts(Barra);
     }
-}*/
+}

@@ -45,7 +45,7 @@ tendras que encontrar la llave. Uno de los prisioneros cercanos te menciona que 
 *12<(Ir a buscar al jefe directamente)>  *13<(Recaudar informacion con los prisioneros)>
 
 12* Caminas rapidamente por los pasillos, pero sin dejar de tener cuidado, ya que hay guardias, despues de unos minutos, finalmente das con el "jefe de piso", pero este va acomaniado
-de 2 guardias mas, ademas el jefe tiene una pistola de sedantes, para peor los guardias ya te han visto *14<(Huir)>  *15<(Entrgarte)>  *16<(Pelear)>
+de 2 guardias mas, ademas el jefe tiene una pistola de sedantes, para peor los guardias ya te han visto *14<(Huir)>  *15<(Entregarte)>  *16<(Pelear)>
 
 *14 Empiezas a correr mientras los demas reclusos se rien, al final el un sedante te alcanza, pero por la adrenalina tarda unos momentos en hacer efecto, Los guardias te encuntran
 a punto de dormirte y te golpean ferozmente <(-45[u,a] de vida)>( Si vida == 0, game_Over()) para despues llevarte a tu celda, Quieres intentarlo denuevo? *17/2<(Si, escapar)>  *18/3<(No, cumplir condena)>
@@ -88,8 +88,7 @@ cuando finalemte lleagas a la recepcion de la carcel, donde te encuentras con el
 *22 Al decidir ayudar a los prisioneros, te dispones a buscar una sala de seguridad. Con la ayuda de tu pistola de sedantes avanzas muy rapido, pero se te esta acabando la municion,
 pero justo encunetras la sala de seguridad llena de guardias, bien armados, incluyendo pistolas de verdad. *38/23<(Continuar)>  *39<(Enfrentar guardias)>
 
-*39 (Sistema de combate, en este paso se ira verificadno si vida == 0 game_Over())Muy bien has ganado! (Agregamos a su inventario pistola de sedantes, pistola, 
-pan con queso" 5 niveles+, eleccion para que aumente estadisticas, vida restaurada)
+*39 (Sistema de combate, en este paso se ira verificadno si vida == 0 game_Over())Muy bien has ganado!
 Encunetras el boton para abrir las celdas, al presionarlo, todos los relcusos salen de sus celdas y empieza un motin, por suerte para ti pasas rapidamente entre los guardias
 y reclusos peleando sin que a ti te pase nada, asique sales sin ningun rasgunio de la carcel *FINAL.
 
@@ -115,3 +114,6 @@ una persona te saca de ahi, consigues un trabajo y empiezas a ser tu propio jefe
 se desploma, por lo que no tienes dinero, despues se acercan unas personas, las cuales te apunialan, te quitan todo y te mueres.
 
 FIN.
+
+
+Subir por el ducto de ventilacion de la celda

@@ -10,6 +10,7 @@
 #include "list.h"
 #include "importar.h"
 #include "fight.h"
+#include "Imagen.h"
 #define Barra "------------"
 #define BARRA "-------------------------------------------------------"
 
@@ -285,7 +286,7 @@ int main(void) {
   mostrarMenu(g, nodoActual, player);
   system("cls");
   if(player == NULL || nodoActual == NULL){
-    nodoActual = (searchMap(g->nodos,"Comenzar la prueba"));
+    nodoActual = (searchMap(g->nodos,"Prologo"));
     player = registrar();
   }
   while(true){ //Actualizar nodos
@@ -295,9 +296,11 @@ int main(void) {
     char *a = firstList(nodoActual->tiposHistorias);
     //printf("%s\n", a);
     //system("pause");
+    char *p = nodoActual->ID;
   while(true){ //Escribir historias
+      mostrarImagen(p);
       if(GetAsyncKeyState(VK_ESCAPE)){
-        menuDelJuego(a,nodoActual,g,player);
+        //menuDelJuego(a,nodoActual,g,player);
         contador2 = contador;
         a = firstList(nodoActual->tiposHistorias);
         system("cls");
