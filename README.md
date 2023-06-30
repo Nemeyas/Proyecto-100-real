@@ -1,31 +1,46 @@
-# Proyecto-100-real
+PUCV PRISON ESCAPE SIMULATOR
+
+Como Ejecutar:
+El juego se ejecuta a través del ejecutable PPES.exe que se encuentra en la carpeta del juego.
+Cuando se abre se desplegará el menú del juego con 3 opciones:
+Empezar el juego: la aventura comienza desde el principio y el jugador creará un nuevo personaje.
+Cargar partida: si es que en una aventura previa el usuario apreto el botón escape y selecciono guardar partida, puede continuar el juego desde ese punto conservando su personaje y estadísticas.
+Salir: el ejecutable se cierra.
+
+Herramientas: Visual Studio Code, GitHub, ChatGPT, Live Share.
+
+PROBLEMAS U OBSERVACIONES:
+1. El botón de pausa en medio de la aventura a veces tiene comportamientos erráticos.
+
+Trabajo en equipo:
+En este trabajo nuestro equipo se mostro responsable y dedicado. Pero unos aspectos a mejorar seria mayor puntualidad a la hora de trabajar(sugerencia).
 
 
+Aporte individual: 
 
-- como se compila: 
+Rubén Carvajal: Aportó con un apartado para el correcto funcionamiento del programa, además de actualizar algunas funciones. Algo que mejorar seria la puntualidad, comunicación más clara y mayor presencia en las reuniones organizadas.
 
-- como se ejecuta: 
+Nehemias Leiva: Revision y modificacion de errores en varias funciones e implementacion de funciones anteriormente ultiles. Aspectos a mejorar seria mayor concentracion al trabajar.
 
-- como se usa la app: la app se usa bajo las flechas de las teclas del jugador para dirigir el seleccionador. al principio se les mostrara un menu que contendra 3 opciones comenzar, cargar partida y salir, en comenzar se iniciara una nueva partida.
+Matias Castro: Aportó con el codigo y corrección de errores, algo a mejorar seria la concentración, ya que se distrae mucho.
 
- al comenzar el juego al jugador se le pedira poner su nombre y un contexto de la historia para despues iniciar con el juego.
+Adolfo Cordero: Sentó las bases de el modelo estandar del menú, buen aporte al equipo con buen analisis y correcciónes de codigo.
 
-el usuario se dara cuenat de las situaciones gracias a un texto proporcionado que describrir y dar contexto del evento. luego al usuario se le guiara bajo texto algunos momentos en las que no sea tan explicito como al final de un texto debe presionar un boton para continuar para asegurarse que termino de leer. 
+Sebastián Gatica: Organizaba las reuniones y presenta buena disposicion al trabajar, además de aportar y desarrollar algunas funciones y archivos, Aspectos a mejorar serian la concentración.
 
-En momentos de tomas de desiciones al usuario se le daran multiples alternativas, describiendo lo que hace cada alternativa en donde este debera elegir 
 
-En los eventos de combate al usuario se le daran multiples opciones a continuacion se mostraran estas opciones junto con sus funciones
+TABLA DE PUNTAJES
 
-atacar: el jugador ataca bajandole la vida al enemigo. El poder de ataque dependera de las estadisticas del jugador ///// y el item (por verse).//////////
+  Nombres             Participación      Responsabilidad         Comunicacion    Calidad de trabajo     Trabajo en equipo     Puntaje total
+  Rubén Carvajal             20                20                    19                     20                  19                  98
+  Nehemias Leiva             20                20                    20                     20                  20                  100
+  Matias Castro              20                20                    20                     20                  20                  100
+  Adolfo Cordero             20                20                    20                     20                  20                  100
+  Sebastián Gatica           20                20                    20                     20                  20                  100
 
-cubrirse: el jugador se cubre reduciendo el daño recibido del enemigo.
+TABLA DE PUNTAJES EQUIPO
 
-inventario: el jugador abrira el inventario donde podra usar los items que lleva consigo.
- 
-burla: esta opcion puede dar a eventos especiales ocultos en ciertas peleas.
+  Nombre Equipo         Participación activa y equitativa       Resolucion de conflictos       Colaboracion          Resposabilidad          Comunicacion        Puntaje total
 
-/// lo que yo interpreto de como sera el boton opciones////////
-
-esta aplicacion contendra un comando para guardar o salir de la partida presionando un boton para que el progreso quede listo para cargarse cuando el jugador lo desee
-
-seras capaz de escapar de la prision? muajajaja.
+  LOS GPT                               20                                  20                       20                    20                        20                 100  
+  
