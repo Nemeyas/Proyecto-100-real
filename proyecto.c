@@ -300,7 +300,7 @@ int main(void) {
   while(true){ //Escribir historias
       mostrarImagen(p);
       if(GetAsyncKeyState(VK_ESCAPE)){
-        //menuDelJuego(a,nodoActual,g,player);
+        menuDelJuego(a,nodoActual,g,player);
         contador2 = contador;
         a = firstList(nodoActual->tiposHistorias);
         system("cls");
