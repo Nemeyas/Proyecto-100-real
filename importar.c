@@ -125,7 +125,6 @@ void importarLore(Grafo *g, char *archivoName){
         nodo = searchMap(g->nodos, aux);
         //printf("...%s...", nodo->ID);
         //system("pause");
-        
       }
       if (i == 1){
         nodo->tiposHistorias = createList();
