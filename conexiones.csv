@@ -5,4 +5,8 @@ Correo de Escuela de ingenieria Informatica,0,0,0,0,0,0,1,Volver a los correos
 Correo de Manolo,0,0,0,0,0,0,1,Volver a los correos
 Volver a los correos,0,0,0,0,0,0,3,Correo de PUCV,Correo de Manolo,Correo de Escuela de ingenieria Informatica
 Seguir viendo correos,0,0,0,0,0,0,3,Correo de Escuela de ingenieria Informatica,Correo de Manolo,Salir Inmediatamente
-Salir Inmediatamente,0,0,0,0,0,0,0
+Salir Inmediatamente,0,0,0,0,0,0,1,CAE
+CAE,0,0,0,0,0,0,2,Hola tuve un problema con la renovacion y no se como pagar,Wena po oe devuelvan la jabonera al ibc piso 2
+Hola tuve un problema con la renovacion y no se como pagar,0,0,0,0,0,0,2,Quieres escapar de la prision?,Quieres cumplir tu condena?
+Wena po oe devuelvan la jabonera al ibc piso 2,0,0,0,0,0,0,1,volver con la seniorita
+volver con la seniorita,0,0,0,0,0,0,2,Hola tuve un problema con la renovacion y no se como pagar,Wena po oe devuelvan la jabonera al ibc piso 2

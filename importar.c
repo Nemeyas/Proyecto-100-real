@@ -206,7 +206,7 @@ void importarSave(Grafo *g, Node *nodoActual, jugador *player){
   int i;
   fgets(linea, 1023, archivo);
   while(fgets(linea, 1023, archivo) != NULL){ //Se leen todas las lineas en orden
-    for(i = 0 ; i < 4 ; i++){
+    for(i = 0 ; i < 5 ; i++){
       aux = (char*)get_csv_field(linea, i, ','); //aux se convierte en la linea de caracteres i-esima para rellenar el valor correspondiente.
       if(i == 0){
         nodoActual = searchMap(g->nodos, aux);
@@ -224,6 +224,7 @@ void importarSave(Grafo *g, Node *nodoActual, jugador *player){
         player->size = atoi(aux);
 
         if (player->size != 0){
+          player->inventario = (inve *) malloc (2 * sizeof(char));
           for (int j = 0 ; j < player->size ; j++){
             i++;
             aux = (char*)get_csv_field(linea, i, ',');
@@ -237,7 +238,7 @@ void importarSave(Grafo *g, Node *nodoActual, jugador *player){
 }
 
 
-void subrutina(Grafo *g,Node *n, jugador *p){
+void subrutina(Grafo *g, Node *n, jugador *p){
   FILE *archivo = fopen("save.csv", "r");
   char linea[1024];
   char *aux;
@@ -246,7 +247,7 @@ void subrutina(Grafo *g,Node *n, jugador *p){
   GetAllKeys();
   while(true){
     system("cls");
-    if(verificarArchivo("save.csv")==0){
+    if(verificarArchivo("save.csv") == 0){
       printf("No hay partidas guardadas");
       system("pause");
       return;

@@ -276,8 +276,8 @@ int main(void) {
   int contador=0;
   int contador2 = 0;
   bool si = false;
-  Node *nodoActual;
-  jugador *player;
+  Node *nodoActual = (Node *) malloc (sizeof(Node));
+  jugador *player = (jugador *) malloc (sizeof(jugador));
   char nombre[20];
   
   Grafo* g = createGrafo();
@@ -285,7 +285,7 @@ int main(void) {
   importarArchivos(g, enemies, player, nodoActual);
   mostrarMenu(g, nodoActual, player);
   system("cls");
-  //if(nodoActual == NULL){
+  //if(strcmp(player->nombre, "") == 0){
     nodoActual = (searchMap(g->nodos,"Comenzar la prueba"));
     player = registrar(leerNombre(nombre));
   //}
@@ -345,7 +345,7 @@ int main(void) {
             gotoxy(0,10);printf(" %s ", a);
           }
         }
-        break;
+        system("pause");
       }
       else{
         gotoxy(0,27);printf(" %s ", a);
