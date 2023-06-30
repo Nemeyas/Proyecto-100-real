@@ -276,19 +276,18 @@ int main(void) {
   int contador=0;
   int contador2 = 0;
   bool si = false;
-  Node *nodoActual = (Node *) malloc (sizeof(Node));
-  jugador *player = (jugador *) malloc (sizeof(jugador));
-  char nombre[20];
+  Node *nodoActual = NULL;
+  jugador *player = NULL;
   
   Grafo* g = createGrafo();
   HashMap *enemies = createMap(30);
   importarArchivos(g, enemies, player, nodoActual);
   mostrarMenu(g, nodoActual, player);
   system("cls");
-  //if(strcmp(player->nombre, "") == 0){
+  if(player == NULL || nodoActual == NULL){
     nodoActual = (searchMap(g->nodos,"Comenzar la prueba"));
-    player = registrar(leerNombre(nombre));
-  //}
+    player = registrar();
+  }
   while(true){ //Actualizar nodos
     //printf("%c \n",176);
     //profe();
@@ -315,6 +314,20 @@ int main(void) {
           }
         }
       }
+      else if(strcmp(a,"")==0){
+        a=nextList(nodoActual->tiposHistorias);
+        gotoxy(0,28);printf(" %s ", a);
+        if(strcmp(a=nextList(nodoActual->tiposHistorias),"")==0){
+          a=nextList(nodoActual->tiposHistorias);
+          gotoxy(0,29);printf(" %s ", a);
+          if(strcmp(a=nextList(nodoActual->tiposHistorias),"")==0){
+            a=nextList(nodoActual->tiposHistorias);
+            gotoxy(0,10);printf(" %s ", a);
+          }
+        }
+        a = prevList(nodoActual->tiposHistorias);
+        system("pause");
+      }
       else if(strcmp(a,"name")==0){
         printf("%s", player->nombre);
       }
@@ -331,21 +344,8 @@ int main(void) {
         break;
       }
       else if(strcmp(a, "End")==0){
-        //funcionFinal();
+        //creditos();
         return 0;
-      }
-      else if(strcmp(a,"")==0){
-        a=nextList(nodoActual->tiposHistorias);
-        gotoxy(0,28);printf(" %s ", a);
-        if(strcmp(a=nextList(nodoActual->tiposHistorias),"")==0){
-          a=nextList(nodoActual->tiposHistorias);
-          gotoxy(0,29);printf(" %s ", a);
-          if(strcmp(a=nextList(nodoActual->tiposHistorias),"")==0){
-            a=nextList(nodoActual->tiposHistorias);
-            gotoxy(0,10);printf(" %s ", a);
-          }
-        }
-        system("pause");
       }
       else{
         gotoxy(0,27);printf(" %s ", a);

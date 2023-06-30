@@ -204,6 +204,7 @@ void importarSave(Grafo *g, Node *nodoActual, jugador *player){
   char linea[1024];
   char *aux;
   int i;
+  player = (jugador *) malloc (sizeof(jugador));
   fgets(linea, 1023, archivo);
   while(fgets(linea, 1023, archivo) != NULL){ //Se leen todas las lineas en orden
     for(i = 0 ; i < 5 ; i++){

@@ -1,14 +1,14 @@
 # Proyecto-100-real
 
-- como se compila: compila de forma funcional dando problemas visuales como las flechas se muestran parpadeantes en el seleccionador del juego , y las imagenes etc... (ver cuando este mas avanzado)
+- como se compila: 
 
 - como se ejecuta: 
 
 - como se usa la app: la app se usa bajo las flechas de las teclas del jugador para dirigir el seleccionador. al principio se les mostrara un menu que contendra 3 opciones comenzar, cargar partida y salir, en comenzar se iniciara una nueva partida.
 
- al comenzar el juego al jugador se le pedira poner su nombre ///// estadisticas tambien si no se rinden con la idea///// y un contexto ed la historiapara despues iniciar con el juego.
+ al comenzar el juego al jugador se le pedira poner su nombre y un contexto de la historia para despues iniciar con el juego.
 
-el usuario se dara cuenta de las situaciones gracias a un texto proporcionado que describrir y dar contexto del evento. luego al usuario se le guiara bajo texto algunos momentos en las que no sea tan explicito como al final de un texto debe presionar un boton para continuar para asegurarse que termino de leer. 
+el usuario se dara cuenat de las situaciones gracias a un texto proporcionado que describrir y dar contexto del evento. luego al usuario se le guiara bajo texto algunos momentos en las que no sea tan explicito como al final de un texto debe presionar un boton para continuar para asegurarse que termino de leer. 
 
 En momentos de tomas de desiciones al usuario se le daran multiples alternativas, describiendo lo que hace cada alternativa en donde este debera elegir 
 
