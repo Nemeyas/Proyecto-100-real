@@ -1,36 +1,3 @@
-1,story,3,1,0,0,a
-void profe(){
-  printf("░░░░░░░░░░░░░░░█████████████████████░░░░░░░░░░░░░░░░░░░███████████████████░░░░░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░░░███████████████████░░░░░░░░░░░░░░░░░░░░░░░████████████████████░░░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░░█████████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█████████████████░░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░░██████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░████████████░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░░██████████░░░░░░░░░█████░░░░░░░░░░░░░░░░░░██████░░░░░░░░░░███████░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░░█████░░░░░░░░░░░░███░░░░███░░░░░░░░░░░░░░██░░░░██░░░░░░░░░░░░░░░█░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░░█░░░░░░░░░░░░░░░██░░░░██████░░░░░░░░░░░██░░░██████░░░░░░░░░░░░░░█░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░░█░░░░░░░░░░░░░░░██░░█████████░████████░█░░░███████░░░░░░░░░░░░░░█░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░███████████████████░░████████████░░░░░░███░█████████████████████████░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░░░█░░░░░░░░░░░░░░█████████████░░░░░░░░░░███████████░░░░░░░░░░░░░░█░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░░██░░░░░░░░░░░░░░█████████████░░░░░░░░░░███████████░░░░░░░░░░░░░░█░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░░█░░░░░░░░░░░░░░░░████████████░░░░░░█░░░███████████░░░░░░░░░░░░░░█░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░░█░░░░░░░░░░░░░░░░███████████░░░░░░░█░░░██████████░░░░░░░░░░░░░███░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░░█░░░░░░░░░░░░░░░░░█████████░░░░░░░░██░░░░███████░░░░░░░░░░░███░░█░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░░█░███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█░░░░░░░░░░░░░░░░░░░░░███░░██░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░░█░░░░████░░░░░░░░░░░░░░░░░░░░█░░░░░░░█░░░░░░░░░░░░░░░░░░████░░░█░░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░░█░░░░░░████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░███░░█░░░█░░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░░█░░░░░░░█████░░░░░▄▀░░░░░░░░░░░░░░░░░░░░░░▀█▄░░░░░░████░░░█░░░░█░░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░░█░░░░░░░░█░░░███░░░░░░░░░░█░░░░░░░░░░█▄░░░░░░▀██████░█░░░██░░░░█░░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░░█░░░░░░░░██░░█░████░░░░░▐▀░░░░░░░░░░░░░▀▄░░░░███░█░░░█░░░█░░░░░█░░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░░██░░░░░░░░██░██░░░░█████░░░░░░░░░░░░░░░░░░░███░░░█░░██░░█░░░░░██░░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░░████░░░░░░░░██░█░░░░█░░░░████████████████████░░░░░█░░█░░█░░░░░██░░░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░██████░░░░░░░░███░░░░█░░░░░░░░░░█░░░░░█░░░░░░█░░░░░█░░███░░░░██░░░░░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░░███░██░░░░░░░░░░███░░█░░░░░░░░░░█░░░░░█░░░░░░█░░░░█░░░██░░░░██░░░░░░░░░░░░░░░░\n");
-  printf("░░░░░░░░░░███░████░░░░░░░░░░░████░░░░░░░░░░█░░░░░█░░░░░░█░░░░████░░░░░██░░░░░░░░░░░░░░░░░\n");
-  printf("░░░░░░░░░███████████░░░░░░░░░░░░█████████░░█░░░░██░░░░░███████░░░░░░░██░░░░░░░░░░░░░░░░░░\n");
-  printf("░░░░░░░░█████████░░██░░░░░░░░░░░░░░░░░░░████████████████░░░░░░░░░░░░░█░░░░░░░░░░░░░░░░░░░\n");
-  printf("░░░░░░█████░███░░░░░██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█░░░░░░░░░░░░░░░░░░░░\n");
-  printf("░░░░█████░████░░░░░░░██░░░░░░░░░░░░░░░░░░░░░░░░░█░░░░░░░░░░░░░░░░░░██░░░░░░░░░░░░░░░░░░░░\n");
-  printf("░░████░░████░░░░░░░░░░███░░░░░░░░░░░░░░░░░░░█████████░░░░░░░░░░░░░██░░░░░░░░░░░░░░░░░░░░░\n");
-}
 
 //Lore
 24/05/2023  (DIA DEL COMPLETO)
@@ -38,7 +5,7 @@ Eres un estudiante de la 'prestigiosa' PUCV, hoy estas esperando la renovacion d
 sin embargo, al entrar al sistema, te das cuenta de que no renovaste dentro del plazo.
 En tu desesperacion por no saber que hacer y que tus padres te van a matar, acudes a la 'Casa Central',
 una vez en el lugar, te recibe una amable senorita, la cual te recuerda todos los meses que debes,
-Hola, ¿en que puedo ayudarte? <(Hola, tuve un problema con la renovacion y no se como pagar)> <(Wena po, oe devuelvan la jabonera al ibc piso 2.)>
+Hola, en que puedo ayudarte? <(Hola, tuve un problema con la renovacion y no se como pagar)> <(Wena po, oe devuelvan la jabonera al ibc piso 2.)>
 
 0.1<(Hola, tuve un problema con la renovacion y no se como pagar)>
 
@@ -46,18 +13,17 @@ Hola, ¿en que puedo ayudarte? <(Hola, tuve un problema con la renovacion y no s
 Al no presentar ninguna solucion de tu parte para pagar, la amable senorita llama a los guardias de seguridad,
 los cuales te meten el wuate mas exotico que tu cabeza haya podido sentir alguna vez, por lo que pierdes la conciencia
 Al despertar, estas en una prision, te encuentras muy desconcertado, no sabes que dia es ni que hora es,
-despues de unos instantes te das cuenta que estas sentado frente a un hombre de simpatico cabello largo, de unos 30-38 años
-¡Hola!, soy Ignacio Araya, el dueno de la prision. ¿Asi que tu eres el que no pago la mensualidad? Bueno, ocurre mucho ultimamente, ¿cual es tu nombre? 
+despues de unos instantes te das cuenta que estas sentado frente a un hombre de simpatico cabello largo, de unos 30-38 anios
+Hola!, soy Ignacio Araya, el dueno de la prision. Asi que tu eres el que no pago la mensualidad? Bueno, ocurre mucho ultimamente, cual es tu nombre? 
 Bueno, %s, espero tengas una buena estadia en tus 3 anios de condena, tu celda es la numero 11, un guardia te llevara para alla
 Ya llevas 2 dias en esta prision, lo unico que esta a tu vista son las celdas 13 y 5, ademas de sus extranos residentes. Te sientes aburrido de estar ahi...
-<(¿Quieres escapar de la prision?)> <(¿Quieres cumplir tu condena?)>
+<(Quieres escapar de la prision?)> <(Quieres cumplir tu condena?)>
 
-0.1.1.1 Despues de 3 largos anios, se te ha dejado en libertad, el mismisimo dueno de la prision (Ignacio) te ha acompanado hasta la puerta,
+0.1.1.1 Despues de 3 largos anios, se te ha dejado en libertad, el mismisimo duenio de la prision (Ignacio) te ha acompanado hasta la puerta,
 en donde te desea suerte y que mires para ambos lados de la calle al cruzar. Al salir te das cuenta de que estabas ubicado en Petorca, con razon
 Solo los dejaban banarse 1 vez a la semana. Empiezas a caminar en cualquier direccion en busca de algun buen samaritano que te lleve a Valparaiso.
 Llegas al paradero mas cercano y comienzas a esperar... ...  ...  finalmente aparece una micro y te subes sin pensarlo.  Sin embargo te das cuenta ya a mitad de camino
-de que no tienes dinero para el pasaje, maldices tu suerte y comienzas a pensar 
-Que hago?  <(matarme)>  <(Esperar a ver que pasa.)>
+de que no tienes dinero para el pasaje, maldices tu suerte y comienzas a pensar Que hago?  <(matarme)>  <(Esperar a ver que pasa.)>
 
 0.1.1.1.1 La vida para ti ya no tiene sentido, lo has perdido todo, la unica salida que tiene es la muerte, entonces te paras de tu asiento y te vas a la puerta trasera de la micro,
 En donde accionas la valvula de emergencia para que se abea la puerta y te lanzas sin pensarlo, al caer mueres al instante, ningun recuerdo paso por tu mente antes de morir,
@@ -112,7 +78,7 @@ Lo metes a tu celda y se te ocurre la idea de cambiar tu ropa por la del guardia
       los reclusos te piden que vayas a buscar las llaves de las celdas o un boton que las abra todas, pero es muy probable que encuentres muchos guardias.
       <(Escpar solo)> ; <(Ayudar a los prisioneros)>
 
-        */1.2.1.3.1*/ Decides seguir adelante en tu escape sin ayudar a los prisioneros. Consideras que es demasiado arriesgado enfrentarse a un gran número de guardias y priorizas
+        */1.2.1.3.1*/ Decides seguir adelante en tu escape sin ayudar a los prisioneros. Consideras que es demasiado arriesgado enfrentarse a un gran numero de guardias y priorizas
         tu propia libertad.
         Con la ayuda de tu pistola de sedantes avanzas muy rapido, pero se te esta acabando la municion, por lo que puedes continuar asi o enfrentar a otro "jefe de piso"
         <(Continuar)> ; <(Buscar Jefe de piso)
@@ -120,7 +86,7 @@ Lo metes a tu celda y se te ocurre la idea de cambiar tu ropa por la del guardia
           */1.2.1.3.1.1*/ <(Continuar)> Pasa lo mismo */1.2.1.3.1.1.1*/
 
           */1.2.1.3.1.1*/ <(Buscar Jefe de piso) Al ir a buscar a otro jefe de piso, das con una sala llena de guardias, bien armados, incluyendo pistolas de verdad, ademas
-          los escuchas mencionar un objeto muy curioso, que lo guardan en una caja fuerte, para remate el jefe de piso guarda la contraseña  <(Continuar)> ; <(Enfrentar guardias)>
+          los escuchas mencionar un objeto muy curioso, que lo guardan en una caja fuerte, para remate el jefe de piso guarda la contraseniaa  <(Continuar)> ; <(Enfrentar guardias)>
 
             */1.2.1.3.1.1.1*/ <(Continuar)> sigues con tu escape, enfrentando uno que otro guardia(Sistema de combate, en este paso se ira verificadno si vida == 0 game_Over()), 
             cuando finalemte lleagas a la recepcion de la carcel, donde te encuentras con el duenio de la prision, Ignacio Araya y otros guardias.
@@ -140,13 +106,13 @@ Lo metes a tu celda y se te ocurre la idea de cambiar tu ropa por la del guardia
               <(No, cumplir condena)>(Llamamos a la funcion cumplir_Condena()(o lo que sea xd))
 
               */1.2.1.3.1.1.2*.3/(Se verifica si tiene el objeto en el inventario,si no, solo puede elegir 1 de las otras dos opciones) Sacas de tu mochila dinamica una PALTA HASH y se
-              la enseñas a Ignacio, este con una cara de asombro la recibe y te dice ("Este objeto es muy preciado para mi, donde lo conseguiste?, bueno no importa, eres libre de irte, pero no te
+              la ensenias a Ignacio, este con una cara de asombro la recibe y te dice ("Este objeto es muy preciado para mi, donde lo conseguiste?, bueno no importa, eres libre de irte, pero no te
               vuelvas a meter en problemas, porque no sere tan benevolente. Ahora Fuera, antes de que cambie de opinion"),  dejas tu inventario ahi y sales de la prision rapidamente
               (Aca va un final, despues lo hago).
 
             */1.2.1.3.1.1.2*/ <(Enfrentar guardias)> (Sistema de combate, en este paso se ira verificadno si vida == 0 game_Over()), Muy bien has ganado!
             ((se verifica el espacio)Agregamos a su inventario pistola de sedantes, pistola, pan con queso" 5 niveles+, eleccion para que aumente estadisticas, vida restaurada), finalmente encuentras
-            la contraseña de la caja fuerte y al abrirla te encuntras con una PALTA HASH (se verifica el espacio de inventario), sigues con tu escape, enfrentando uno que otro guardia
+            la contraseniaa de la caja fuerte y al abrirla te encuntras con una PALTA HASH (se verifica el espacio de inventario), sigues con tu escape, enfrentando uno que otro guardia
             (Sistema de combate, en este paso se ira verificadno si vida == 0 game_Over()), cuando finalemte lleagas a la recepcion de la carcel, donde te encuentras con el duenio de 
             la prision, Ignacio Araya y otros guardias.
             ("Tiempo sin vernos 'nombre_usuario'.Sabes que no puedo dejarte ir, los temas de deuda no son faciles de indultar, rindeite y nadie saldra herido") <(Enfrentarse)> ; <(Rendirse)> ;
@@ -165,18 +131,18 @@ Lo metes a tu celda y se te ocurre la idea de cambiar tu ropa por la del guardia
               <(No, cumplir condena)>(Llamamos a la funcion cumplir_Condena()(o lo que sea xd))
 
               */1.2.1.3.1.1.2*.3/(Se verifica si tiene el objeto en el inventario,si no, solo puede elegir 1 de las otras dos opciones) Sacas de tu mochila dinamica una PALTA HASH y se
-              la enseñas a Ignacio, este con una cara de asombro la recibe y te dice ("Este objeto es muy preciado para mi, donde lo conseguiste?, bueno no importa, eres libre de irte, pero no te
+              la ensenias a Ignacio, este con una cara de asombro la recibe y te dice ("Este objeto es muy preciado para mi, donde lo conseguiste?, bueno no importa, eres libre de irte, pero no te
               vuelvas a meter en problemas, porque no sere tan benevolente. Ahora Fuera, antes de que cambie de opinion"),  dejas tu inventario ahi y sales de la prision rapidamente
               (Aca va un final, despues lo hago).
 
         */1.2.1.3.2*/ Al decidir ayudar a los prisioneros, te dispones a buscar una sala de seguridad. Con la ayuda de tu pistola de sedantes avanzas muy rapido, pero se te esta acabando la municion,
         pero justo encunetras la sala de seguridad llena de guardias, bien armados, incluyendo pistolas de verdad, ademaslos escuchas mencionar un objeto muy curioso, 
-        que lo guardan en una caja fuerte, para remate el jefe de piso guarda la contraseña  <(Continuar)> ; <(Enfrentar guardias)>
+        que lo guardan en una caja fuerte, para remate el jefe de piso guarda la contrasenia  <(Continuar)> ; <(Enfrentar guardias)>
 
         <(Continuar)> pasa lo mismo */1.2.1.3.1.1.1*/
 
         <(Enfrentar guardias)> pasa lo mismo /1.2.1.3.1.1.2*/, Ademas encunetras el boton para abrir las celdas, al perionarlo, todos los relcusos salen de sus celdas y empieza un motin,
-        por suerte para ti pasas rapidamente entre los guardias y reclusos peleando sin que a ti te pase nada, asique sales sin ningun rasguño de la carcel(Aca va un final, despues lo hago).
+        por suerte para ti pasas rapidamente entre los guardias y reclusos peleando sin que a ti te pase nada, asique sales sin ningun rasgunio de la carcel(Aca va un final, despues lo hago).
 
     /*1.2.2*/ Empiezas a hablar con los prisioneros cercanos, los cuales no te dicen gran cosa, hasta que uno te menciona que el jefe de piso es pariente suyo, ademas te comenta que en unos minutos
     ira a verlo solo, por lo que puedes aprovechar esta oportunidad para enferentarte a el solo <(Ir a buscar al jefe directamente)> ; <(Esperar al jefe de piso)>
@@ -194,8 +160,8 @@ Lo metes a tu celda y se te ocurre la idea de cambiar tu ropa por la del guardia
 
 /*2*/ Al subir por el ducto empiezas a gatear, mas adelante te encuentras con la celda de un conocido tuyo y puedes bajar a su celda para escapar con el <(Bajar a la celda)> ; <(Continuar)>
 
-  */2.1*/ Al bajar saludas felizmente a tu amigo, pero justo pasa un guardia por en frente de la celda, el cual entra para golpearlos y separarlos, tu compañero se sacrifica por ti 
-  y logra derrumbar al guardia, pero el muere, por lo qeu tomas el arma del guardia y más decidido que nunca emprendes tu escape, (Agregamos a su inventario una Luma Policial, Sube de nivel),
+  */2.1*/ Al bajar saludas felizmente a tu amigo, pero justo pasa un guardia por en frente de la celda, el cual entra para golpearlos y separarlos, tu companiero se sacrifica por ti 
+  y logra derrumbar al guardia, pero el muere, por lo qeu tomas el arma del guardia y mas decidido que nunca emprendes tu escape, (Agregamos a su inventario una Luma Policial, Sube de nivel),
   sin perder el tiepo avanzanzas rapidamente por los pasillos de la carcel pero llegas a una puerta cerrada, tendras que encontrar la llave. Uno de los prisioneros cercanos 
   te menciona que la llave la tiene el "jefe de piso", el cual se distinge por una cinta en su hombro, al cual tendras que encontrar y robarle la llave. 
   <(Ir a buscar al jefe directamente)> ; <(Recaudar informacion con los prisioneros)>
@@ -207,10 +173,10 @@ Lo metes a tu celda y se te ocurre la idea de cambiar tu ropa por la del guardia
 //Final
 
 Al escapar de la carcel vas rapidamente al paradero mas cercano para volver a tu casa, una vez en tu destino, te bajas y comienzas a caminar por los reconditos cerros de Valparaiso
-Despues de soportar el olor a orina por un buen rato, llegas a tu casa, donde tus padres te reciben con extrañeza, deducen que te escapaste de la carcel por lo que vieron en las noticias
+Despues de soportar el olor a orina por un buen rato, llegas a tu casa, donde tus padres te reciben con extranieza, deducen que te escapaste de la carcel por lo que vieron en las noticias
 asi que muy enojados te sadcan de la casa, diciendote 'Nunca mas vuelvas!!!', empiezas a caminar muy triste, ya que todo tu esfurzo no sirvio para nada, Unos dias despues de dormir en las calles
 una persona te saca de ahi, consigues un trabajo y empiezas a ser tu propio jefe, por lo que empiezas a dedicarte a la compra y venta de Bitcoins, lamentablemente el precio de estas
-se desploma, por lo que no tienes dinero, despues se acercan unas personas, las cuales te apuñalan, te quitan todo y te mueres.
+se desploma, por lo que no tienes dinero, despues se acercan unas personas, las cuales te apunialan, te quitan todo y te mueres.
 
 FIN.
 

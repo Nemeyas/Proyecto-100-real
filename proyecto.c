@@ -286,7 +286,7 @@ int main(void) {
   mostrarMenu(g, nodoActual, player);
   system("cls");
   //if(nodoActual == NULL){
-    nodoActual = (searchMap(g->nodos, "ruta1"));
+    nodoActual = (searchMap(g->nodos,"Comenzar la prueba"));
     player = registrar(leerNombre(nombre));
   //}
   while(true){ //Actualizar nodos
