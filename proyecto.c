@@ -64,18 +64,17 @@ Node *seleccionador2(Grafo*g, Node* nodo, jugador* player){
     if(ValidarNodo(no2, player)){
       break;
     }
-
   }while(true);
   return no2;
 }
 //hasta aqui
 
-Node *mostrarMenu(Grafo *g, Node *n, jugador *p){
+cargar *mostrarMenu(Grafo *g, Node *n, jugador *p, cargar *save){ //Esta funcion muestra el menu del juego, ademas de las flechas mediante la funcin gotoxy, ademas del titulo del juego
+
   int option=0;
   while(true){
     GetAllKeys();
     system("cls");
-
     printf("  \n");
     printf("__________ ____ ________________   ____ ___________ __________________     _____ _____________________ \n");
     printf("\\______   \\    |   \\_   ___ \\   \\ /   / \\_   _____//   _____/\\_   ___ \\   /  _  \\\\______   \\_   _____/ \n");
@@ -107,11 +106,14 @@ Node *mostrarMenu(Grafo *g, Node *n, jugador *p){
     }
     switch (option){
       case 0: 
-        return n; //Salir del menu
+        return save; //Salir del menu
       case 1:
         subrutina(g,&n,&p);
+        save = (cargar*) malloc(sizeof(cargar));
+        save->player = p;
+        save->nodoActual = n;
         system("pause");
-        return n; //Realizar subrutinas dentro del mismo menu
+        return save; //Realizar subrutinas dentro del mismo menu
       case 2: 
         system("cls");
         printf("Adios");
@@ -120,7 +122,7 @@ Node *mostrarMenu(Grafo *g, Node *n, jugador *p){
   }
 }
 
-void subirNivel(estadisticas *stats, int opcion) {
+void subirNivel(estadisticas *stats, int opcion) {//Esta funcion sube de nivel al usuario incrementando su vidas y fuerza(Esta funcion no se ocupa)
   switch (opcion) {
     case 1:
       stats->salud += 10;
@@ -133,7 +135,7 @@ void subirNivel(estadisticas *stats, int opcion) {
   }
 }
 
-char leerNombre(char *nombre){
+char leerNombre(char *nombre){//Esta funcion lee el nombre que el usuario disponga, para despues ingresarlo al struct mediante la funcion registrar
   int largoName;
 
   printf("Ingrese el nombre del jugador\n");
@@ -149,35 +151,31 @@ char leerNombre(char *nombre){
   return *nombre;
 }
 
-jugador* registrar(){
+jugador* registrar(){//Esta funcion registra el nombre del jugador y las estadisticas de este 
   char name[20];
   leerNombre(name);
-  jugador *player = (jugador*) malloc (sizeof(jugador));
-  strcpy(player->nombre, name);
+  jugador *player = (jugador*) malloc (sizeof(jugador));//Se reserva memoria
+  strcpy(player->nombre, name);// se ingresa al struct
   player->size = 0;
   player->inventario = (inve*) malloc (2 * sizeof(inve)); 
   player->stats.fuerza = 12; 
-  player->stats.salud = 20; 
+  player->stats.salud = 20; //hasta aqui se registran todas las estadisticas
   return player;
 }
 
-void agregarItem(jugador *jug, char *nombreItem) {
-  //jug->size++;
-  //jug->inventario = realloc(jug->size, sizeof(char));
-
+void agregarItem(jugador *jug, char *nombreItem) {//Esta funcion agrega un item al inventario del jugador
   for (int i = 0; i < jug->size; i++){
     if(jug->inventario[i].item == NULL){
       strcpy(jug->inventario[i].item,nombreItem);
-      //printf("sexo online correcto\n");
       return;
     }
-  }
+  }//Se recorre el inventario verificando si esta lleno, en caso de estarlo se muestra el mensaje a continuacion, si no, simplemente lo agrega
   printf("El inventario esta lleno. No se puede agregar el item '%s'.\n", nombreItem);
 }
 
-void InventarioSUB(jugador *jug, int incremento) {
+void InventarioSUB(jugador *jug, int incremento) {//Esta funcion incrementa el inventario del jugador
   int nuevoTamano = incremento;
-  jug->inventario = (inve*)realloc(jug->inventario, nuevoTamano * sizeof(inve));
+  jug->inventario = (inve*)realloc(jug->inventario, nuevoTamano * sizeof(inve));//Con esto se incrementa el inventario
 }
 
 void SioNo(){
@@ -204,19 +202,19 @@ void SioNo(){
   }
 }
 
-void menuDelJuego(char *a, Node *n, Grafo *g, jugador *p){
+void menuDelJuego(char *a, Node *n, Grafo *g, jugador *p){//Mediante el boton de pausa se accede a esta funcion la cual despliega las opciones elegibles mediante las flechas
   int option=0;
   int option2=0;
   char respuesta[20];
   GetAllKeys();
   while(true){
-    system("cls");
+    system("cls");//A continuacion se muestran als opciones del menu de pausa 
     gotoxy(8, 0); printf("MENU DE PAUSA");
     gotoxy(6, 3); printf("Resumir");
     gotoxy(6, 6); printf("Reiniciar partida");
     gotoxy(6, 9); printf("Guardar Partida");
     gotoxy(6, 12); printf("Salir");
-    while(true){
+    while(true){//Funciones para la movilidad de la flecha
       limpiarFlecha(0, 3, 4);
       ubicarFlecha(0, 3, option);
       if(cambiarOpcion(&option, 4)) break;
@@ -239,31 +237,30 @@ void menuDelJuego(char *a, Node *n, Grafo *g, jugador *p){
   }
 }
 
-int main(void) {
+int main(void) {//main del proyecto, en el cual se llaman a la mayoria de las funciones
   int seleccion=0;
   int contador=0;
   int contador2 = 0;
   bool si = false;
+  cargar *save = NULL;
   Node *nodoActual = NULL;
   jugador *player = NULL;
   Grafo* g = createGrafo();
-  HashMap *enemies = createMap(30);
-  
-  importarArchivos(g, enemies, player, nodoActual);
-  nodoActual = mostrarMenu(g, nodoActual, player);
-  //strcpy(player->nombre,"seba");
+  HashMap *enemies = createMap(30);//Hasta aqui se inicializan la mayoria de estructutras 
+  importarArchivos(g, enemies, player, nodoActual);//Se llama a la funcion importar, la cual esta definida en el archivo con el mismo nombre
+  save = mostrarMenu(g, nodoActual, player, save);//Se llama a la funcion que muestra el menu principal
   system("cls");
-  //printf("--------%s", player->nombre);
-  if (player == NULL){
+  if (save == NULL){
     player = registrar();
     system("cls");
-  }
-  
-  if( nodoActual == NULL){
     nodoActual = (searchMap(g->nodos,"Prologo"));
     system("cls");
+  }//Hasta aqui se registra el jugador y se inica el primer nodo
+  else{
+    player = save->player;
+    nodoActual = save->nodoActual;
   }
-
+  
   while(true){ //Actualizar nodos
     char *a = firstList(nodoActual->tiposHistorias);
     char *p = nodoActual->ID;
@@ -275,7 +272,6 @@ int main(void) {
         a = firstList(nodoActual->tiposHistorias);
         system("cls");
         si = true;
-        //printf(" %s ", a);
       }
       else if( si == true){
         if( contador2 == 0){
@@ -300,24 +296,24 @@ int main(void) {
         }
         a = prevList(nodoActual->tiposHistorias);
         system("pause");
-      }
+      }//Desde aqui se reciben los "comandos" desde el archivo csv correspondiente, los nombres de estos indican claramente que hacen 
       else if(strcmp(a,"name")==0){
         printf("%s", player->nombre);
       }
-      else if(strcmp(a,"pause")==0){
+      else if(strcmp(a,"pause")==0){//Indica una pausa en el texto para que se muestre mas lento 
         printf("\n\n\n ");
         system("pause");
         system("cls");
       }
-      else if(strcmp(a,"fight")==0){
+      else if(strcmp(a,"fight")==0){//Indica una pelea
         enemigo *enemy = searchMap(enemies, nextList(nodoActual->tiposHistorias));
         fight(player, enemy);
       }
-      else if(strcmp(a,"choice")==0){
+      else if(strcmp(a,"choice")==0){//Indica una eleccion
         break;
       }
-      else if(strcmp(a, "End")==0){
-        creditos();
+      else if(strcmp(a, "End")==0){//Indica el llegar a un final o morir
+        creditos();//Se muestran los creditos, funcion que esta definida en el archivo de estructuras
         return 0;
       }
       else{
@@ -336,5 +332,3 @@ int main(void) {
   }
   return 0;
 }
-
-//hacerle registrar al player cuando se carga partida, quizas reservar espacio para el nodo tmb

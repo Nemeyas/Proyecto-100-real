@@ -8,7 +8,7 @@
 #define Barra "--------------------"
 #define BARRA "-------------------------------------------------------"
 
-void gameOver(){
+void gameOver(){//Funcion que opera despues de que el jugador muera
     printf("HAS MUERTO!!)(!=)!=)==!!");
     system("pause");
 }
@@ -168,22 +168,22 @@ void seleccionador(int accionEnemy, jugador *player, enemigo *enemy){
         mostrarImagen("guardia");
         system("cls");
         mostrarImagen("guardia");
-        gotoxy(6,29);printf("     Atacar\n");
-        gotoxy(6,32);printf("     mostrarInventario\n");
-        gotoxy(6,35);printf("     cubrirse\n");
-        gotoxy(6,38);printf("     burlarse\n");
+        gotoxy(6,32);printf("     Atacar\n");
+        gotoxy(6,35);printf("     mostrarInventario\n");
+        gotoxy(6,38);printf("     cubrirse\n");
+        gotoxy(6,41);printf("     burlarse\n");
 
-        gotoxy(29,29);puts(Barra);
-        gotoxy(29,31);printf("| %s: %d |\n", player->nombre,player->stats.salud);
-        gotoxy(29,32);puts(Barra);
+        gotoxy(6,27);puts(Barra);
+        gotoxy(6,28);printf("| Vida %s: %d \n", player->nombre, player->stats.salud);
+        gotoxy(6,29);puts(Barra);
 
-        gotoxy(150,0);puts(Barra);
-        gotoxy(150,1);printf("| %s: %d |\n", enemy->nombre,enemy->stats.salud);
-        gotoxy(150,2);puts(Barra);
+        gotoxy(137,27);puts(Barra);
+        gotoxy(137,28);printf(" Vida %s: %d |\n", enemy->nombre, enemy->stats.salud);
+        gotoxy(137,29);puts(Barra);
 
         while(true){
-            limpiarFlecha(0, 29, 4);
-            ubicarFlecha(0, 29, seleccion);
+            limpiarFlecha(0, 32, 4);
+            ubicarFlecha(0, 32, seleccion);
             if(cambiarOpcion(&seleccion,4)) break;
             mostrarImagen("guardia");
         }
@@ -210,12 +210,8 @@ void seleccionador(int accionEnemy, jugador *player, enemigo *enemy){
 void fight(jugador *player, enemigo *enemy){
     while (enemy->stats.salud > 0 || player->stats.salud > 0){
         int accionEnemy = rand() % 4;
-        //printf("..%i..", accionEnemy);
-        //system("pause");
+
         seleccionador(accionEnemy, player, enemy);
-        //printf("sexo 2");
-        //system("pause");
-        //system("cls");
         if (player->stats.salud <= 0){
             gameOver();
             creditos();

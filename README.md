@@ -12,10 +12,8 @@ Herramientas: Visual Studio Code, GitHub, ChatGPT, Live Share.
 
 PROBLEMAS U OBSERVACIONES:
 1. El botón de pausa en medio de la aventura a veces tiene comportamientos erráticos.
+2. La funcion subirNivel no se ocupa, debido a ciertas complicaciones
 
-2. cargar partida funciona pero la partida cargada es inestable
-
-3. el nombre no se muestra bien en la aplicacion
 
 Trabajo en equipo:
 En este trabajo nuestro equipo se mostro responsable y dedicado. Pero unos aspectos a mejorar seria mayor puntualidad a la hora de trabajar(sugerencia).

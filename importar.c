@@ -63,7 +63,7 @@ int verificarArchivo(const char* nombreArchivo) {
   return 1;
 }
 
-void importarDatos(Grafo *g, char *archivoName){
+void importarDatos(Grafo *g, char *archivoName){ // esta funcion lee los datos del conexiones.csv
   FILE *archivo = fopen(archivoName, "r");
   char linea[1024];
   char *aux;
@@ -106,13 +106,12 @@ void importarDatos(Grafo *g, char *archivoName){
         }
       }
     }
-    //printf("...%s...", nodo->ID);
     insertMap(g->nodos, nodo->ID, nodo);
   }
   fclose(archivo);
 }
 
-void importarLore(Grafo *g, char *archivoName){
+void importarLore(Grafo *g, char *archivoName){ // esta funcion lee los datos del prueba.csv
   FILE *archivo = fopen(archivoName, "r");
   char linea[2500];
   char *aux;
@@ -123,8 +122,6 @@ void importarLore(Grafo *g, char *archivoName){
       aux = (char*)get_csv_field(linea, i,'.');
       if(i == 0){
         nodo = searchMap(g->nodos, aux);
-        //printf("...%s...", nodo->ID);
-        //system("pause");
       }
       if (i == 1){
         nodo->tiposHistorias = createList();
@@ -132,7 +129,6 @@ void importarLore(Grafo *g, char *archivoName){
         while (cantHistorias != 0){
           i++;
           aux = (char*)get_csv_field(linea, i,'.');
-          //printf("...%s...", aux);
           char *historia = malloc(sizeof(char)*1000);
           strcpy(historia, aux);
           pushBack(nodo->tiposHistorias, historia);
@@ -144,7 +140,7 @@ void importarLore(Grafo *g, char *archivoName){
   fclose(archivo);
 }
 
-void importarEnemigos(HashMap *enemies, char *archivoName){
+void importarEnemigos(HashMap *enemies, char *archivoName){ // esta funcion lee el archivo enemy.csv
   FILE *archivo = fopen(archivoName, "r");
   char linea[1024];
   char *aux;
@@ -169,37 +165,6 @@ void importarEnemigos(HashMap *enemies, char *archivoName){
   fclose(archivo);
 }
 
-/*
-void importarImagen(Grafo *g, char *archivoName){
-  FILE *archivo = fopen(archivoName, "r");
-  char linea[1024];
-  char *aux;
-  int i, CantNodos;
-  Node *nodo;
-  while(fgets(linea, 1024, archivo) != NULL){
-    for( int i = 0 ; i < 2 ; i++){
-      aux = (char*)get_csv_field(linea, i,'.');
-      if(i == 0){
-        nodo = searchMap(g->nodos, aux);
-        printf("...%s...", nodo->ID);
-         printf("%s", aux);
-      }
-      if (i == 1){
-        int tamanio = 25;
-        while (tamanio != 0){
-          i++;
-          aux = (char*)get_csv_field(linea, i,',');
-          char *imagen = malloc(sizeof(char));
-          strcpy(imagen, aux);
-          pushBack(nodo->imagenes, imagen);
-          tamanio--;
-        }
-      }
-    }
-  }
-  fclose(archivo);
-}*/
-
 void importarSave(Grafo *g, Node **nodoActual, jugador **player){
   FILE *archivo = fopen("save.csv", "r");
   char linea[1024];
@@ -214,9 +179,6 @@ void importarSave(Grafo *g, Node **nodoActual, jugador **player){
       }
       if(i == 1){
         strcpy((*player)->nombre, aux);
-        //printf(" aa..%s..aa \n", aux);
-        //printf(" aa..%s..aa \n", (*player)->nombre);
-        //printf("papas\n");
       }
       if(i == 2){
         (*player)->stats.salud = atoi(aux);
@@ -226,7 +188,6 @@ void importarSave(Grafo *g, Node **nodoActual, jugador **player){
       }
       if(i == 4){
         (*player)->size = atoi(aux);
-        //printf(" aa..%s..aa \n", (*player)->nombre);
 
         if ((*player)->size != 0){
           (*player)->inventario = (inve *) malloc (2 * sizeof(char));
@@ -239,7 +200,6 @@ void importarSave(Grafo *g, Node **nodoActual, jugador **player){
       }
     }
   }
-  //printf(" aa..%s..aa \n", (*player)->nombre);
   fclose(archivo);
 }
 
@@ -282,8 +242,6 @@ void subrutina(Grafo *g, Node **n, jugador **p){
     switch (option){
       case 0: 
         importarSave(g,n,p);
-        //printf(" aa..%s..aa ", (*p)->nombre);
-        //printf(" aa..%s..aa ", (*p)->nombre);
         printf("Partida cargada con exito");
         gotoxy(6,20);printf(" ..%s...",(*p)->nombre);
         gotoxy(6,21);printf(" ......%s...",(*n)->ID);
@@ -342,6 +300,5 @@ void importarArchivos(Grafo *g, HashMap *enemies, jugador *player, Node *nodoAct
   importarDatos(g, "conexiones.csv");
   importarLore(g, "prueba.csv");
   importarEnemigos(enemies, "enemy.csv");
-  //importarImagen(g, "imagenes.csv");
 
 }

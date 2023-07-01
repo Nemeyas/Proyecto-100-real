@@ -7,19 +7,19 @@
 #include "hashmap.h"
 #include "estructuras.h"
 
-Grafo* createGrafo(){
+Grafo* createGrafo(){// Se crea el grafo, mediante un Map el cual guarda la ID del nodo
   HashMap *nodos = createMap(100);
   Grafo *grafo = (Grafo*)malloc(sizeof(Grafo));
   grafo->nodos = nodos;
   return grafo;
 }
 
-void agregarNodo(Grafo *grafo, Node *n){
+void agregarNodo(Grafo *grafo, Node *n){//Se agregan los nodos al Map
   insertMap(grafo->nodos, n->ID, n);
   return;
 }
 
-void creditos(){
+void creditos(){// Funcion que muestra los agradecimientos y desagradecimientos 
   printf("           PUCV ESCAPE PRISION SIMULATOR\n\n");
   printf("       ---------------CREDITOS------------------\n");
   printf("                      LOS GPT\n\n");

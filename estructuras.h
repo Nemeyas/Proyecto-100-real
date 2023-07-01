@@ -52,6 +52,11 @@ typedef struct Grafo{
   HashMap *nodos;
 }Grafo;
 
+typedef struct cargar{
+  Node *nodoActual;
+  jugador *player;
+}cargar;
+
 Grafo * createGrafo();
 
 void agregarNodo(Grafo *grafo, Node *n);

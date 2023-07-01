@@ -7,7 +7,7 @@
 
 /*La funcion recibe los parametros x, y
 * y situa el cursor en esa posiccion */
-void gotoxy(int x, int y){
+void gotoxy(int x, int y){  
     HANDLE consola = GetStdHandle(STD_OUTPUT_HANDLE);
     COORD pos;
     pos.X = x;
@@ -36,7 +36,7 @@ void GetAllKeys(){
     GetAsyncKeyState(VK_ESCAPE);
 }
 
-//funciones del Nemeyas, no tocar
+//Esta función se utiliza para borrar una flecha ubicada en la posición (x, y) en la consola
 void limpiarFlecha(int x, int y, int cantOpciones){
     for(int i = 0; i < cantOpciones; i++){
         gotoxy(x, y + i*3); 
@@ -44,11 +44,14 @@ void limpiarFlecha(int x, int y, int cantOpciones){
     }
 }
 
+//ubicarFlecha(int x, int y, int opcion)
 void ubicarFlecha(int x, int y, int opcion){
     gotoxy(x, y + opcion*3);
     printf("-->");
 }
 
+//Esta función permite cambiar la opción seleccionada. Recibe como parámetros un puntero a la variable opcion que indica la opción actualmente seleccionada,
+// y cantOpciones, que especifica la cantidad total de opciones disponibles.
 bool cambiarOpcion(int * opcion, int cantOpciones){
     Sleep(200);
     if( GetAsyncKeyState(VK_UP) ){
