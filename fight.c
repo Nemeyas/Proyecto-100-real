@@ -10,7 +10,6 @@
 void gameOver(){
     printf("HAS MUERTO!!)(!=)!=)==!!");
     system("pause");
-    abort();
 }
 
 void atacar(jugador *player, enemigo *enemy, int accionEnemy){
@@ -75,9 +74,9 @@ void cubrirse(jugador *player, enemigo *enemy, int accionEnemy){
         return;
     }
 }
-void burlarse(){
-    int burla = rand() % 10;
 
+void burlarse(enemigo *enemy){
+    int burla = rand() % 10;
     if (burla == 0) printf("Tu mama es guatona\n");
     if (burla == 1) printf("Gohan acercate...Esta a un toque\n");
     if (burla == 2) printf("chatarra tu abuela\n");
@@ -88,8 +87,12 @@ void burlarse(){
     if (burla == 7) printf("Se busca rival en la PUCV\n");
     if (burla == 8) printf("Mi primo chico dio mas pelea... contra el cancer\n");
     if (burla == 9){
-        printf("Loco que esta pasando, maniana mismo hago la denuncia en la PDI\n");
-
+        printf(" Tu: Loco que esta pasando, maniana mismo hago la denuncia en la PDI\n");
+        printf(" Guardia: otra vez noooo, esa vez me dijo que tenia 18");
+        system("pause");
+        system("cls");
+        printf("El enemigo huyo!\n");
+        enemy->stats.salud = 0;
     }
 
     system("pause");
@@ -146,7 +149,7 @@ void seleccionadorInv(jugador *player, enemigo *enemy,int *piedra,int *pie,int *
             player->stats.fuerza+=2;
             abuela--;
             return;
-    }
+        }
     }
 }
 
@@ -158,6 +161,7 @@ void seleccionador(int accionEnemy, jugador *player, enemigo *enemy){
     int contFoto=4;
     GetAllKeys();
     while(true){
+        //mostrarImagen("guardia");
         system("cls");
         gotoxy(6,29);printf("     Atacar\n");
         gotoxy(6,32);printf("     mostrarInventario\n");
@@ -191,7 +195,7 @@ void seleccionador(int accionEnemy, jugador *player, enemigo *enemy){
             return;
         } 
         if (seleccion == 3){
-            burlarse();
+            burlarse(enemy);
             return;
         }
   }
@@ -208,6 +212,7 @@ void fight(jugador *player, enemigo *enemy){
         //system("cls");
         if (player->stats.salud <= 0){
             gameOver();
+            creditos();
             return;
         }   
         if (enemy->stats.salud <= 0){

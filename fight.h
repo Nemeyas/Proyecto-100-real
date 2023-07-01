@@ -10,7 +10,7 @@ void seleccionadorInv(jugador *player, enemigo *enemy,int *piedra,int *pie,int *
 void atacar(jugador *player, enemigo *enemy, int accionEnemy);
 void mostrarInventario(jugador *player);
 void cubrirse(jugador *player, enemigo *enemy, int accionEnemy);
-void burlarse();
+void burlarse(enemigo *enemy);
 void fight(jugador *player, enemigo *enemy);
 
 #endif /* fight_h */
