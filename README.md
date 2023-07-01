@@ -1,7 +1,8 @@
 PUCV PRISON ESCAPE SIMULATOR
 
 Como Ejecutar:
-El juego se ejecuta a traves del ejecutable PPES.exe que se encuentra en la carpeta del juego.
+Para correr el codigo en Visual, hay que abrir una terminal y en el apartado de la terminal pegar el siguiente codigo: "gcc proyecto.c list.c gotoxy.c estructuras.c hashmap.c importar.c imagen.c fight.c  -o proyecto19"
+Despues El juego se ejecuta a traves del ejecutable PPES.exe que se encuentra en la carpeta del juego.
 Cuando se abre se desplegará el menú del juego con 3 opciones:
 Empezar el juego: la aventura comienza desde el principio y el jugador creará un nuevo personaje.
 Cargar partida: si es que en una aventura previa el usuario apreto el botón escape y selecciono guardar partida, puede continuar el juego desde ese punto conservando su personaje y estadísticas.
@@ -11,6 +12,10 @@ Herramientas: Visual Studio Code, GitHub, ChatGPT, Live Share.
 
 PROBLEMAS U OBSERVACIONES:
 1. El botón de pausa en medio de la aventura a veces tiene comportamientos erráticos.
+
+2. cargar partida funciona pero la partida cargada es inestable
+
+3. el nombre no se muestra bien en la aplicacion
 
 Trabajo en equipo:
 En este trabajo nuestro equipo se mostro responsable y dedicado. Pero unos aspectos a mejorar seria mayor puntualidad a la hora de trabajar(sugerencia).

@@ -59,7 +59,11 @@ Node *seleccionador2(Grafo*g, Node* nodo, jugador* player){
     }
 
     char *codigoSiguienteNodo = nodo->adjNode[option];
+    printf("seba weko\n");
+    system("pause");
     no2 = searchMap(g->nodos,codigoSiguienteNodo);
+    printf("seba no weko\n");
+    system("pause");
     
     //system("pause");
     if(ValidarNodo(no2, player)){
@@ -71,7 +75,7 @@ Node *seleccionador2(Grafo*g, Node* nodo, jugador* player){
 }
 //hasta aqui
 
-void mostrarMenu(Grafo *g, Node *n, jugador *p){
+Node *mostrarMenu(Grafo *g, Node *n, jugador *p){
   int option=0;
   while(true){
     GetAllKeys();
@@ -108,11 +112,12 @@ void mostrarMenu(Grafo *g, Node *n, jugador *p){
     }
     switch (option){
       case 0: 
-        return; //Salir del menu
+        return n; //Salir del menu
       case 1:
         subrutina(g,&n,&p);
-        printf(" oo..%s..oo ", p->nombre);
-        break; //Realizar subrutinas dentro del mismo menu
+        printf(" pito..%s..pito ", p->nombre);
+        system("pause");
+        return n; //Realizar subrutinas dentro del mismo menu
       case 2: 
         system("cls");
         printf("Adios");
@@ -251,14 +256,20 @@ int main(void) {
   HashMap *enemies = createMap(30);
   
   importarArchivos(g, enemies, player, nodoActual);
-  mostrarMenu(g, nodoActual, player);
+  nodoActual = mostrarMenu(g, nodoActual, player);
+  //strcpy(player->nombre,"seba");
   system("cls");
   printf("--------%s", player->nombre);
-  if(player == NULL || nodoActual == NULL){
-    nodoActual = (searchMap(g->nodos,"Enfrentarse"));
+  if (player == NULL){
     player = registrar();
     system("cls");
   }
+  
+  if( nodoActual == NULL){
+    nodoActual = (searchMap(g->nodos,"Prologo"));
+    system("cls");
+  }
+
   while(true){ //Actualizar nodos
     char *a = firstList(nodoActual->tiposHistorias);
     char *p = nodoActual->ID;
@@ -305,7 +316,6 @@ int main(void) {
         system("cls");
       }
       else if(strcmp(a,"fight")==0){
-        
         enemigo *enemy = searchMap(enemies, nextList(nodoActual->tiposHistorias));
         fight(player, enemy);
       }

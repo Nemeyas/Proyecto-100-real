@@ -151,7 +151,7 @@ gotoxy(6,24);printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%
 
 void mostrarImagen(char *a){
     if(strcmp(a,"Prologo") == 0||strcmp(a,"Correo de PUCV")==0||strcmp(a,"Correo de Escuela de ingenieria Informatica")==0||strcmp(a,"Correo de Manolo")==0||strcmp(a,"Volver a los correos")==0||strcmp(a,"Seguir viendo correos")==0||strcmp(a,"Salir Inmediatamente")==0) piezaDelJugador();
-    else if(strcmp(a,"CAE")==0||strcmp(a,"Wena po oe devuelvan la jabonera al ibc piso 2")==0||strcmp(a,"volver con la seniorita")==0||strcmp(a,"Hola tuve un problema con la renovacion y no se como pagar")==0) oficinaDeCasaCentral;
+    else if(strcmp(a,"CAE")==0||strcmp(a,"Wena po oe devuelvan la jabonera al ibc piso 2")==0||strcmp(a,"volver con la seniorita")==0||strcmp(a,"Hola tuve un problema con la renovacion y no se como pagar")==0) oficinaDeCasaCentral();
     else if(strcmp(a,"Esperar un guardia para noquearlo y robarle las llaves")==0||strcmp(a,"Cambiar la ropa y tomar su arma")==0||strcmp(a,"Quedarse igual y tomar su arma")==0||strcmp(a,"Escapar solo")==0||strcmp(a,"")==0||strcmp(a,"Quieres escapar de la prision?")==0||strcmp(a,"Cambiar la ropa y tomar su arma")==0||strcmp(a,"Quedarse igual y tomar su arma")==0) prisionPlantaBaja(); 
     else if(strcmp(a,"guardia")==0) guardiaGenerico();
     else if(strcmp(a,"PALTA HASH")==0) profePaltaHash();
