@@ -1,7 +1,7 @@
 PUCV PRISON ESCAPE SIMULATOR
 
 Como Ejecutar:
-El juego se ejecuta a través del ejecutable PPES.exe que se encuentra en la carpeta del juego.
+El juego se ejecuta a traves del ejecutable PPES.exe que se encuentra en la carpeta del juego.
 Cuando se abre se desplegará el menú del juego con 3 opciones:
 Empezar el juego: la aventura comienza desde el principio y el jugador creará un nuevo personaje.
 Cargar partida: si es que en una aventura previa el usuario apreto el botón escape y selecciono guardar partida, puede continuar el juego desde ese punto conservando su personaje y estadísticas.
@@ -18,21 +18,21 @@ En este trabajo nuestro equipo se mostro responsable y dedicado. Pero unos aspec
 
 Aporte individual: 
 
-Rubén Carvajal: Aportó con un apartado para el correcto funcionamiento del programa, además de actualizar algunas funciones. Algo que mejorar seria la puntualidad, comunicación más clara y mayor presencia en las reuniones organizadas.
+Rubén Carvajal: Aporto con sugerencias en lo que respecta al codigo, aporto en la redaccion de informes y presentaciones.
 
-Nehemias Leiva: Revision y modificacion de errores en varias funciones e implementacion de funciones anteriormente ultiles. Aspectos a mejorar seria mayor concentracion al trabajar.
+Nehemias Leiva: Llevo a cabo el apartado estetico del programa, ademas de aportar en funciones en general, aporto en la redaccion de informes y presentaciones.
 
-Matias Castro: Aportó con el codigo y corrección de errores, algo a mejorar seria la concentración, ya que se distrae mucho.
+Matias Castro: Realizo parte de las conexiones, parte de importar, ademas de aportar en la solucion de errores del codigo, aporto en la redaccion de informes y presentaciones.
 
-Adolfo Cordero: Sentó las bases de el modelo estandar del menú, buen aporte al equipo con buen analisis y correcciónes de codigo.
+Adolfo Cordero: Realizo varas partes de las funciones de importar y exportar(guardar), relizo la funcion de pelea, aporto en la redaccion de informes y presentaciones. 
 
-Sebastián Gatica: Organizaba las reuniones y presenta buena disposicion al trabajar, además de aportar y desarrollar algunas funciones y archivos, Aspectos a mejorar serian la concentración.
+Sebastián Gatica: Organizaba las reuniones del grupo, Relizo la historia y parte de las conexiones, ademas de aportar en las funciones que ocupa el jugador, aporto en la redaccion de informes y presentaciones.
 
 
 TABLA DE PUNTAJES
 
   Nombres             Participación      Responsabilidad         Comunicacion    Calidad de trabajo     Trabajo en equipo     Puntaje total
-  Rubén Carvajal             20                20                    19                     20                  19                  98
+  Rubén Carvajal             16                20                    19                     19                  16                  90
   Nehemias Leiva             20                20                    20                     20                  20                  100
   Matias Castro              20                20                    20                     20                  20                  100
   Adolfo Cordero             20                20                    20                     20                  20                  100

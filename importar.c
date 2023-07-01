@@ -200,47 +200,51 @@ void importarImagen(Grafo *g, char *archivoName){
   fclose(archivo);
 }*/
 
-void importarSave(Grafo *g, Node *nodoActual, jugador *player){
+void importarSave(Grafo *g, Node **nodoActual, jugador **player){
   FILE *archivo = fopen("save.csv", "r");
   char linea[1024];
   char *aux;
   int i;
-  player = (jugador *) malloc (sizeof(jugador));
-  fgets(linea, 1023, archivo);
+  *player = (jugador *) malloc (sizeof(jugador));
   while(fgets(linea, 1023, archivo) != NULL){ //Se leen todas las lineas en orden
     for(i = 0 ; i < 5 ; i++){
       aux = (char*)get_csv_field(linea, i, ','); //aux se convierte en la linea de caracteres i-esima para rellenar el valor correspondiente.
       if(i == 0){
-        nodoActual = searchMap(g->nodos, aux);
+        *nodoActual = searchMap(g->nodos, aux);
       }
       if(i == 1){
-        strcpy(player->nombre, aux);
+        strcpy((*player)->nombre, aux);
+        printf(" aa..%s..aa \n", aux);
+        printf(" aa..%s..aa \n", (*player)->nombre);
+        printf("papas\n");
       }
       if(i == 2){
-        player->stats.salud = atoi(aux);
+        (*player)->stats.salud = atoi(aux);
       }
       if(i == 3){
-        player->stats.fuerza = atoi(aux);
+        (*player)->stats.fuerza = atoi(aux);
       }
       if(i == 4){
-        player->size = atoi(aux);
+        (*player)->size = atoi(aux);
+        printf(" aa..%s..aa \n", (*player)->nombre);
 
-        if (player->size != 0){
-          player->inventario = (inve *) malloc (2 * sizeof(char));
-          for (int j = 0 ; j < player->size ; j++){
+        if ((*player)->size != 0){
+          (*player)->inventario = (inve *) malloc (2 * sizeof(char));
+          for (int j = 0 ; j < (*player)->size ; j++){
             i++;
             aux = (char*)get_csv_field(linea, i, ',');
-            strcpy(player->inventario[j].item, aux);
+            strcpy((*player)->inventario[j].item, aux);
           }
         }
       }
     }
   }
+  printf(" aa..%s..aa \n", (*player)->nombre);
   fclose(archivo);
 }
 
 
-void subrutina(Grafo *g, Node *n, jugador *p){
+void subrutina(Grafo *g, Node **n, jugador **p){
   FILE *archivo = fopen("save.csv", "r");
   char linea[1024];
   char *aux;
@@ -266,8 +270,10 @@ void subrutina(Grafo *g, Node *n, jugador *p){
         }
       }
     }
+    
     gotoxy(6, 9);printf("Si");
     gotoxy(6, 12);printf("No");
+    
     while(true){
       limpiarFlecha(0, 6, 2);
       ubicarFlecha(0, 9, option);
@@ -276,9 +282,11 @@ void subrutina(Grafo *g, Node *n, jugador *p){
     switch (option){
       case 0: 
         importarSave(g,n,p);
+        printf(" aa..%s..aa ", (*p)->nombre);
+        printf(" aa..%s..aa ", (*p)->nombre);
         printf("Partida cargada con exito");
-        gotoxy(6,20);printf(" ..%s...",p->nombre);
-        gotoxy(6,21);printf(" ......%s...",n->ID);
+        gotoxy(6,20);printf(" ..%s...",(*p)->nombre);
+        gotoxy(6,21);printf(" ......%s...",(*n)->ID);
         system("pause");
         return;
       case 1:

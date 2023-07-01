@@ -47,7 +47,7 @@ int seleccionadorInv(jugador *player){
   return *option;
 }
 
-void atacar(jugador *player, jugador *enemy, int accionEnemy){
+void atacar(jugador *player, enemigo *enemy, int accionEnemy){
     if (accionEnemy == 2){
         float damage = (player->stats.fuerza)/2;
         enemy->stats.salud -= damage;
@@ -83,7 +83,7 @@ void mostrarInventario(jugador *player){
     }
 }
 
-void cubrirse(jugador *player, jugador *enemy, int accionEnemy){
+void cubrirse(jugador *player, enemigo *enemy, int accionEnemy){
     if (accionEnemy == 1) printf("Te cubres... y el enemigo no actua!\n"); return;
     if (accionEnemy == 2) printf("Te cubres... y el enemigo tambien!\n"); return;
     if (accionEnemy == 3) printf("Te cubres... y el enemigo se burla de ti!\n"); return;
@@ -110,7 +110,7 @@ void burlarse(){
     
 }
 
-void fight(jugador *player, jugador *enemy){
+void fight(jugador *player, enemigo *enemy){
     while (enemy->stats.salud > 0 || player->stats.salud > 0){
         int accionEnemy = rand() % 4;
 

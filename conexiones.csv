@@ -26,7 +26,6 @@ Escapar solo,0,0,0,0,0,0,2,Continuar,Buscar Jefe de piso
 Ayudar a los prisioneros,0,0,0,0,0,0,2,Continuar,Enfrentar guardias
 Enfrentar guardias,0,0,0,0,0,0,1,FIN
 Continuar,0,0,0,0,0,0,3,Enfrentarse,Rendirse,PALTA HASH
-Enfrentarse,0,0,0,0,0,0,2,Matarlo,Escapar
 Matarlo,0,0,0,0,0,0,0,
 Escapar,0,0,0,0,0,0,0,
 Rendirse,0,0,0,10,0,0,2,Quieres escapar de la prision?,Quieres cumplir tu condena?

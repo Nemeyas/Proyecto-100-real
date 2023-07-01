@@ -14,12 +14,6 @@ Grafo* createGrafo(){
   return grafo;
 }
 
-void createNode2(Node *n){
-  n = (Node *) malloc (sizeof(Node));
-  //n->adjNode = malloc (sizeof(char));
-
-}
-
 void agregarNodo(Grafo *grafo, Node *n){
   insertMap(grafo->nodos, n->ID, n);
   return;

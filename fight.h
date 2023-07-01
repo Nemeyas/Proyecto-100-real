@@ -8,10 +8,10 @@ typedef struct inve inve;
 void winScreen();
 int seleccionador(int opciones);
 int seleccionadorInv(jugador *player);
-void atacar(jugador *player, jugador *enemy, int accionEnemy);
+void atacar(jugador *player, enemigo *enemy, int accionEnemy);
 void mostrarInventario(jugador *player);
-void cubrirse(jugador *player, jugador *enemy, int accionEnemy);
+void cubrirse(jugador *player, enemigo *enemy, int accionEnemy);
 void burlarse();
-void fight(jugador *player, jugador *enemy);
+void fight(jugador *player, enemigo *enemy);
 
 #endif /* fight_h */
