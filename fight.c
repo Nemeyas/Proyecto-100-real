@@ -104,20 +104,22 @@ void seleccionadorInv(jugador *player, enemigo *enemy,int *piedra,int *pie,int *
     int opciones = player->size;
     GetAllKeys();
     while(true){
-        gotoxy(6,27);printf("Selecciona el item que quieras usar");
         system("cls");
+        mostrarImagen("guardia");
+        gotoxy(6,27);printf("Selecciona el item que quieras usar");
         gotoxy(6,29);printf("piedra");
         gotoxy(6,32);printf("Pie de Limon");
         gotoxy(6,35);printf("zapatilla desgastada");
         gotoxy(6,38);printf("Foto de tu abuela");
 
         while(true){
-            mostrarImagen("guardia");
-            limpiarFlecha(0, 29, opciones);
+            limpiarFlecha(0, 29, 4);
             ubicarFlecha(0, 29, option);
-            if(cambiarOpcion(&option, opciones)) break;
+            if(cambiarOpcion(&option, 4)) break;
+            mostrarImagen("guardia");
         }
-        switch (option)
+
+        switch(option)
         {
         case 0:
             if(piedra==0){
@@ -165,23 +167,23 @@ void seleccionador(int accionEnemy, jugador *player, enemigo *enemy){
     while(true){
         mostrarImagen("guardia");
         system("cls");
-        gotoxy(6,34);printf("     Atacar\n");
-        gotoxy(6,37);printf("     mostrarInventario\n");
-        gotoxy(6,40);printf("     cubrirse\n");
-        gotoxy(6,43);printf("     burlarse\n");
-
-        gotoxy(6,29);puts(Barra);
-        gotoxy(6,30);printf("| Vida Jugador: %d |\n", player->stats.salud);
-        gotoxy(6,31);puts(Barra);
-
-        gotoxy(137,29);puts(Barra);
-        gotoxy(137,30);printf("| Vida Enemigo: %d |\n", enemy->stats.salud);
-        gotoxy(137,31);puts(Barra);
         mostrarImagen("guardia");
+        gotoxy(6,29);printf("     Atacar\n");
+        gotoxy(6,32);printf("     mostrarInventario\n");
+        gotoxy(6,35);printf("     cubrirse\n");
+        gotoxy(6,38);printf("     burlarse\n");
+
+        gotoxy(29,29);puts(Barra);
+        gotoxy(29,31);printf("| %s: %d |\n", player->nombre,player->stats.salud);
+        gotoxy(29,32);puts(Barra);
+
+        gotoxy(150,0);puts(Barra);
+        gotoxy(150,1);printf("| %s: %d |\n", enemy->nombre,enemy->stats.salud);
+        gotoxy(150,2);puts(Barra);
 
         while(true){
-            limpiarFlecha(0, 34, 4);
-            ubicarFlecha(0, 34, seleccion);
+            limpiarFlecha(0, 29, 4);
+            ubicarFlecha(0, 29, seleccion);
             if(cambiarOpcion(&seleccion,4)) break;
             mostrarImagen("guardia");
         }
