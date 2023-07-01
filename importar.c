@@ -214,9 +214,9 @@ void importarSave(Grafo *g, Node **nodoActual, jugador **player){
       }
       if(i == 1){
         strcpy((*player)->nombre, aux);
-        printf(" aa..%s..aa \n", aux);
-        printf(" aa..%s..aa \n", (*player)->nombre);
-        printf("papas\n");
+        //printf(" aa..%s..aa \n", aux);
+        //printf(" aa..%s..aa \n", (*player)->nombre);
+        //printf("papas\n");
       }
       if(i == 2){
         (*player)->stats.salud = atoi(aux);
@@ -226,7 +226,7 @@ void importarSave(Grafo *g, Node **nodoActual, jugador **player){
       }
       if(i == 4){
         (*player)->size = atoi(aux);
-        printf(" aa..%s..aa \n", (*player)->nombre);
+        //printf(" aa..%s..aa \n", (*player)->nombre);
 
         if ((*player)->size != 0){
           (*player)->inventario = (inve *) malloc (2 * sizeof(char));
@@ -239,7 +239,7 @@ void importarSave(Grafo *g, Node **nodoActual, jugador **player){
       }
     }
   }
-  printf(" aa..%s..aa \n", (*player)->nombre);
+  //printf(" aa..%s..aa \n", (*player)->nombre);
   fclose(archivo);
 }
 
@@ -282,8 +282,8 @@ void subrutina(Grafo *g, Node **n, jugador **p){
     switch (option){
       case 0: 
         importarSave(g,n,p);
-        printf(" aa..%s..aa ", (*p)->nombre);
-        printf(" aa..%s..aa ", (*p)->nombre);
+        //printf(" aa..%s..aa ", (*p)->nombre);
+        //printf(" aa..%s..aa ", (*p)->nombre);
         printf("Partida cargada con exito");
         gotoxy(6,20);printf(" ..%s...",(*p)->nombre);
         gotoxy(6,21);printf(" ......%s...",(*n)->ID);

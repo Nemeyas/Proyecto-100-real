@@ -57,13 +57,8 @@ Node *seleccionador2(Grafo*g, Node* nodo, jugador* player){
       ubicarFlecha(0, 29, option);
       if(cambiarOpcion(&option,nodo->cantNodos)) break;
     }
-
     char *codigoSiguienteNodo = nodo->adjNode[option];
-    printf("seba weko\n");
-    system("pause");
     no2 = searchMap(g->nodos,codigoSiguienteNodo);
-    printf("seba no weko\n");
-    system("pause");
     
     //system("pause");
     if(ValidarNodo(no2, player)){
@@ -115,7 +110,6 @@ Node *mostrarMenu(Grafo *g, Node *n, jugador *p){
         return n; //Salir del menu
       case 1:
         subrutina(g,&n,&p);
-        printf(" pito..%s..pito ", p->nombre);
         system("pause");
         return n; //Realizar subrutinas dentro del mismo menu
       case 2: 
@@ -259,7 +253,7 @@ int main(void) {
   nodoActual = mostrarMenu(g, nodoActual, player);
   //strcpy(player->nombre,"seba");
   system("cls");
-  printf("--------%s", player->nombre);
+  //printf("--------%s", player->nombre);
   if (player == NULL){
     player = registrar();
     system("cls");
