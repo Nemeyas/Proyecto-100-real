@@ -258,7 +258,6 @@ int main(void) {
     nodoActual = (searchMap(g->nodos,"Enfrentarse"));
     player = registrar();
     system("cls");
-    player = registrar();
   }
   while(true){ //Actualizar nodos
     char *a = firstList(nodoActual->tiposHistorias);

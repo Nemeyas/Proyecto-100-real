@@ -4,7 +4,8 @@
 #include <windows.h>
 #include "fight.h"
 #include "gotoxy.h"
-#define Barra "------------"
+#include "Imagen.h"
+#define Barra "--------------------"
 #define BARRA "-------------------------------------------------------"
 
 void gameOver(){
@@ -111,6 +112,7 @@ void seleccionadorInv(jugador *player, enemigo *enemy,int *piedra,int *pie,int *
         gotoxy(6,38);printf("Foto de tu abuela");
 
         while(true){
+            mostrarImagen("guardia");
             limpiarFlecha(0, 29, opciones);
             ubicarFlecha(0, 29, option);
             if(cambiarOpcion(&option, opciones)) break;
@@ -161,25 +163,27 @@ void seleccionador(int accionEnemy, jugador *player, enemigo *enemy){
     int contFoto=4;
     GetAllKeys();
     while(true){
-        //mostrarImagen("guardia");
+        mostrarImagen("guardia");
         system("cls");
-        gotoxy(6,29);printf("     Atacar\n");
-        gotoxy(6,32);printf("     mostrarInventario\n");
-        gotoxy(6,35);printf("     cubrirse\n");
-        gotoxy(6,38);printf("     burlarse\n");
+        gotoxy(6,34);printf("     Atacar\n");
+        gotoxy(6,37);printf("     mostrarInventario\n");
+        gotoxy(6,40);printf("     cubrirse\n");
+        gotoxy(6,43);printf("     burlarse\n");
 
-        gotoxy(6,0);puts(Barra);
-        gotoxy(6,1);printf("| Vida Jugador: %d |\n", player->stats.salud);
-        gotoxy(6,2);puts(Barra);
+        gotoxy(6,29);puts(Barra);
+        gotoxy(6,30);printf("| Vida Jugador: %d |\n", player->stats.salud);
+        gotoxy(6,31);puts(Barra);
 
-        gotoxy(137,0);puts("\n" Barra);
-        gotoxy(137,1);printf("| Vida Enemigo: %d |\n", enemy->stats.salud);
-        gotoxy(137,2);puts(Barra);
+        gotoxy(137,29);puts(Barra);
+        gotoxy(137,30);printf("| Vida Enemigo: %d |\n", enemy->stats.salud);
+        gotoxy(137,31);puts(Barra);
+        mostrarImagen("guardia");
 
         while(true){
-            limpiarFlecha(0, 29, 4);
-            ubicarFlecha(0, 29, seleccion);
+            limpiarFlecha(0, 34, 4);
+            ubicarFlecha(0, 34, seleccion);
             if(cambiarOpcion(&seleccion,4)) break;
+            mostrarImagen("guardia");
         }
 
         if (seleccion == 0){
