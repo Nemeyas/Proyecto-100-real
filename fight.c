@@ -19,6 +19,7 @@ void atacar(jugador *player, enemigo *enemy, int accionEnemy){
         enemy->stats.salud -= damage;
         printf("El enemigo se ha cubierto, solo le has hecho quitado %u de vida\n", damage);
         system("pause");
+        system("cls");
         return;
     }
     else{
@@ -26,50 +27,72 @@ void atacar(jugador *player, enemigo *enemy, int accionEnemy){
         enemy->stats.salud -= damage;
         printf("Le has hecho %u de dano al enemigo\n", damage);
         system("pause");
-        return;
+        system("cls");
     }
     if (accionEnemy == 0){
         int damage = enemy->stats.fuerza;
         player->stats.salud -= damage;
         printf("El enemigo te ha quitado %u de vida\n", damage);
         system("pause");
+        system("cls");
         return;
     }
     if (accionEnemy == 1){
         printf("El enemigo solo te observa...\n");
+        system("pause");
+        system("cls");
         return;
     }
     if (accionEnemy == 3){
         printf("El enemigo dice que ni le dolio...\n");
-        //aca se puede hacer un sistema de respuestas pseudo-aleatorio
+        system("pause");
+        system("cls");
         return;
     }
 }
 
 void cubrirse(jugador *player, enemigo *enemy, int accionEnemy){
-    if (accionEnemy == 1) printf("Te cubres... y el enemigo no actua!\n"); return;
-    if (accionEnemy == 2) printf("Te cubres... y el enemigo tambien!\n"); return;
-    if (accionEnemy == 3) printf("Te cubres... y el enemigo se burla de ti!\n"); return;
+    if (accionEnemy == 1) {
+        printf("Te cubres... y el enemigo no actua!\n");
+        system("pause");
+        return;
+    }
+    if (accionEnemy == 2){
+        printf("Te cubres... y el enemigo tambien!\n");
+        system("pause");
+        return;
+    }   
+    if (accionEnemy == 3){
+        printf("Te cubres... y el enemigo se burla de ti!\n");
+        system("pause");
+        return;
+    }     
     if (accionEnemy == 0){
         int damage = (enemy->stats.fuerza)/2;
         player->stats.salud -= damage;
         printf("Te cubres... y el enemigo solo te ha quitado %.u de vida!\n", damage);
+        system("pause");
         return;
     }
 }
 void burlarse(){
     int burla = rand() % 10;
 
-    if (burla == 0) printf("");
-    if (burla == 1) printf("");
-    if (burla == 2) printf("");
-    if (burla == 3) printf("");
-    if (burla == 4) printf("");
-    if (burla == 5) printf("");
-    if (burla == 6) printf("");
-    if (burla == 7) printf("");
-    if (burla == 8) printf("");
-    if (burla == 9) printf("");
+    if (burla == 0) printf("Tu mama es guatona\n");
+    if (burla == 1) printf("Gohan acercate...Esta a un toque\n");
+    if (burla == 2) printf("chatarra tu abuela\n");
+    if (burla == 3) printf("calmao que tengo que atacar en la guerra del clan\n");
+    if (burla == 4) printf("*procede a baile de Fortnite*\n");
+    if (burla == 5) printf("igual gracias\n");
+    if (burla == 6) printf("tu mamita\n");
+    if (burla == 7) printf("Se busca rival en la PUCV\n");
+    if (burla == 8) printf("Mi primo chico dio mas pelea... contra el cancer\n");
+    if (burla == 9){
+        printf("Loco que esta pasando, maniana mismo hago la denuncia en la PDI\n");
+
+    }
+
+    system("pause");
 }
 
 void seleccionadorInv(jugador *player, enemigo *enemy,int *piedra,int *pie,int *zapatilla,int *abuela){
@@ -112,7 +135,7 @@ void seleccionadorInv(jugador *player, enemigo *enemy,int *piedra,int *pie,int *
                 printf("Perdiste todas tus tillas");
                 return;
             }
-            enemy->stats.fuerza-=1;
+            enemy->stats.fuerza-=2;
             zapatilla--;
             return;
         case 3:
@@ -120,7 +143,7 @@ void seleccionadorInv(jugador *player, enemigo *enemy,int *piedra,int *pie,int *
                 printf("La foto de tu abuela ya no te da inspiracion");
                 return;
             }
-            player->stats.fuerza+=1;
+            player->stats.fuerza+=2;
             abuela--;
             return;
     }
@@ -142,11 +165,11 @@ void seleccionador(int accionEnemy, jugador *player, enemigo *enemy){
         gotoxy(6,38);printf("     burlarse\n");
 
         gotoxy(6,0);puts(Barra);
-        gotoxy(6,1);printf("| Vida Jugador: %u |\n", player->stats.salud);
+        gotoxy(6,1);printf("| Vida Jugador: %d |\n", player->stats.salud);
         gotoxy(6,2);puts(Barra);
 
         gotoxy(137,0);puts("\n" Barra);
-        gotoxy(137,1);printf("| Vida Enemigo: %u |\n", enemy->stats.salud);
+        gotoxy(137,1);printf("| Vida Enemigo: %d |\n", enemy->stats.salud);
         gotoxy(137,2);puts(Barra);
 
         while(true){
@@ -157,22 +180,39 @@ void seleccionador(int accionEnemy, jugador *player, enemigo *enemy){
 
         if (seleccion == 0){
             atacar(player, enemy, accionEnemy);
+            return;
         }
         if (seleccion == 1){
             seleccionadorInv(player,enemy,&contPiedra,&contPie,&contZapatilla,&contFoto);
+            return;
         } 
         if (seleccion == 2){
-            
-        } cubrirse(player, enemy, accionEnemy);
-        if (seleccion == 3) burlarse();
+            cubrirse(player, enemy, accionEnemy);
+            return;
+        } 
+        if (seleccion == 3){
+            burlarse();
+            return;
+        }
   }
 }
 
 void fight(jugador *player, enemigo *enemy){
     while (enemy->stats.salud > 0 || player->stats.salud > 0){
         int accionEnemy = rand() % 4;
+        //printf("..%i..", accionEnemy);
+        //system("pause");
         seleccionador(accionEnemy, player, enemy);
-        if (player->stats.salud <= 0) /*game_Over();*/ return;
-        if (enemy->stats.salud <= 0) return;
+        //printf("sexo 2");
+        //system("pause");
+        //system("cls");
+        if (player->stats.salud <= 0){
+            gameOver();
+            return;
+        }   
+        if (enemy->stats.salud <= 0){
+            system("cls");
+            return;
+        } 
     }
 }

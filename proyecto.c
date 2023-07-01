@@ -157,7 +157,7 @@ jugador* registrar(){
   strcpy(player->nombre, name);
   player->size = 0;
   player->inventario = (inve*) malloc (2 * sizeof(inve)); 
-  player->stats.fuerza = 0; 
+  player->stats.fuerza = 12; 
   player->stats.salud = 20; 
   return player;
 }
