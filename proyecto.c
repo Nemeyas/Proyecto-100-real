@@ -111,7 +111,7 @@ void mostrarMenu(Grafo *g, Node *n, jugador *p){
         return; //Salir del menu
       case 1:
         subrutina(g,&n,&p);
-        printf(" aa..%s..aa ", p->nombre);
+        printf(" oo..%s..oo ", p->nombre);
         break; //Realizar subrutinas dentro del mismo menu
       case 2: 
         system("cls");
@@ -255,7 +255,7 @@ int main(void) {
   system("cls");
   printf("--------%s", player->nombre);
   if(player == NULL || nodoActual == NULL){
-    nodoActual = (searchMap(g->nodos,"Prologo"));
+    nodoActual = (searchMap(g->nodos,"Enfrentarse"));
     player = registrar();
     system("cls");
   }

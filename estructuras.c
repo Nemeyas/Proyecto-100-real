@@ -29,4 +29,6 @@ void creditos(){
   printf("Bajon del Compita, los mejores completos a $1700\nEl merluzo callampin bombin\nArturo Pratt\nSebastian Gatica\nMatias Castro\nAdolfo Cordero\nNehemias Leiva\nRuben Carvajal\n");
   printf("Planeta tierra\nCondore\nHuemul\nChinchillas\nLeones de Montania\nPudu\nPinguinos de Humboldt\nOxigeno\nPasos peatonales\nManuel\nBodoque\nRene Puente\nVendedor de lenia\n");
   printf("Huevito Rey\nBlue label\nFilmora\nJoseph Donoso\nChat Gpt\n\n ARREGLEN LA VEREDA DEL CAPDUCAL que se forma el medio taco y llego tarde llevan 9 meses con la vola\n");
+  printf("             Desagradecimientos\n\n");
+  printf("Duende que nos ")
 }
