@@ -12,8 +12,10 @@ Herramientas: Visual Studio Code, GitHub, ChatGPT, Live Share.
 
 PROBLEMAS U OBSERVACIONES:
 1. El botón de pausa en medio de la aventura a veces tiene comportamientos erráticos.
-2. La funcion subirNivel no se ocupa, debido a ciertas complicaciones
-
+2. Se descartaron diversas mecánicas previamente presentadas y algunas se reemplazaron por versiones más simples o diferentes.
+2. La funcion subirNivel no se ocupa, debido a incompatibilidad con la historia.
+3. El inventario no se gasta, es decir los items dentro del inventario una vez usados no desaparecen (diseño intencional).
+4. Restricciones y acciones no se termino implementando, por incompatibildad con la historia, por lo que no fue necesario implementarlas (diseño intencional).
 
 Trabajo en equipo:
 En este trabajo nuestro equipo se mostro responsable y dedicado. Pero unos aspectos a mejorar seria mayor puntualidad a la hora de trabajar(sugerencia).

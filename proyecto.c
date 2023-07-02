@@ -122,19 +122,6 @@ cargar *mostrarMenu(Grafo *g, Node *n, jugador *p, cargar *save){ //Esta funcion
   }
 }
 
-void subirNivel(estadisticas *stats, int opcion) {//Esta funcion sube de nivel al usuario incrementando su vidas y fuerza(Esta funcion no se ocupa)
-  switch (opcion) {
-    case 1:
-      stats->salud += 10;
-      printf("Tu salud se a incrementado en 10[u.a]");
-      break;
-    case 2:
-      stats->fuerza += 5;
-      printf("Tu fuerza se a incrementado en 5[u.a]");
-      break;
-  }
-}
-
 char leerNombre(char *nombre){//Esta funcion lee el nombre que el usuario disponga, para despues ingresarlo al struct mediante la funcion registrar
   int largoName;
 
