@@ -76,7 +76,7 @@ void cubrirse(jugador *player, enemigo *enemy, int accionEnemy){
     }
 }
 
-void burlarse(enemigo *enemy){
+void burlarse(enemigo *enemy, jugador *player, int accionEnemy){
     int burla = rand() % 10;
     if (burla == 0) printf("Tu mama es guatona\n");
     if (burla == 1) printf("Gohan acercate...Esta a un toque\n");
@@ -96,10 +96,37 @@ void burlarse(enemigo *enemy){
         enemy->stats.salud = 0;
     }
 
+    if (accionEnemy == 0){
+        int damage = enemy->stats.fuerza;
+        player->stats.salud -= damage;
+        printf("El %s se encabrono y te pego %u de danio\n",enemy->nombre, damage);
+        system("pause");
+        system("cls");
+        return;
+    }
+    if (accionEnemy == 1){
+        printf("El %s solo te observa... con odio\n",enemy->nombre);
+        system("pause");
+        system("cls");
+        return;
+    }
+    if (accionEnemy == 2){
+        printf("El %s se ha cubierto, pero el danio emocional no se quita\n",enemy->nombre);
+        system("pause");
+        system("cls");
+        return;
+    }
+    if (accionEnemy == 3){
+        printf("%s se bajoneo entero...\n", enemy->nombre);
+        system("pause");
+        system("cls");
+        return;
+    }
+    
     system("pause");
 }
 
-void seleccionadorInv(jugador *player, enemigo *enemy,int *piedra,int *pie,int *zapatilla,int *abuela){
+void seleccionadorInv(jugador *player, enemigo *enemy, int accionEnemy,int piedra,int pie,int zapatilla,int abuela){   //aqui lo cambian a tipo int
     int option = 0;
     int opciones = player->size;
     GetAllKeys();
@@ -127,44 +154,57 @@ void seleccionadorInv(jugador *player, enemigo *enemy,int *piedra,int *pie,int *
                 return;
             }
             enemy->stats.salud-=10;
-            piedra--;
-            return;
+            piedra-=1;
         case 1:
             if(pie==0){
                 printf("Te comiste todo el Pie");
                 return;
             }
-            player->stats.salud+=5;
-            pie--;
-            return;
+            player->stats.salud+=10;
+            pie-=1;
         case 2:
             if(zapatilla==0){
                 printf("Perdiste todas tus tillas");
                 return;
             }
             enemy->stats.fuerza-=2;
-            zapatilla--;
-            return;
+            zapatilla-=1;
         case 3:
             if(abuela==0){
                 printf("La foto de tu abuela ya no te da inspiracion");
                 return;
             }
             player->stats.fuerza+=2;
-            abuela--;
+            abuela-=1;
+        }
+        if (accionEnemy == 0 || accionEnemy == 5){
+            int damage = enemy->stats.fuerza;
+            player->stats.salud -= damage;
+            printf("El enemigo te ha quitado %u de vida\n", damage);
+            system("pause");
+            system("cls");
+            return;
+        }
+        if (accionEnemy == 1 || accionEnemy ==2){
+            printf("El enemigo solo te observa...\n");
+            system("pause");
+            system("cls");
+            return;
+        }
+        if (accionEnemy == 3){
+            printf("El enemigo dice que ni le dolio...\n");
+            system("pause");
+            system("cls");
             return;
         }
     }
 }
 
-void seleccionador(int accionEnemy, jugador *player, enemigo *enemy){
+void seleccionador(int accionEnemy, jugador *player, enemigo *enemy, int  contPiedra, int contPie, int contZapatilla, int contFoto, int *contInv){
     int seleccion = 0;
-    int contPiedra=2;
-    int contPie=1;
-    int contZapatilla=4;
-    int contFoto=4;
     GetAllKeys();
     while(true){
+
         mostrarImagen("guardia");
         system("cls");
         mostrarImagen("guardia");
@@ -193,7 +233,14 @@ void seleccionador(int accionEnemy, jugador *player, enemigo *enemy){
             return;
         }
         if (seleccion == 1){
-            seleccionadorInv(player,enemy,&contPiedra,&contPie,&contZapatilla,&contFoto);
+            
+            if(*contInv == 3){
+                printf("no puedes acceder a tu inventario en este turno");
+                system("pause");
+                return;
+            }
+            seleccionadorInv(player,enemy,accionEnemy,contPiedra,contPie,contZapatilla,contFoto);
+            *contInv+=1;
             return;
         } 
         if (seleccion == 2){
@@ -201,22 +248,27 @@ void seleccionador(int accionEnemy, jugador *player, enemigo *enemy){
             return;
         } 
         if (seleccion == 3){
-            burlarse(enemy);
+            burlarse(enemy, player, accionEnemy);
             return;
         }
   }
 }
 
 void fight(jugador *player, enemigo *enemy){
+    int contPiedra=2;
+    int contPie=1;
+    int contZapatilla=4;
+    int contFoto=4;
+    int contInv=0;
     while (enemy->stats.salud > 0 || player->stats.salud > 0){
-        int accionEnemy = rand() % 4;
+        int accionEnemy = rand() % 6;
 
-        seleccionador(accionEnemy, player, enemy);
+        seleccionador(accionEnemy, player, enemy, contPiedra, contPie, contZapatilla, contFoto, &contInv);
         if (player->stats.salud <= 0){
             gameOver();
             creditos();
             return;
-        }   
+        }
         if (enemy->stats.salud <= 0){
             system("cls");
             return;

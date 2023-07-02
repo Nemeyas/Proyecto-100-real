@@ -243,9 +243,6 @@ void subrutina(Grafo *g, Node **n, jugador **p){
       case 0: 
         importarSave(g,n,p);
         printf("Partida cargada con exito");
-        gotoxy(6,20);printf(" ..%s...",(*p)->nombre);
-        gotoxy(6,21);printf(" ......%s...",(*n)->ID);
-        system("pause");
         return;
       case 1:
         printf("Y pa que entraste?\n");
