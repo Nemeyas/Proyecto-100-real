@@ -181,8 +181,8 @@ void mostrarImagen(char *a){
     if(strcmp(a,"Prologo") == 0||strcmp(a,"Correo de PUCV")==0||strcmp(a,"Correo de Escuela de ingenieria Informatica")==0||strcmp(a,"Correo de Manolo")==0||strcmp(a,"Volver a los correos")==0||strcmp(a,"Seguir viendo correos")==0||strcmp(a,"Salir Inmediatamente")==0) piezaDelJugador();
     else if(strcmp(a,"CAE")==0||strcmp(a,"Wena po oe devuelvan la jabonera al ibc piso 2")==0||strcmp(a,"volver con la seniorita")==0||strcmp(a,"Hola tuve un problema con la renovacion y no se como pagar")==0) oficinaDeCasaCentral();
     else if(strcmp(a,"Despertar")==0||strcmp(a,"Esperar")==0||strcmp(a,"Enfrentar guardias")==0||strcmp(a,"Pelear")==0||strcmp(a,"Esperar un guardia para noquearlo y robarle las llaves")==0||strcmp(a,"Cambiar la ropa y tomar su arma")==0||strcmp(a,"Quedarse igual y tomar su arma")==0||strcmp(a,"Escapar solo")==0||strcmp(a,"")==0||strcmp(a,"Quieres escapar de la prision?")==0||strcmp(a,"Cambiar la ropa y tomar su arma")==0||strcmp(a,"Quedarse igual y tomar su arma")==0||strcmp(a,"Esperar")==0||strcmp(a,"Informacion")==0||strcmp(a,"Rendirse")==0||strcmp(a,"Ir a buscar al jefe directamente")==0||strcmp(a,"Huir")==0||strcmp(a,"Entregarte")==0||strcmp(a,"Escapar solo")==0||strcmp(a,"Ayudar a los prisioneros")==0||strcmp(a,"Continuar")==0||strcmp(a,"Escapar")==0||strcmp(a,"Quieres cumplir tu condena?")==0||strcmp(a,"Subir por el ducto de ventilacion de la celda")==0) prisionPlantaBaja(); 
-    else if(strcmp(a,"matarme")==0||strcmp(a,"Esperar a ver que pasa")==0||strcmp(a,"")==0||strcmp(a,"")==0) micro();
-    else if(strcmp(a,"guardia")==0||strcmp(a,"Entregarte")==0||strcmp(a,"Enfrentarse")==0||strcmp(a,"FIN")==0) guardiaGenerico();
+    else if(strcmp(a,"matarme")==0||strcmp(a,"Esperar a ver que pasa")==0||strcmp(a,"")==0||strcmp(a,"")==0||strcmp(a,"FIN")==0) micro();
+    else if(strcmp(a,"guardia")==0||strcmp(a,"Entregarte")==0||strcmp(a,"Enfrentarse")==0) guardiaGenerico();
     else if(strcmp(a,"PALTA HASH")==0) profePaltaHash();
 }
 
