@@ -282,13 +282,12 @@ int main(void) {//main del proyecto, en el cual se llaman a la mayoria de las fu
           }
         }
         a = prevList(nodoActual->tiposHistorias);
-        system("pause");
       }//Desde aqui se reciben los "comandos" desde el archivo csv correspondiente, los nombres de estos indican claramente que hacen 
       else if(strcmp(a,"name")==0){
-        printf("%s", player->nombre);
+        gotoxy(20,27);printf("%s", player->nombre);
       }
       else if(strcmp(a,"pause")==0){//Indica una pausa en el texto para que se muestre mas lento 
-        printf("\n\n\n ");
+        gotoxy(0,30);printf("\n\n\n ");
         system("pause");
         system("cls");
       }
